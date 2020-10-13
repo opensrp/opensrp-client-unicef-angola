@@ -43,7 +43,7 @@ import org.smartregister.immunization.service.intent.VaccineIntentService;
 import org.smartregister.repository.EventClientRepository;
 import org.smartregister.sync.ClientProcessorForJava;
 import org.smartregister.sync.MiniClientProcessorForJava;
-import org.smartregister.unicefangola.application.UnicefTunisiaApplication;
+import org.smartregister.unicefangola.application.UnicefAngolaApplication;
 import org.smartregister.unicefangola.util.AppConstants;
 import org.smartregister.unicefangola.util.AppExecutors;
 import org.smartregister.unicefangola.util.AppUtils;
@@ -356,8 +356,8 @@ public class AppClientProcessorForJava extends ClientProcessorForJava {
         }
     }
 
-    public UnicefTunisiaApplication getApplication() {
-        return UnicefTunisiaApplication.getInstance();
+    public UnicefAngolaApplication getApplication() {
+        return UnicefAngolaApplication.getInstance();
     }
 
     private void processHeight(@Nullable EventClient height, @Nullable Table heightTable, boolean outOfCatchment) {

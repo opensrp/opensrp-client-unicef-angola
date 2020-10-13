@@ -3,7 +3,7 @@ package org.smartregister.unicefangola.util;
 import org.apache.commons.lang3.StringUtils;
 import org.smartregister.immunization.ImmunizationLibrary;
 import org.smartregister.immunization.domain.VaccineSchedule;
-import org.smartregister.unicefangola.application.UnicefTunisiaApplication;
+import org.smartregister.unicefangola.application.UnicefAngolaApplication;
 import org.smartregister.unicefangola.dao.AppChildDao;
 
 public class VaccineUtils {
@@ -18,9 +18,9 @@ public class VaccineUtils {
         if (!StringUtils.equalsIgnoreCase(conditionalVaccine, ImmunizationLibrary.getInstance().getCurrentConditionalVaccine())) {
             VaccineSchedule.setVaccineSchedules(null);
             ImmunizationLibrary.getInstance().setCurrentConditionalVaccine(conditionalVaccine);
-            UnicefTunisiaApplication.getInstance().initOfflineSchedules();
+            UnicefAngolaApplication.getInstance().initOfflineSchedules();
         } else if (conditionalVaccine == null && ImmunizationLibrary.getInstance().getCurrentConditionalVaccine() == null) {
-            UnicefTunisiaApplication.getInstance().initOfflineSchedules();
+            UnicefAngolaApplication.getInstance().initOfflineSchedules();
         }
     }
 }

@@ -6,7 +6,7 @@ import org.joda.time.DateTime;
 import org.json.JSONObject;
 import org.smartregister.child.util.ChildJsonFormUtils;
 import org.smartregister.child.util.Constants;
-import org.smartregister.unicefangola.application.UnicefTunisiaApplication;
+import org.smartregister.unicefangola.application.UnicefAngolaApplication;
 import org.smartregister.unicefangola.domain.Report;
 import org.smartregister.unicefangola.domain.ReportHia2Indicator;
 
@@ -24,8 +24,8 @@ public class AppReportUtils {
 
     public static void createReportAndSaveReport(@NonNull List<ReportHia2Indicator> hia2Indicators, @NonNull Date month, @NonNull String reportType) {
         try {
-            String providerId = UnicefTunisiaApplication.getInstance().context().allSharedPreferences().fetchRegisteredANM();
-            String locationId = UnicefTunisiaApplication.getInstance().context().allSharedPreferences().getPreference(Constants.CURRENT_LOCATION_ID);
+            String providerId = UnicefAngolaApplication.getInstance().context().allSharedPreferences().fetchRegisteredANM();
+            String locationId = UnicefAngolaApplication.getInstance().context().allSharedPreferences().getPreference(Constants.CURRENT_LOCATION_ID);
             Report report = new Report();
             report.setFormSubmissionId(ChildJsonFormUtils.generateRandomUUIDString());
             report.setHia2Indicators(hia2Indicators);
@@ -41,7 +41,7 @@ public class AppReportUtils {
             report.setReportType(reportType);
             JSONObject reportJson = new JSONObject(ChildJsonFormUtils.gson.toJson(report));
             try {
-                UnicefTunisiaApplication.getInstance().hia2ReportRepository().addReport(reportJson);
+                UnicefAngolaApplication.getInstance().hia2ReportRepository().addReport(reportJson);
             } catch (Exception e) {
                 Timber.e(e);
             }

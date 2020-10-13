@@ -15,7 +15,7 @@ import org.smartregister.child.util.Constants;
 import org.smartregister.child.util.Utils;
 import org.smartregister.commonregistry.CommonPersonObjectClient;
 import org.smartregister.immunization.job.VaccineSchedulesUpdateJob;
-import org.smartregister.unicefangola.application.UnicefTunisiaApplication;
+import org.smartregister.unicefangola.application.UnicefAngolaApplication;
 import org.smartregister.unicefangola.util.AppUtils;
 import org.smartregister.unicefangola.util.VaccineUtils;
 
@@ -85,13 +85,13 @@ public class ChildImmunizationActivity extends BaseChildImmunizationActivity {
 
     @Override
     public boolean isLastModified() {
-        UnicefTunisiaApplication application = (UnicefTunisiaApplication) getApplication();
+        UnicefAngolaApplication application = (UnicefAngolaApplication) getApplication();
         return application.isLastModified();
     }
 
     @Override
     public void setLastModified(boolean lastModified) {
-        UnicefTunisiaApplication application = (UnicefTunisiaApplication) getApplication();
+        UnicefAngolaApplication application = (UnicefAngolaApplication) getApplication();
         if (lastModified != application.isLastModified()) {
             application.setLastModified(lastModified);
         }
@@ -129,9 +129,9 @@ public class ChildImmunizationActivity extends BaseChildImmunizationActivity {
             if (calendar.get(Calendar.HOUR_OF_DAY) != 0 && calendar.get(Calendar.HOUR_OF_DAY) != 1) {
                 calendar.set(Calendar.HOUR_OF_DAY, 1);
                 long hoursSince1AM = (System.currentTimeMillis() - calendar.getTimeInMillis()) / TimeUnit.HOURS.toMillis(1);
-                if (VaccineSchedulesUpdateJob.isLastTimeRunLongerThan(hoursSince1AM) && !UnicefTunisiaApplication.getInstance().alertUpdatedRepository().findOne(childDetails.entityId())) {
+                if (VaccineSchedulesUpdateJob.isLastTimeRunLongerThan(hoursSince1AM) && !UnicefAngolaApplication.getInstance().alertUpdatedRepository().findOne(childDetails.entityId())) {
                     super.updateScheduleDate();
-                    UnicefTunisiaApplication.getInstance().alertUpdatedRepository().saveOrUpdate(childDetails.entityId());
+                    UnicefAngolaApplication.getInstance().alertUpdatedRepository().saveOrUpdate(childDetails.entityId());
                 }
             }
         } catch (Exception e) {

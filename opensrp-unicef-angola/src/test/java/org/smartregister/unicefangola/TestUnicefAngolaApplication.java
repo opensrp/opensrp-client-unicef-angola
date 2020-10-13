@@ -4,12 +4,12 @@ import com.google.common.collect.Lists;
 
 import org.smartregister.immunization.domain.jsonmapping.Vaccine;
 import org.smartregister.immunization.domain.jsonmapping.VaccineGroup;
-import org.smartregister.unicefangola.application.UnicefTunisiaApplication;
+import org.smartregister.unicefangola.application.UnicefAngolaApplication;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestUnicefTunisiaApplication extends UnicefTunisiaApplication {
+public class TestUnicefAngolaApplication extends UnicefAngolaApplication {
 
     @Override
     public void onCreate() {

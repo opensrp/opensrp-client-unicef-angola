@@ -8,7 +8,7 @@ import org.mockito.Mockito;
 import org.robolectric.util.ReflectionHelpers;
 import org.smartregister.repository.Hia2ReportRepository;
 import org.smartregister.unicefangola.BaseRobolectricTest;
-import org.smartregister.unicefangola.application.UnicefTunisiaApplication;
+import org.smartregister.unicefangola.application.UnicefAngolaApplication;
 import org.smartregister.unicefangola.domain.ReportHia2Indicator;
 
 import java.util.ArrayList;
@@ -29,8 +29,8 @@ public class AppReportUtilsTest extends BaseRobolectricTest {
         reportHia2Indicators.add(new ReportHia2Indicator());
         reportHia2Indicators.add(new ReportHia2Indicator());
 
-        Hia2ReportRepository hia2ReportRepository = Mockito.spy(UnicefTunisiaApplication.getInstance().hia2ReportRepository());
-        ReflectionHelpers.setField(UnicefTunisiaApplication.getInstance(), "hia2ReportRepository", hia2ReportRepository);
+        Hia2ReportRepository hia2ReportRepository = Mockito.spy(UnicefAngolaApplication.getInstance().hia2ReportRepository());
+        ReflectionHelpers.setField(UnicefAngolaApplication.getInstance(), "hia2ReportRepository", hia2ReportRepository);
 
         Mockito.doNothing().when(hia2ReportRepository).addReport(Mockito.any(JSONObject.class));
 

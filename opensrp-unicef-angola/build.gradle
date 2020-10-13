@@ -53,17 +53,17 @@ android {
             Properties properties = new Properties()
             properties.load(project.rootProject.file("local.properties").newDataInputStream())
 
-            if (properties != null && properties.containsKey("oauth.client.id")) {
+            if (properties != null && properties.containsKey("oauth.client.id.debug")) {
 
-                buildConfigField "String", "OAUTH_CLIENT_ID", properties["oauth.client.id"]
+                buildConfigField "String", "OAUTH_CLIENT_ID", properties["oauth.client.id.debug"]
 
             } else {
                 project.logger.error("oauth.client.id variable is not set in your local.properties")
             }
 
-            if (properties != null && properties.containsKey("oauth.client.secret")) {
+            if (properties != null && properties.containsKey("oauth.client.secret.debug")) {
 
-                buildConfigField "String", "OAUTH_CLIENT_SECRET", properties["oauth.client.secret"]
+                buildConfigField "String", "OAUTH_CLIENT_SECRET", properties["oauth.client.secret.debug"]
 
             } else {
                 project.logger.error("oauth.client.secret variable is not set in your local.properties")
@@ -72,7 +72,7 @@ android {
 
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [eventBusIndex: 'org.smartregister.uniceftunisia.AppEventBusIndex']
+                arguments = [eventBusIndex: 'org.smartregister.unicefangola.AppEventBusIndex']
             }
         }
         vectorDrawables.useSupportLibrary = true

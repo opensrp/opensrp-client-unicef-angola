@@ -37,7 +37,7 @@ import org.smartregister.repository.Hia2ReportRepository;
 import org.smartregister.service.HTTPAgent;
 import org.smartregister.unicefangola.R;
 import org.smartregister.unicefangola.adapter.ReportsSectionsPagerAdapter;
-import org.smartregister.unicefangola.application.UnicefTunisiaApplication;
+import org.smartregister.unicefangola.application.UnicefAngolaApplication;
 import org.smartregister.unicefangola.domain.MonthlyTally;
 import org.smartregister.unicefangola.domain.ReportHia2Indicator;
 import org.smartregister.unicefangola.fragment.DraftMonthlyFragment;
@@ -232,7 +232,7 @@ public class HIA2ReportsActivity extends AppCompatActivity {
                 } else {
                     saveClicked = true;
                 }
-                UnicefTunisiaApplication.getInstance().monthlyTalliesRepository().save(result, month);
+                UnicefAngolaApplication.getInstance().monthlyTalliesRepository().save(result, month);
                 if (saveClicked && !skipValidationSet) {
                     sendReport(month);
                 }
@@ -344,7 +344,7 @@ public class HIA2ReportsActivity extends AppCompatActivity {
     }
 
     private void generateAndSaveMonthlyReport(@Nullable Date month) {
-        MonthlyTalliesRepository monthlyTalliesRepository = UnicefTunisiaApplication.getInstance().monthlyTalliesRepository();
+        MonthlyTalliesRepository monthlyTalliesRepository = UnicefAngolaApplication.getInstance().monthlyTalliesRepository();
         try {
             if (month != null) {
                 List<MonthlyTally> tallies = monthlyTalliesRepository
@@ -378,9 +378,9 @@ public class HIA2ReportsActivity extends AppCompatActivity {
 
     private void pushUnsentReportsToServer() {
         final String REPORTS_SYNC_PATH = "/rest/report/add";
-        final Context context = UnicefTunisiaApplication.getInstance().context().applicationContext();
-        HTTPAgent httpAgent = UnicefTunisiaApplication.getInstance().context().getHttpAgent();
-        Hia2ReportRepository hia2ReportRepository = UnicefTunisiaApplication.getInstance().hia2ReportRepository();
+        final Context context = UnicefAngolaApplication.getInstance().context().applicationContext();
+        HTTPAgent httpAgent = UnicefAngolaApplication.getInstance().context().getHttpAgent();
+        Hia2ReportRepository hia2ReportRepository = UnicefAngolaApplication.getInstance().hia2ReportRepository();
 
         try {
             int limit = 50;
@@ -391,7 +391,7 @@ public class HIA2ReportsActivity extends AppCompatActivity {
                     return;
                 }
 
-                String baseUrl = UnicefTunisiaApplication.getInstance().context().configuration().dristhiBaseURL();
+                String baseUrl = UnicefAngolaApplication.getInstance().context().configuration().dristhiBaseURL();
                 if (baseUrl.endsWith(context.getString(R.string.url_separator))) {
                     baseUrl = baseUrl.substring(0, baseUrl.lastIndexOf(context.getString(R.string.url_separator)));
                 }

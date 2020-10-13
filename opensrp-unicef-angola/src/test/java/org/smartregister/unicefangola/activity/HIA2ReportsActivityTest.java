@@ -12,7 +12,7 @@ import org.mockito.MockitoAnnotations;
 import org.robolectric.Robolectric;
 import org.robolectric.util.ReflectionHelpers;
 import org.smartregister.unicefangola.BaseRobolectricTest;
-import org.smartregister.unicefangola.application.UnicefTunisiaApplication;
+import org.smartregister.unicefangola.application.UnicefAngolaApplication;
 import org.smartregister.unicefangola.repository.DailyTalliesRepository;
 import org.smartregister.unicefangola.repository.MonthlyTalliesRepository;
 
@@ -31,8 +31,8 @@ public class HIA2ReportsActivityTest extends BaseRobolectricTest {
         MockitoAnnotations.initMocks(this);
         MonthlyTalliesRepository.createTable(database);
         MonthlyTalliesRepository monthlyTalliesRepository = Mockito.spy(new MonthlyTalliesRepository());
-        DailyTalliesRepository dailyTalliesRepository = Mockito.spy((UnicefTunisiaApplication.getInstance().dailyTalliesRepository()));
-        ReflectionHelpers.setField(UnicefTunisiaApplication.getInstance(), "dailyTalliesRepository", dailyTalliesRepository);
+        DailyTalliesRepository dailyTalliesRepository = Mockito.spy((UnicefAngolaApplication.getInstance().dailyTalliesRepository()));
+        ReflectionHelpers.setField(UnicefAngolaApplication.getInstance(), "dailyTalliesRepository", dailyTalliesRepository);
 
         Mockito.doReturn(database).when(monthlyTalliesRepository).getReadableDatabase();
         Mockito.doReturn(database).when(monthlyTalliesRepository).getWritableDatabase();

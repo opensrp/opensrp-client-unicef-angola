@@ -40,7 +40,7 @@ import org.smartregister.reporting.service.IndicatorGeneratorIntentService;
 import org.smartregister.unicefangola.R;
 import org.smartregister.unicefangola.activity.ChildRegisterActivity;
 import org.smartregister.unicefangola.activity.HIA2ReportsActivity;
-import org.smartregister.unicefangola.application.UnicefTunisiaApplication;
+import org.smartregister.unicefangola.application.UnicefAngolaApplication;
 import org.smartregister.unicefangola.contract.NavigationContract;
 import org.smartregister.unicefangola.presenter.NavigationPresenter;
 import org.smartregister.unicefangola.util.AppConstants;
@@ -237,7 +237,7 @@ public class NavigationMenu implements NavigationContract.View, SyncStatusBroadc
     public void logout(Activity activity) {
         Toast.makeText(activity.getApplicationContext(), activity.getResources().getText(R.string.action_log_out),
                 Toast.LENGTH_SHORT).show();
-        UnicefTunisiaApplication.getInstance().logoutCurrentUser();
+        UnicefAngolaApplication.getInstance().logoutCurrentUser();
     }
 
     private void startFormActivity(Activity activity) {

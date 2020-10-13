@@ -10,14 +10,14 @@ import org.smartregister.Context;
 import org.smartregister.domain.Setting;
 import org.smartregister.repository.AllSettings;
 import org.smartregister.unicefangola.BaseUnitTest;
-import org.smartregister.unicefangola.application.UnicefTunisiaApplication;
+import org.smartregister.unicefangola.application.UnicefAngolaApplication;
 import org.smartregister.unicefangola.util.AppConstants;
 import org.smartregister.view.contract.BaseLoginContract;
 
 public class LoginPresenterTest extends BaseUnitTest {
 
     @Mock
-    private UnicefTunisiaApplication unicefTunisiaApplication;
+    private UnicefAngolaApplication unicefAngolaApplication;
 
     @Mock
     private Context context;

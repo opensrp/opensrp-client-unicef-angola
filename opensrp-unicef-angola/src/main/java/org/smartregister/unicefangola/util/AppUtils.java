@@ -18,7 +18,7 @@ import org.smartregister.domain.Client;
 import org.smartregister.domain.db.EventClient;
 import org.smartregister.location.helper.LocationHelper;
 import org.smartregister.unicefangola.BuildConfig;
-import org.smartregister.unicefangola.application.UnicefTunisiaApplication;
+import org.smartregister.unicefangola.application.UnicefAngolaApplication;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -71,7 +71,7 @@ public class AppUtils extends Utils {
         values.put(Constants.KEY.DOD, Utils.convertDateFormat(client.getDeathdate()));
         values.put(Constants.KEY.DATE_REMOVED, Utils.convertDateFormat(client.getDeathdate().toDate(), Utils.DB_DF));
         String tableName = Utils.metadata().childRegister.tableName;
-        AllCommonsRepository allCommonsRepository = UnicefTunisiaApplication.getInstance().context().allCommonsRepositoryobjects(tableName);
+        AllCommonsRepository allCommonsRepository = UnicefAngolaApplication.getInstance().context().allCommonsRepositoryobjects(tableName);
         if (allCommonsRepository != null) {
             allCommonsRepository.update(tableName, values, client.getBaseEntityId());
             allCommonsRepository.updateSearch(client.getBaseEntityId());
@@ -101,19 +101,19 @@ public class AppUtils extends Utils {
 
     @NonNull
     public static String getCurrentLocality() {
-        String selectedLocation = UnicefTunisiaApplication.getInstance().context().allSharedPreferences().fetchCurrentLocality();
+        String selectedLocation = UnicefAngolaApplication.getInstance().context().allSharedPreferences().fetchCurrentLocality();
         if (StringUtils.isBlank(selectedLocation)) {
             selectedLocation = LocationHelper.getInstance().getDefaultLocation();
-            UnicefTunisiaApplication.getInstance().context().allSharedPreferences().saveCurrentLocality(selectedLocation);
+            UnicefAngolaApplication.getInstance().context().allSharedPreferences().saveCurrentLocality(selectedLocation);
         }
         return selectedLocation;
     }
 
 
     public static void startReportJob(Context context) {
-        String reportJobExecutionTime = UnicefTunisiaApplication.getInstance().context().allSharedPreferences().getPreference("report_job_execution_time");
+        String reportJobExecutionTime = UnicefAngolaApplication.getInstance().context().allSharedPreferences().getPreference("report_job_execution_time");
         if (StringUtils.isBlank(reportJobExecutionTime) || timeBetweenLastExecutionAndNow(30, reportJobExecutionTime)) {
-            UnicefTunisiaApplication.getInstance().context().allSharedPreferences().savePreference("report_job_execution_time", String.valueOf(System.currentTimeMillis()));
+            UnicefAngolaApplication.getInstance().context().allSharedPreferences().savePreference("report_job_execution_time", String.valueOf(System.currentTimeMillis()));
             Toast.makeText(context, "Reporting Job Has Started, It will take some time", Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(context, "Reporting Job Has Already Been Started, Try again in 30 mins", Toast.LENGTH_LONG).show();
@@ -133,10 +133,10 @@ public class AppUtils extends Utils {
     }
 
     public static boolean getSyncStatus() {
-        String synComplete = UnicefTunisiaApplication.getInstance().context().allSharedPreferences().getPreference("syncComplete");
+        String synComplete = UnicefAngolaApplication.getInstance().context().allSharedPreferences().getPreference("syncComplete");
         boolean isSyncComplete = false;
         if (StringUtils.isBlank(synComplete)) {
-            UnicefTunisiaApplication.getInstance().context().allSharedPreferences().savePreference("syncComplete", String.valueOf(false));
+            UnicefAngolaApplication.getInstance().context().allSharedPreferences().savePreference("syncComplete", String.valueOf(false));
         } else {
             isSyncComplete = Boolean.parseBoolean(synComplete);
         }
@@ -144,6 +144,6 @@ public class AppUtils extends Utils {
     }
 
     public static void updateSyncStatus(boolean isComplete) {
-        UnicefTunisiaApplication.getInstance().context().allSharedPreferences().savePreference("syncComplete", String.valueOf(isComplete));
+        UnicefAngolaApplication.getInstance().context().allSharedPreferences().savePreference("syncComplete", String.valueOf(isComplete));
     }
 }

@@ -8,7 +8,7 @@ import org.robolectric.annotation.Config;
 import org.smartregister.unicefangola.shadow.ShadowAssetHandler;
 
 @RunWith (RobolectricTestRunner.class)
-@Config (application = TestUnicefTunisiaApplication.class, sdk = Build.VERSION_CODES.P, shadows = {ShadowAssetHandler.class})
+@Config (application = TestUnicefAngolaApplication.class, sdk = Build.VERSION_CODES.P, shadows = {ShadowAssetHandler.class})
 public abstract class BaseUnitTest {
     protected static final String DUMMY_USERNAME = "myusername";
     protected static final String DUMMY_PASSWORD = "mypassword";

@@ -1,6 +1,6 @@
 package org.smartregister.unicefangola.interactor;
 
-import org.smartregister.unicefangola.application.UnicefTunisiaApplication;
+import org.smartregister.unicefangola.application.UnicefAngolaApplication;
 import org.smartregister.unicefangola.contract.NavigationContract;
 
 import java.util.Date;
@@ -31,6 +31,6 @@ public class NavigationInteractor implements NavigationContract.Interactor {
     }
 
     private Long getLastCheckTimeStamp() {
-        return UnicefTunisiaApplication.getInstance().getEcSyncHelper().getLastCheckTimeStamp();
+        return UnicefAngolaApplication.getInstance().getEcSyncHelper().getLastCheckTimeStamp();
     }
 }

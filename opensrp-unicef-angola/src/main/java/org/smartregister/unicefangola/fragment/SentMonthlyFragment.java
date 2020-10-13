@@ -13,7 +13,7 @@ import android.widget.ExpandableListView;
 import org.smartregister.unicefangola.R;
 import org.smartregister.unicefangola.activity.ReportSummaryActivity;
 import org.smartregister.unicefangola.adapter.ExpandedListAdapter;
-import org.smartregister.unicefangola.application.UnicefTunisiaApplication;
+import org.smartregister.unicefangola.application.UnicefAngolaApplication;
 import org.smartregister.unicefangola.domain.MonthlyTally;
 import org.smartregister.unicefangola.util.AppExecutors;
 import org.smartregister.unicefangola.util.AppUtils;
@@ -76,7 +76,7 @@ public class SentMonthlyFragment extends ReportFragment {
     private HashMap<String, ArrayList<MonthlyTally>> retrieveSentMonthlyTallies() {
         Locale locale = AppUtils.getLocale(getContext());
         SimpleDateFormat MONTH_YEAR_FORMAT = new SimpleDateFormat("MMMM yyyy", locale);
-        return UnicefTunisiaApplication.getInstance().monthlyTalliesRepository().findAllSent(MONTH_YEAR_FORMAT, reportGrouping);
+        return UnicefAngolaApplication.getInstance().monthlyTalliesRepository().findAllSent(MONTH_YEAR_FORMAT, reportGrouping);
     }
 
     @Nullable

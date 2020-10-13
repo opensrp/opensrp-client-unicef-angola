@@ -24,7 +24,7 @@ public class AppSyncConfiguration extends SyncConfiguration {
 
     @Override
     public String getSyncFilterValue() {
-        AllSharedPreferences sharedPreferences = UnicefTunisiaApplication.getInstance().context().userService()
+        AllSharedPreferences sharedPreferences = UnicefAngolaApplication.getInstance().context().userService()
                 .getAllSharedPreferences();
         return sharedPreferences.fetchDefaultLocalityId(sharedPreferences.fetchRegisteredANM());
     }

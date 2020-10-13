@@ -14,7 +14,7 @@ import org.smartregister.unicefangola.shadow.ShadowBaseJob;
  * Created by Ephraim Kigamba - nek.eam@gmail.com on 05-03-2020.
  */
 @RunWith(RobolectricTestRunner.class)
-@Config(sdk = {27}, shadows = {ShadowBaseJob.class, ShadowAssetHandler.class, CustomFontTextViewShadow.class}, application = TestUnicefTunisiaApplication.class)
+@Config(sdk = {27}, shadows = {ShadowBaseJob.class, ShadowAssetHandler.class, CustomFontTextViewShadow.class}, application = TestUnicefAngolaApplication.class)
 public abstract class BaseRobolectricTest {
 
     @Rule

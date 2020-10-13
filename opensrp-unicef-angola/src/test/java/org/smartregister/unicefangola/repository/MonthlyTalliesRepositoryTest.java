@@ -19,7 +19,7 @@ import org.smartregister.reporting.ReportingLibrary;
 import org.smartregister.reporting.domain.IndicatorTally;
 import org.smartregister.reporting.repository.DailyIndicatorCountRepository;
 import org.smartregister.unicefangola.BaseRobolectricTest;
-import org.smartregister.unicefangola.application.UnicefTunisiaApplication;
+import org.smartregister.unicefangola.application.UnicefAngolaApplication;
 import org.smartregister.unicefangola.domain.MonthlyTally;
 
 import java.text.ParseException;
@@ -45,8 +45,8 @@ public class MonthlyTalliesRepositoryTest extends BaseRobolectricTest {
     @Before
     public void setUp() {
         monthlyTalliesRepository = Mockito.spy(new MonthlyTalliesRepository());
-        dailyTalliesRepository = Mockito.spy(UnicefTunisiaApplication.getInstance().dailyTalliesRepository());
-        ReflectionHelpers.setField(UnicefTunisiaApplication.getInstance(), "dailyTalliesRepository", dailyTalliesRepository);
+        dailyTalliesRepository = Mockito.spy(UnicefAngolaApplication.getInstance().dailyTalliesRepository());
+        ReflectionHelpers.setField(UnicefAngolaApplication.getInstance(), "dailyTalliesRepository", dailyTalliesRepository);
 
         Mockito.doReturn(database).when(monthlyTalliesRepository).getReadableDatabase();
         Mockito.doReturn(database).when(monthlyTalliesRepository).getWritableDatabase();

@@ -80,7 +80,7 @@ import java.util.concurrent.TimeUnit;
 import io.fabric.sdk.android.Fabric;
 import timber.log.Timber;
 
-public class UnicefTunisiaApplication extends DrishtiApplication implements TimeChangedBroadcastReceiver.OnTimeChangedListener {
+public class UnicefAngolaApplication extends DrishtiApplication implements TimeChangedBroadcastReceiver.OnTimeChangedListener {
 
     private static CommonFtsObject commonFtsObject;
     private static JsonSpecHelper jsonSpecHelper;
@@ -218,8 +218,8 @@ public class UnicefTunisiaApplication extends DrishtiApplication implements Time
         return map;
     }
 
-    public static synchronized UnicefTunisiaApplication getInstance() {
-        return (UnicefTunisiaApplication) mInstance;
+    public static synchronized UnicefAngolaApplication getInstance() {
+        return (UnicefAngolaApplication) mInstance;
     }
 
     @Override

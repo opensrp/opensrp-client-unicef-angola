@@ -12,7 +12,7 @@ import org.mockito.junit.MockitoRule;
 import org.robolectric.annotation.Config;
 import org.robolectric.util.ReflectionHelpers;
 import org.smartregister.unicefangola.BaseRobolectricTest;
-import org.smartregister.unicefangola.application.UnicefTunisiaApplication;
+import org.smartregister.unicefangola.application.UnicefAngolaApplication;
 import org.smartregister.unicefangola.shadow.ShadowSQLiteDatabase;
 
 /**
@@ -31,14 +31,14 @@ public class UnicefTunisiaRepositoryTest extends BaseRobolectricTest {
 
     @Before
     public void setUp() {
-        unicefTunisiaRepository = Mockito.spy((UnicefTunisiaRepository) UnicefTunisiaApplication.getInstance().getRepository());
+        unicefTunisiaRepository = Mockito.spy((UnicefTunisiaRepository) UnicefAngolaApplication.getInstance().getRepository());
 
         Mockito.doReturn(sqLiteDatabase).when(unicefTunisiaRepository).getReadableDatabase();
         Mockito.doReturn(sqLiteDatabase).when(unicefTunisiaRepository).getReadableDatabase(Mockito.anyString());
         Mockito.doReturn(sqLiteDatabase).when(unicefTunisiaRepository).getWritableDatabase();
         Mockito.doReturn(sqLiteDatabase).when(unicefTunisiaRepository).getWritableDatabase(Mockito.anyString());
 
-        ReflectionHelpers.setField(UnicefTunisiaApplication.getInstance(), "repository", unicefTunisiaRepository);
+        ReflectionHelpers.setField(UnicefAngolaApplication.getInstance(), "repository", unicefTunisiaRepository);
     }
 
     // TODO: FIX THIS

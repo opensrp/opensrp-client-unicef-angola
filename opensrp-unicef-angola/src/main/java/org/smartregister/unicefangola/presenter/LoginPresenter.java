@@ -16,7 +16,7 @@ import org.smartregister.configurableviews.model.ViewConfiguration;
 import org.smartregister.login.model.BaseLoginModel;
 import org.smartregister.login.presenter.BaseLoginPresenter;
 import org.smartregister.unicefangola.R;
-import org.smartregister.unicefangola.application.UnicefTunisiaApplication;
+import org.smartregister.unicefangola.application.UnicefAngolaApplication;
 import org.smartregister.unicefangola.interactor.LoginInteractor;
 import org.smartregister.unicefangola.util.AppConstants;
 import org.smartregister.unicefangola.util.ImageLoaderRequest;
@@ -49,7 +49,7 @@ public class LoginPresenter extends BaseLoginPresenter implements BaseLoginContr
                 return;
             }
 
-            ViewConfiguration loginView = UnicefTunisiaApplication.getJsonSpecHelper().getConfigurableView(jsonString);
+            ViewConfiguration loginView = UnicefAngolaApplication.getJsonSpecHelper().getConfigurableView(jsonString);
             LoginConfiguration metadata = (LoginConfiguration) loginView.getMetadata();
             LoginConfiguration.Background background = metadata.getBackground();
 

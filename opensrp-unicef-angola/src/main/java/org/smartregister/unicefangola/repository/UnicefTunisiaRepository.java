@@ -30,7 +30,7 @@ import org.smartregister.repository.Repository;
 import org.smartregister.repository.SettingsRepository;
 import org.smartregister.repository.UniqueIdRepository;
 import org.smartregister.unicefangola.BuildConfig;
-import org.smartregister.unicefangola.application.UnicefTunisiaApplication;
+import org.smartregister.unicefangola.application.UnicefAngolaApplication;
 import org.smartregister.unicefangola.util.AppConstants;
 import org.smartregister.util.DatabaseMigrationUtils;
 
@@ -48,7 +48,7 @@ public class UnicefTunisiaRepository extends Repository {
 
     public UnicefTunisiaRepository(@NonNull Context context, @NonNull org.smartregister.Context openSRPContext) {
         super(context, AllConstants.DATABASE_NAME, BuildConfig.DATABASE_VERSION, openSRPContext.session(),
-                UnicefTunisiaApplication.createCommonFtsObject(context), openSRPContext.sharedRepositoriesArray());
+                UnicefAngolaApplication.createCommonFtsObject(context), openSRPContext.sharedRepositoriesArray());
         this.context = context;
     }
 
@@ -145,7 +145,7 @@ public class UnicefTunisiaRepository extends Repository {
 
     @Override
     public SQLiteDatabase getReadableDatabase() {
-        byte[] pass = UnicefTunisiaApplication.getInstance().getPassword();
+        byte[] pass = UnicefAngolaApplication.getInstance().getPassword();
         if (pass != null && pass.length > 0) {
             return getReadableDatabase(pass);
         }
@@ -154,7 +154,7 @@ public class UnicefTunisiaRepository extends Repository {
 
     @Override
     public SQLiteDatabase getWritableDatabase() {
-        byte[] pass = UnicefTunisiaApplication.getInstance().getPassword();
+        byte[] pass = UnicefAngolaApplication.getInstance().getPassword();
         if (pass != null && pass.length > 0) {
             return getWritableDatabase(pass);
         } else {
@@ -281,7 +281,7 @@ public class UnicefTunisiaRepository extends Repository {
             RecurringServiceTypeRepository.createTable(db);
             RecurringServiceRecordRepository.createTable(db);
 
-            RecurringServiceTypeRepository recurringServiceTypeRepository = UnicefTunisiaApplication.getInstance()
+            RecurringServiceTypeRepository recurringServiceTypeRepository = UnicefAngolaApplication.getInstance()
                     .recurringServiceTypeRepository();
             IMDatabaseUtils.populateRecurringServices(context, db, recurringServiceTypeRepository);
         } catch (Exception e) {

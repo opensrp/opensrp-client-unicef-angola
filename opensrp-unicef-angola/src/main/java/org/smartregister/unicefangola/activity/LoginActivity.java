@@ -7,7 +7,7 @@ import org.smartregister.growthmonitoring.service.intent.WeightForHeightIntentSe
 import org.smartregister.location.helper.LocationHelper;
 import org.smartregister.repository.AllSharedPreferences;
 import org.smartregister.unicefangola.R;
-import org.smartregister.unicefangola.application.UnicefTunisiaApplication;
+import org.smartregister.unicefangola.application.UnicefAngolaApplication;
 import org.smartregister.unicefangola.presenter.LoginPresenter;
 import org.smartregister.unicefangola.util.AppConstants;
 import org.smartregister.unicefangola.util.AppUtils;
@@ -66,7 +66,7 @@ public class LoginActivity extends BaseLoginActivity implements BaseLoginContrac
     }
 
     private void processWeightForHeightZScoreCSV() {
-        AllSharedPreferences allSharedPreferences = UnicefTunisiaApplication.getInstance().getContext().allSharedPreferences();
+        AllSharedPreferences allSharedPreferences = UnicefAngolaApplication.getInstance().getContext().allSharedPreferences();
         if (!allSharedPreferences.getPreference(WFH_CSV_PARSED).equals("true")) {
             WeightForHeightIntentService.startParseWFHZScores(this);
             allSharedPreferences.savePreference(WFH_CSV_PARSED, "true");

@@ -27,14 +27,14 @@ import org.smartregister.domain.Event;
 import org.smartregister.domain.db.EventClient;
 import org.smartregister.location.helper.LocationHelper;
 import org.smartregister.repository.AllSharedPreferences;
-import org.smartregister.unicefangola.application.UnicefTunisiaApplication;
+import org.smartregister.unicefangola.application.UnicefAngolaApplication;
 import org.smartregister.view.activity.BaseProfileActivity;
 import org.smartregister.view.activity.DrishtiApplication;
 
 public class AppUtilsTest {
 
     @Spy
-    private UnicefTunisiaApplication unicefTunisiaApplication;
+    private UnicefAngolaApplication unicefAngolaApplication;
 
     @Mock
     private Context context;
@@ -69,7 +69,7 @@ public class AppUtilsTest {
         ReflectionHelpers.setStaticField(ChildLibrary.class, "instance", childLibrary);
         ReflectionHelpers.setStaticField(CoreLibrary.class, "instance", coreLibrary);
         ReflectionHelpers.setStaticField(LocationHelper.class, "instance", locationHelper);
-        ReflectionHelpers.setStaticField(DrishtiApplication.class, "mInstance", unicefTunisiaApplication);
+        ReflectionHelpers.setStaticField(DrishtiApplication.class, "mInstance", unicefAngolaApplication);
         ChildMetadata childMetadata = new ChildMetadata(BaseChildFormActivity.class, BaseProfileActivity.class, BaseChildImmunizationActivity.class, null, true);
         childMetadata.updateChildRegister(
                 "crazy_form_name",
@@ -86,7 +86,7 @@ public class AppUtilsTest {
 
     @Test
     public void testUpdateChildDeath() {
-        Mockito.when(unicefTunisiaApplication.context()).thenReturn(context);
+        Mockito.when(unicefAngolaApplication.context()).thenReturn(context);
         Mockito.when(context.allCommonsRepositoryobjects("childTable")).thenReturn(allCommonsRepository);
         Client client = new Client("123");
         client.setDeathdate(new DateTime());
@@ -102,7 +102,7 @@ public class AppUtilsTest {
 
     @Test
     public void testGetCurrentLocalityShouldReturnCorrectValueIfPresent() {
-        Mockito.when(unicefTunisiaApplication.context()).thenReturn(context);
+        Mockito.when(unicefAngolaApplication.context()).thenReturn(context);
         Mockito.when(context.allSharedPreferences()).thenReturn(allSharedPreferences);
         Mockito.when(allSharedPreferences.fetchCurrentLocality()).thenReturn("child location 1");
         Assert.assertEquals("child location 1", AppUtils.getCurrentLocality());
@@ -112,7 +112,7 @@ public class AppUtilsTest {
     public void testGetCurrentLocalityShouldReturnCorrectValueIfAbsent() {
         ReflectionHelpers.setStaticField(LocationHelper.class, "instance", locationHelper);
         Mockito.when(locationHelper.getDefaultLocation()).thenReturn("Default Location");
-        Mockito.when(unicefTunisiaApplication.context()).thenReturn(context);
+        Mockito.when(unicefAngolaApplication.context()).thenReturn(context);
         Mockito.when(context.allSharedPreferences()).thenReturn(allSharedPreferences);
         Mockito.when(allSharedPreferences.fetchCurrentLocality()).thenReturn(null);
         Assert.assertEquals("Default Location", AppUtils.getCurrentLocality());

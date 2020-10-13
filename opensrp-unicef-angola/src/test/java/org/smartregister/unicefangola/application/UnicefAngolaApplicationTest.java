@@ -8,12 +8,12 @@ import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 import org.smartregister.commonregistry.CommonFtsObject;
 import org.smartregister.unicefangola.BaseUnitTest;
-import org.smartregister.unicefangola.TestUnicefTunisiaApplication;
+import org.smartregister.unicefangola.TestUnicefAngolaApplication;
 
 /**
  * Created by ndegwamartin on 2019-12-13.
  */
-public class UnicefTunisiaApplicationTest extends BaseUnitTest {
+public class UnicefAngolaApplicationTest extends BaseUnitTest {
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
@@ -22,10 +22,10 @@ public class UnicefTunisiaApplicationTest extends BaseUnitTest {
     @Test
     public void testCreateCommonFtsObjectFunctionsCorrectly() {
 
-        UnicefTunisiaApplication unicefTunisiaApplication = new TestUnicefTunisiaApplication();
-        Assert.assertNotNull(unicefTunisiaApplication);
+        UnicefAngolaApplication unicefAngolaApplication = new TestUnicefAngolaApplication();
+        Assert.assertNotNull(unicefAngolaApplication);
 
-        CommonFtsObject commonFtsObject = UnicefTunisiaApplication.createCommonFtsObject(ApplicationProvider.getApplicationContext());
+        CommonFtsObject commonFtsObject = UnicefAngolaApplication.createCommonFtsObject(ApplicationProvider.getApplicationContext());
         Assert.assertNotNull(commonFtsObject);
 
         String[] ftsObjectTables = commonFtsObject.getTables();

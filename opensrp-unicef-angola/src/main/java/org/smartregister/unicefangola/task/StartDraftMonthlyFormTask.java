@@ -12,7 +12,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.smartregister.unicefangola.activity.AppStockJsonFormActivity;
 import org.smartregister.unicefangola.activity.HIA2ReportsActivity;
-import org.smartregister.unicefangola.application.UnicefTunisiaApplication;
+import org.smartregister.unicefangola.application.UnicefAngolaApplication;
 import org.smartregister.unicefangola.domain.MonthlyTally;
 import org.smartregister.unicefangola.repository.MonthlyTalliesRepository;
 import org.smartregister.unicefangola.util.AppConstants;
@@ -53,7 +53,7 @@ public class StartDraftMonthlyFormTask extends AsyncTask<Void, Void, Intent> {
     @Override
     protected Intent doInBackground(Void... params) {
         try {
-            MonthlyTalliesRepository monthlyTalliesRepository = UnicefTunisiaApplication.getInstance().monthlyTalliesRepository();
+            MonthlyTalliesRepository monthlyTalliesRepository = UnicefAngolaApplication.getInstance().monthlyTalliesRepository();
             List<MonthlyTally> monthlyTallies = monthlyTalliesRepository.findDrafts(MonthlyTalliesRepository.DF_YYYYMM.format(date), reportGrouping);
 
             if (monthlyTallies.size() < 1) {

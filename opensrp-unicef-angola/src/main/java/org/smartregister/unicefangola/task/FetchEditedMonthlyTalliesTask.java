@@ -4,7 +4,7 @@ import android.os.AsyncTask;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import org.smartregister.unicefangola.application.UnicefTunisiaApplication;
+import org.smartregister.unicefangola.application.UnicefAngolaApplication;
 import org.smartregister.unicefangola.domain.MonthlyTally;
 import org.smartregister.unicefangola.repository.MonthlyTalliesRepository;
 
@@ -27,7 +27,7 @@ public class FetchEditedMonthlyTalliesTask extends AsyncTask<Void, Void, List<Mo
 
     @Override
     protected List<MonthlyTally> doInBackground(Void... params) {
-        MonthlyTalliesRepository monthlyTalliesRepository = UnicefTunisiaApplication.getInstance().monthlyTalliesRepository();
+        MonthlyTalliesRepository monthlyTalliesRepository = UnicefAngolaApplication.getInstance().monthlyTalliesRepository();
         Calendar endDate = Calendar.getInstance();
         endDate.set(Calendar.DAY_OF_MONTH, 1); // Set date to first day of this month
         endDate.set(Calendar.HOUR_OF_DAY, 23);

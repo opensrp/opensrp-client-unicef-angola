@@ -38,7 +38,7 @@ import org.smartregister.immunization.repository.RecurringServiceRecordRepositor
 import org.smartregister.immunization.repository.RecurringServiceTypeRepository;
 import org.smartregister.repository.DetailsRepository;
 import org.smartregister.repository.Repository;
-import org.smartregister.unicefangola.application.UnicefTunisiaApplication;
+import org.smartregister.unicefangola.application.UnicefAngolaApplication;
 import org.smartregister.view.activity.BaseProfileActivity;
 
 import java.util.Arrays;
@@ -46,7 +46,7 @@ import java.util.Arrays;
 public class AppClientProcessorForJavaTest {
 
     @Spy
-    private UnicefTunisiaApplication unicefTunisiaApplication;
+    private UnicefAngolaApplication unicefAngolaApplication;
 
     @Mock
     private org.smartregister.Context openSrpContext;
@@ -96,7 +96,7 @@ public class AppClientProcessorForJavaTest {
     public void setUp() {
         MockitoAnnotations.initMocks(this);
         processorForJava = Mockito.spy(new AppClientProcessorForJava(Mockito.mock(Context.class)));
-        Mockito.doReturn(unicefTunisiaApplication).when(processorForJava).getApplication();
+        Mockito.doReturn(unicefAngolaApplication).when(processorForJava).getApplication();
     }
 
     @Test
@@ -114,7 +114,7 @@ public class AppClientProcessorForJavaTest {
 
     @Test
     public void processHeightWithValidEventClientAndTableShouldReturnTrue() {
-        Mockito.doReturn(heightRepository).when(unicefTunisiaApplication).heightRepository();
+        Mockito.doReturn(heightRepository).when(unicefAngolaApplication).heightRepository();
         Mockito.when(processorForJava.processCaseModel(ArgumentMatchers.any(EventClient.class), ArgumentMatchers.any(Table.class))).thenReturn(contentValues);
         Mockito.when(contentValues.size()).thenReturn(7);
         Mockito.when(contentValues.getAsString(HeightRepository.DATE)).thenReturn("2019-09-27 09:45:44");
@@ -162,8 +162,8 @@ public class AppClientProcessorForJavaTest {
     @Test
     public void processServiceWithNameNotHavingITNShouldReturnTrue() {
         ReflectionHelpers.setStaticField(ImmunizationLibrary.class, "instance", immunizationLibrary);
-        Mockito.when(unicefTunisiaApplication.recurringServiceTypeRepository()).thenReturn(recurringServiceTypeRepository);
-        Mockito.when(unicefTunisiaApplication.recurringServiceRecordRepository()).thenReturn(recurringServiceRecordRepository);
+        Mockito.when(unicefAngolaApplication.recurringServiceTypeRepository()).thenReturn(recurringServiceTypeRepository);
+        Mockito.when(unicefAngolaApplication.recurringServiceRecordRepository()).thenReturn(recurringServiceRecordRepository);
         ServiceType serviceTypeDeworming2 = new ServiceType();
         serviceTypeDeworming2.setId(1L);
         serviceTypeDeworming2.setName("Deworming_2");
@@ -254,7 +254,7 @@ public class AppClientProcessorForJavaTest {
 
     @Test
     public void processWeightWithValidEventClientAndTableShouldReturnTrue() {
-        Mockito.doReturn(weightRepository).when(unicefTunisiaApplication).weightRepository();
+        Mockito.doReturn(weightRepository).when(unicefAngolaApplication).weightRepository();
         Mockito.when(processorForJava.processCaseModel(ArgumentMatchers.any(EventClient.class), ArgumentMatchers.any(Table.class))).thenReturn(contentValues);
         Mockito.when(contentValues.size()).thenReturn(7);
         Mockito.when(contentValues.getAsString(WeightRepository.DATE)).thenReturn("2019-09-27 09:45:44");

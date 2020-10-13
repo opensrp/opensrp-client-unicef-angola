@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.smartregister.unicefangola.activity.HIA2ReportsActivity;
-import org.smartregister.unicefangola.application.UnicefTunisiaApplication;
+import org.smartregister.unicefangola.application.UnicefAngolaApplication;
 import org.smartregister.unicefangola.repository.MonthlyTalliesRepository;
 
 import java.util.Calendar;
@@ -28,7 +28,7 @@ public class FetchUneditedMonthlyTalliesTask extends AsyncTask<Void, Void, List<
 
     @Override
     protected List<Date> doInBackground(Void... params) {
-        MonthlyTalliesRepository monthlyTalliesRepository = UnicefTunisiaApplication
+        MonthlyTalliesRepository monthlyTalliesRepository = UnicefAngolaApplication
                 .getInstance().monthlyTalliesRepository();
         Calendar startDate = Calendar.getInstance();
         startDate.set(Calendar.DAY_OF_MONTH, 1);

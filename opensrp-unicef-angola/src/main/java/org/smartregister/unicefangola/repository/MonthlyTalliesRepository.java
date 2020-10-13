@@ -12,7 +12,7 @@ import net.sqlcipher.database.SQLiteDatabase;
 import org.smartregister.reporting.ReportingLibrary;
 import org.smartregister.reporting.domain.IndicatorTally;
 import org.smartregister.repository.BaseRepository;
-import org.smartregister.unicefangola.application.UnicefTunisiaApplication;
+import org.smartregister.unicefangola.application.UnicefAngolaApplication;
 import org.smartregister.unicefangola.domain.MonthlyTally;
 import org.smartregister.unicefangola.domain.Tally;
 import org.smartregister.unicefangola.util.DbConstants;
@@ -107,7 +107,7 @@ public class MonthlyTalliesRepository extends BaseRepository {
      * @return List of months with unsent monthly tallies
      */
     public List<Date> findUneditedDraftMonths(Date startDate, Date endDate, @Nullable String grouping) {
-        List<String> allTallyMonths = UnicefTunisiaApplication.getInstance().dailyTalliesRepository()
+        List<String> allTallyMonths = UnicefAngolaApplication.getInstance().dailyTalliesRepository()
                 .findAllDistinctMonths(DF_YYYYMM, startDate, endDate, grouping);
         Cursor cursor = null;
         try {
@@ -253,7 +253,7 @@ public class MonthlyTalliesRepository extends BaseRepository {
 
     @Nullable
     private MonthlyTally addUpDailyTallies(@NonNull List<IndicatorTally> dailyTallies) {
-        String userName = UnicefTunisiaApplication.getInstance().context().allSharedPreferences().fetchRegisteredANM();
+        String userName = UnicefAngolaApplication.getInstance().context().allSharedPreferences().fetchRegisteredANM();
         MonthlyTally monthlyTally = null;
         double value = 0d;
 
@@ -365,7 +365,7 @@ public class MonthlyTalliesRepository extends BaseRepository {
         try {
             database.beginTransaction();
             if (draftFormValues != null && !draftFormValues.isEmpty() && month != null) {
-                String userName = UnicefTunisiaApplication.getInstance().context().allSharedPreferences().fetchRegisteredANM();
+                String userName = UnicefAngolaApplication.getInstance().context().allSharedPreferences().fetchRegisteredANM();
 
                 for (String key : draftFormValues.keySet()) {
                     String value = draftFormValues.get(key);
