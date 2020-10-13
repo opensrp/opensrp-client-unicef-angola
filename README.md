@@ -1,10 +1,10 @@
 
-[![Build Status](https://travis-ci.com/OpenSRP/opensrp-client-unicef-tunisia.svg?branch=master)](https://travis-ci.com/OpenSRP/opensrp-client-unicef-tunisia)
-&nbsp;[![Coverage Status](https://coveralls.io/repos/github/OpenSRP/opensrp-client-unicef-tunisia/badge.svg?branch=master)](https://coveralls.io/github/OpenSRP/opensrp-client-unicef-tunisia?branch=master)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4a58cd4e1748432780ac66a9fbee0394)](https://www.codacy.com/app/OpenSRP/opensrp-client-unicef-tunisia?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=OpenSRP/opensrp-client-unicef-tunisia&amp;utm_campaign=Badge_Grade) 
+[![Build Status](https://travis-ci.com/OpenSRP/opensrp-client-unicef-angola.svg?branch=master)](https://travis-ci.com/OpenSRP/opensrp-client-unicef-angola)
+&nbsp;[![Coverage Status](https://coveralls.io/repos/github/OpenSRP/opensrp-client-unicef-angola/badge.svg?branch=master)](https://coveralls.io/github/OpenSRP/opensrp-client-unicef-angola?branch=master)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4a58cd4e1748432780ac66a9fbee0394)](https://www.codacy.com/app/OpenSRP/opensrp-client-unicef-angola?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=OpenSRP/opensrp-client-unicef-angola&amp;utm_campaign=Badge_Grade) 
 
-## OpenSRP Unicef Tunisia
-UNICEF Tunisia is an immunization digital project targeting children under 5 years. The project focuses in a child module that supports 3 languages: English, French and Arabic.
+## OpenSRP Unicef Angola
+UNICEF Angola is an immunization digital project targeting children under 5 years. The project focuses in a child module.
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
@@ -26,9 +26,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Features
 -   Child registration (birth and death)
--   Growth monitoring with 3 z-scores
 -   Immunization schedules
--   health card support
 -   Multi language support
 
 ## Versioning
