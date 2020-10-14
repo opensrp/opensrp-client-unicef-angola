@@ -62,7 +62,7 @@ import org.smartregister.unicefangola.repository.ClientRegisterTypeRepository;
 import org.smartregister.unicefangola.repository.DailyTalliesRepository;
 import org.smartregister.unicefangola.repository.HIA2IndicatorsRepository;
 import org.smartregister.unicefangola.repository.MonthlyTalliesRepository;
-import org.smartregister.unicefangola.repository.UnicefTunisiaRepository;
+import org.smartregister.unicefangola.repository.UnicefAngolaRepository;
 import org.smartregister.unicefangola.util.AppConstants;
 import org.smartregister.unicefangola.util.AppUtils;
 import org.smartregister.unicefangola.util.VaccineDuplicate;
@@ -344,7 +344,7 @@ public class UnicefAngolaApplication extends DrishtiApplication implements TimeC
     public Repository getRepository() {
         try {
             if (repository == null) {
-                repository = new UnicefTunisiaRepository(getInstance().getApplicationContext(), context);
+                repository = new UnicefAngolaRepository(getInstance().getApplicationContext(), context);
             }
         } catch (UnsatisfiedLinkError e) {
             Timber.e(e, "UnicefTunisiaApplication --> getRepository");

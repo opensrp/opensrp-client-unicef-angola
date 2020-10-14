@@ -19,34 +19,34 @@ import org.smartregister.unicefangola.shadow.ShadowSQLiteDatabase;
  * Created by Ephraim Kigamba - nek.eam@gmail.com on 06-03-2020.
  */
 @Config(shadows = {ShadowSQLiteDatabase.class})
-public class UnicefTunisiaRepositoryTest extends BaseRobolectricTest {
+public class UnicefAngolaRepositoryTest extends BaseRobolectricTest {
 
     @Rule
     public MockitoRule mockitoRule = MockitoJUnit.rule();
 
-    private UnicefTunisiaRepository unicefTunisiaRepository;
+    private UnicefAngolaRepository unicefAngolaRepository;
 
     @Mock
     private SQLiteDatabase sqLiteDatabase;
 
     @Before
     public void setUp() {
-        unicefTunisiaRepository = Mockito.spy((UnicefTunisiaRepository) UnicefAngolaApplication.getInstance().getRepository());
+        unicefAngolaRepository = Mockito.spy((UnicefAngolaRepository) UnicefAngolaApplication.getInstance().getRepository());
 
-        Mockito.doReturn(sqLiteDatabase).when(unicefTunisiaRepository).getReadableDatabase();
-        Mockito.doReturn(sqLiteDatabase).when(unicefTunisiaRepository).getReadableDatabase(Mockito.anyString());
-        Mockito.doReturn(sqLiteDatabase).when(unicefTunisiaRepository).getWritableDatabase();
-        Mockito.doReturn(sqLiteDatabase).when(unicefTunisiaRepository).getWritableDatabase(Mockito.anyString());
+        Mockito.doReturn(sqLiteDatabase).when(unicefAngolaRepository).getReadableDatabase();
+        Mockito.doReturn(sqLiteDatabase).when(unicefAngolaRepository).getReadableDatabase(Mockito.anyString());
+        Mockito.doReturn(sqLiteDatabase).when(unicefAngolaRepository).getWritableDatabase();
+        Mockito.doReturn(sqLiteDatabase).when(unicefAngolaRepository).getWritableDatabase(Mockito.anyString());
 
-        ReflectionHelpers.setField(UnicefAngolaApplication.getInstance(), "repository", unicefTunisiaRepository);
+        ReflectionHelpers.setField(UnicefAngolaApplication.getInstance(), "repository", unicefAngolaRepository);
     }
 
     // TODO: FIX THIS
     @Test
     public void onCreateShouldCreate32tables() {
-        Mockito.doNothing().when(unicefTunisiaRepository).onUpgrade(Mockito.any(SQLiteDatabase.class), Mockito.anyInt(), Mockito.anyInt());
+        Mockito.doNothing().when(unicefAngolaRepository).onUpgrade(Mockito.any(SQLiteDatabase.class), Mockito.anyInt(), Mockito.anyInt());
         SQLiteDatabase database = Mockito.mock(SQLiteDatabase.class);
-        unicefTunisiaRepository.onCreate(database);
+        unicefAngolaRepository.onCreate(database);
 
         // TODO: Investigate this counter
         Mockito.verify(database, Mockito.times(35)).execSQL(Mockito.contains("CREATE TABLE"));

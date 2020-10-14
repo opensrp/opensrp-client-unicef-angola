@@ -38,7 +38,7 @@ import java.util.ArrayList;
 
 import timber.log.Timber;
 
-public class UnicefTunisiaRepository extends Repository {
+public class UnicefAngolaRepository extends Repository {
 
     private SQLiteDatabase readableDatabase;
     private SQLiteDatabase writableDatabase;
@@ -46,7 +46,7 @@ public class UnicefTunisiaRepository extends Repository {
     private Context context;
     private String appVersionCodePref = AppConstants.Pref.APP_VERSION_CODE;
 
-    public UnicefTunisiaRepository(@NonNull Context context, @NonNull org.smartregister.Context openSRPContext) {
+    public UnicefAngolaRepository(@NonNull Context context, @NonNull org.smartregister.Context openSRPContext) {
         super(context, AllConstants.DATABASE_NAME, BuildConfig.DATABASE_VERSION, openSRPContext.session(),
                 UnicefAngolaApplication.createCommonFtsObject(context), openSRPContext.sharedRepositoriesArray());
         this.context = context;
