@@ -97,10 +97,10 @@ public class ChildRegisterActivity extends BaseChildRegisterActivity implements 
 
     @Override
     public void startFormActivity(JSONObject jsonForm) {
-        if (jsonForm.has(AppConstants.KEY.ENCOUNTER_TYPE) && jsonForm.optString(AppConstants.KEY.ENCOUNTER_TYPE).equals(
+        /*if (jsonForm.has(AppConstants.KEY.ENCOUNTER_TYPE) && jsonForm.optString(AppConstants.KEY.ENCOUNTER_TYPE).equals(
                 AppConstants.KEY.BIRTH_REGISTRATION)) {
             ChildJsonFormUtils.addRegistrationFormLocationHierarchyQuestions(jsonForm);
-        }
+        }*/
 
         Form form = new Form();
         form.setWizard(false);
@@ -110,7 +110,7 @@ public class ChildRegisterActivity extends BaseChildRegisterActivity implements 
         Intent intent = new Intent(this, Utils.metadata().childFormActivity);
         intent.putExtra(Constants.INTENT_KEY.JSON, jsonForm.toString());
         intent.putExtra(JsonFormConstants.JSON_FORM_KEY.FORM, form);
-        intent.putExtra(JsonFormConstants.PERFORM_FORM_TRANSLATION,  true);
+        intent.putExtra(JsonFormConstants.PERFORM_FORM_TRANSLATION,  false);
         startActivityForResult(intent, ChildJsonFormUtils.REQUEST_CODE_GET_JSON);
     }
 

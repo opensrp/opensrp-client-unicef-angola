@@ -1,28 +1,28 @@
 ---
 name: step1_age
-description: Calculated Age
+description: This will calculate age from date of birth
 priority: 1
 condition: "step1_Date_Birth != ''"
 actions:
   - 'calculation = helper.getDifferenceDays(step1_Date_Birth) / 365.25'
 ---
-name: step1_protected_at_birth_calculation
-description: Protected at birth
+name: step1_caregiver_name
+description: This will concatinate Firs, middle and surname fields
 priority: 1
-condition: "step1_mother_tdv_doses != ''"
+condition: "step1_caregiver_first_name != '' && step1_caregiver_middle_name != '' && step1_caregiver_surname != ''"
 actions:
-  - "calculation = step1_mother_tdv_doses == '2_plus_tdv_doses' ? 'Yes' : 'No'"
+  - "calculation = step1_caregiver_first_name+' '+step1_caregiver_middle_name+' '+step1_caregiver_surname"
 ---
-name: step1_protected_at_birth
-description: Protected at birth display
+name: step1_tel1
+description: This will concatinate region code with number
 priority: 1
-condition: "true"
+condition: "step1_tel_number1 != ''"
 actions:
-  - "calculation = step1_protected_at_birth_calculation"
+  - "calculation = '+244'+step1_tel_number1"
 ---
-name: step1_pcv4_required
-description: Calculation of whether or not the child needs a 4th PCV dose, based on their GA at birth and their birth weight.
+name: step1_tel2
+description: This will concatinate region code with number
 priority: 1
-condition: "true"
+condition: "step1_tel_number2 != ''"
 actions:
-  - "calculation = step1_ga_at_birth < 37 && step1_Birth_Weight < 2.5 ? '1' : '0'"
+  - "calculation = '+244'+step1_tel_number2"

@@ -39,6 +39,13 @@
           }
         },
         {
+          "column_name": "middle_name",
+          "type": "Client",
+          "json_mapping": {
+            "field": "middleName"
+          }
+        },
+        {
           "column_name": "dob",
           "type": "Client",
           "json_mapping": {
@@ -242,6 +249,111 @@
           "json_mapping": {
             "field": "attributes.dateRemoved"
           }
+        },
+        {
+          "column_name": "caregiver_name",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.caregiver_name"
+          }
+        },
+        {
+          "column_name": "caregiver_age",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.caregiver_age"
+          }
+        },
+        {
+          "column_name": "tel_number1",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.tel_number1"
+          }
+        },
+        {
+          "column_name": "tel1",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.tel1"
+          }
+        },
+        {
+          "column_name": "tel_owner1",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.tel_owner1"
+          }
+        },
+        {
+          "column_name": "tel_number2",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.tel_number2"
+          }
+        },
+        {
+          "column_name": "tel2",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.tel2"
+          }
+        },
+        {
+          "column_name": "tel_owner2",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.tel_owner2"
+          }
+        },
+        {
+          "column_name": "address",
+          "type": "Client",
+          "json_mapping": {
+            "field": "addresses.address"
+          }
+        },
+        {
+          "column_name": "lives",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.lives"
+          }
+        },
+        {
+          "column_name": "highest_education",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.highest_education"
+          }
+        },
+        {
+          "column_name": "religion",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.religion"
+          }
+        },
+        {
+          "column_name": "marital_status",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.marital_status"
+          }
+        },
+        {
+          "column_name": "employment",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.employment"
+          }
+        },
+        {
+          "column_name": "no_children",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.no_children"
+          }
         }
       ]
     },
@@ -324,6 +436,34 @@
           "type": "Client",
           "json_mapping": {
             "field": "attributes.sms_recipient"
+          }
+        },
+        {
+          "column_name": "age",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.age"
+          }
+        },
+        {
+          "column_name": "birth_location",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.birth_location"
+          }
+        },
+        {
+          "column_name": "anc",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.anc"
+          }
+        },
+        {
+          "column_name": "no_anc",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.no_anc"
           }
         }
       ]
