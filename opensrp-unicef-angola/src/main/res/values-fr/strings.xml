@@ -78,7 +78,6 @@
 
     <string name="search_hint">Rechercher dans le registre</string>
 
-    <string name="opensrp_url">https://unicef-tunisia-stage.smartregister.org/opensrp/</string>
     <string name="supported_by">Supporté par</string>
 
     <string name="child_birth_registration_number">Numéro d\'enregistrement de naissance de l\'enfant</string>
