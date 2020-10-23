@@ -92,9 +92,11 @@ public class ChildRegisterFragment extends BaseChildRegisterFragment {
         super.setupViews(view);
         View globalSearchButton = view.findViewById(org.smartregister.child.R.id.global_search);
         View registerClientButton = view.findViewById(org.smartregister.child.R.id.register_client);
-        if (globalSearchButton != null && registerClientButton != null) {
+        View filterSelectionButton = view.findViewById(org.smartregister.child.R.id.filter_selection);
+        if (globalSearchButton != null && registerClientButton != null && filterSelectionButton != null) {
             globalSearchButton.setVisibility(View.INVISIBLE);
             registerClientButton.setVisibility(View.INVISIBLE);
+            filterSelectionButton.setVisibility(View.INVISIBLE);
         }
     }
 
