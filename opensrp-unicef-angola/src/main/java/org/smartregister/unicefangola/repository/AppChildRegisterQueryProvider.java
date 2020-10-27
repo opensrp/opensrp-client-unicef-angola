@@ -25,6 +25,7 @@ import static org.smartregister.unicefangola.util.AppConstants.KEY.INACTIVE;
 import static org.smartregister.unicefangola.util.AppConstants.KEY.LAST_INTERACTED_WITH;
 import static org.smartregister.unicefangola.util.AppConstants.KEY.LAST_NAME;
 import static org.smartregister.unicefangola.util.AppConstants.KEY.LOST_TO_FOLLOW_UP;
+import static org.smartregister.unicefangola.util.AppConstants.KEY.MIDDLE_NAME;
 import static org.smartregister.unicefangola.util.AppConstants.KEY.MOTHER_DOB;
 import static org.smartregister.unicefangola.util.AppConstants.KEY.MOTHER_GUARDIAN_NUMBER;
 import static org.smartregister.unicefangola.util.AppConstants.KEY.MOTHER_NATIONALITY;
@@ -81,6 +82,7 @@ public class AppChildRegisterQueryProvider extends RegisterQueryProvider {
                 getAllClientColumn(DOB),
                 getAllClientColumn(REGISTRATION_DATE),
                 getAllClientColumn(LAST_INTERACTED_WITH),
+                getAllClientColumn(MIDDLE_NAME),
                 getMotherDetailsColumn(MOTHER_NATIONALITY),
                 getMotherDetailsColumn(MOTHER_NATIONALITY_OTHER),
                 getMotherDetailsColumn(PROTECTED_AT_BIRTH),

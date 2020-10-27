@@ -102,10 +102,11 @@
         "type": "label",
         "text": "Child Details",
         "has_bg": true,
-        "bg_color" : "#358CB7",
-        "text_color": "#FFFFFF",
+        "text_color": "#000000",
+        "left_padding": "20dp",
+        "right_padding": "20dp",
+        "text_size": "28sp",
         "label_text_style": "bold",
-        "text_size": "20sp",
         "openmrs_entity_parent": "",
         "openmrs_entity": "",
         "openmrs_entity_id": "",
@@ -201,10 +202,6 @@
         "v_required": {
           "value": "true",
           "err": "Please enter the middle name"
-        },
-        "v_regex": {
-          "value": "[A-Za-z\\s\\.\\-]*",
-          "err": "Please enter a valid name"
         },
         "relevance": {
           "rules-engine": {
@@ -422,13 +419,11 @@
         "type": "label",
         "text": "Caregiver Details",
         "has_bg": true,
-        "bg_color" : "#358CB7",
-        "text_color": "#FFFFFF",
-        "label_text_style": "bold",
-        "top_padding": "10dp",
+        "text_color": "#000000",
         "left_padding": "20dp",
         "right_padding": "20dp",
-        "text_size": "14sp",
+        "text_size": "28sp",
+        "label_text_style": "bold",
         "openmrs_entity_parent": "",
         "openmrs_entity": "",
         "openmrs_entity_id": "",
@@ -478,10 +473,6 @@
         "v_required": {
           "value": "true",
           "err": "Please enter the middle name"
-        },
-        "v_regex": {
-          "value": "[A-Za-z\\s\\.\\-]*",
-          "err": "Please enter a valid name"
         },
         "relevance": {
           "rules-engine": {
@@ -769,10 +760,6 @@
         "v_regex": {
           "value": "^[0-9]{9}$",
           "err": "Please enter a 9 digit telephone number"
-        },
-        "v_required": {
-          "value": "true",
-          "err": "Please enter a telephone number"
         },
         "relevance": {
           "rules-engine": {

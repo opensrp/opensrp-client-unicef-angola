@@ -20,7 +20,8 @@
     <string name="login_text">Log In</string>
     <string name="log_out_text">Log Out</string>
 
-    <string name="iz_id_hint">IDV NUMBER</string>
+<!--    <string name="demo  Amani123
+">IDV NUMBER</string>-->
 
     <string name="title_activity_child_immunization" translatable="false">ChildImmunizationActivity</string>
 
@@ -44,7 +45,7 @@
     <string name="due_only">Due Only</string>
 
     <!-- Override labels in profile and immunization section -->
-    <string name="label_zeir">IDV NUMBER</string>
+<!--    <string name="label_zeir">IDV NUMBER</string>-->
     <string name="system_id_colon">IDV NUMBER:</string>
     <string name="settings">Settings</string>
 

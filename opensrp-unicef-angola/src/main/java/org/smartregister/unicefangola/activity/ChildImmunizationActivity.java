@@ -44,6 +44,14 @@ public class ChildImmunizationActivity extends BaseChildImmunizationActivity {
     }
 
     @Override
+    protected String constructChildName() {
+        String firstName = Utils.getValue(this.childDetails.getColumnmaps(), "first_name", true);
+        String lastName = Utils.getValue(this.childDetails.getColumnmaps(), "last_name", true);
+        String middleName = Utils.getValue(this.childDetails.getColumnmaps(), "middle_name", true);
+        return firstName + " " + middleName + " " + lastName;
+    }
+
+    @Override
     protected void goToRegisterPage() {
         Intent intent = new Intent(this, ChildRegisterActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

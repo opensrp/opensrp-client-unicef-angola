@@ -15,7 +15,7 @@
     <string name="login_text">تسجيل الدخول</string>
     <string name="log_out_text">تسجيل خروج</string>
 
-    <string name="iz_id_hint">رقم IDV</string>
+<!--    <string name="iz_id_hint">رقم IDV</string>-->
 
     <string name="authentication_failed">المصادقة فشلت</string>
     <!-- Override BCG 2 dialog text to read BCG Repeated Dose -->

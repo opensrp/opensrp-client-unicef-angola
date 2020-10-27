@@ -16,7 +16,7 @@
     <string name="login_text">S\'identifier</string>
     <string name="log_out_text">Se déconnecter</string>
 
-    <string name="iz_id_hint">Numéro IDV</string>
+<!--    <string name="iz_id_hint">Numéro IDV</string>-->
 
     <string name="authentication_failed">Authentification échouée</string>
     <string name="reset_card">Réinitialiser la carte</string>
@@ -38,7 +38,7 @@
     <string name="due_only">Dû seulement</string>
 
     <!-- Override labels in profile and immunization section -->
-    <string name="label_zeir">Numéro IDV</string>
+<!--    <string name="label_zeir">Numéro IDV</string>-->
     <string name="system_id_colon">Numéro IDV:</string>
     <string name="settings">Paramètres</string>
 
