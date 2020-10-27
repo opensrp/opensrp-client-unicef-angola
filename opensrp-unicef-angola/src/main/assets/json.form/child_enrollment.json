@@ -199,9 +199,9 @@
         "type": "edit_text",
         "hint": "Middle name",
         "edit_type": "name",
-        "v_required": {
-          "value": "true",
-          "err": "Please enter the middle name"
+        "v_regex": {
+          "value": "[A-Za-z\\s\\.\\-]*",
+          "err": "Please enter a valid name"
         },
         "relevance": {
           "rules-engine": {
@@ -470,9 +470,9 @@
         "type": "edit_text",
         "hint": "Middle name",
         "edit_type": "name",
-        "v_required": {
-          "value": "true",
-          "err": "Please enter the middle name"
+        "v_regex": {
+          "value": "[A-Za-z\\s\\.\\-]*",
+          "err": "Please enter a valid name"
         },
         "relevance": {
           "rules-engine": {
@@ -758,8 +758,11 @@
         "edit_type": "number",
         "hint": "Second telephone number",
         "v_regex": {
-          "value": "^[0-9]{9}$",
+          "value": "^(?:\\d{9}|)$",
           "err": "Please enter a 9 digit telephone number"
+        },
+        "v_required": {
+          "value": "false"
         },
         "relevance": {
           "rules-engine": {
