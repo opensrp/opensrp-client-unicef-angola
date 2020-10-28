@@ -92,8 +92,8 @@
     <string name="child_first_name">Child\'s first name</string>
     <string name="child_last_name">Child\'s last name</string>
     <string name="dob_range">Child\'s date of birth (range)</string>
-    <string name="mother_caregiver_first_name">"Mother/caregiver first name"</string>
-    <string name="mother_caregiver_last_name">"Mother/caregiver last name"</string>
+    <string name="mother_caregiver_first_name">"Mother/Caregiver First Name"</string>
+    <string name="mother_caregiver_last_name">"Mother/Caregiver Last Name"</string>
     <string name="mother_caregiver_phone">Mother/caregiver\'s phone number</string>
     <string name="father_last_name">Father last name</string>
     <string name="father_first_name">Father first name</string>
@@ -115,5 +115,11 @@
     <string name="serology_results">Serology test result</string>
     <string name="maximum_extra_vaccines_reached">You can only record a maximum of 10 vaccines</string>
     <string name="sms_recipient">Vaccines  SMS reminder recipient</string>
+    <string name="dob">DOB</string>
+    <string name="primary_number">Primary number</string>
+    <string name="primary_number_belongs_to">Primary number belongs to</string>
+    <string name="second_number">Second number</string>
+    <string name="second_number_belongs_to">Second number belongs to</string>
+    <string name="address">Address</string>
 
 </resources>

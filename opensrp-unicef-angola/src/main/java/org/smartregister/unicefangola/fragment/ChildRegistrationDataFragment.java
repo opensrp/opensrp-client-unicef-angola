@@ -2,10 +2,12 @@ package org.smartregister.unicefangola.fragment;
 
 import android.os.Bundle;
 
+import org.smartregister.child.domain.Field;
 import org.smartregister.child.fragment.BaseChildRegistrationDataFragment;
 import org.smartregister.unicefangola.R;
 import org.smartregister.unicefangola.util.AppConstants;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -15,6 +17,22 @@ import java.util.Map;
  * Created by ndegwamartin on 2019-05-30.
  */
 public class ChildRegistrationDataFragment extends BaseChildRegistrationDataFragment {
+
+    private final static List<String> requiredFieldsList = Arrays.asList(
+            AppConstants.KEY.FIRST_NAME,
+            AppConstants.KEY.SURNAME,
+            "zeir_id",
+            AppConstants.KEY.SEX,
+            AppConstants.KEY.DATE_BIRTH,
+            AppConstants.KEY.CAREGIVER_FIRST_NAME,
+            AppConstants.KEY.CAREGIVER_LAST_NAME,
+            AppConstants.KEY.CAREGIVER_FIRST_PHONE_NUMBER,
+            AppConstants.KEY.CAREGIVER_FIRST_PHONE_NUMBER_OWNER,
+            AppConstants.KEY.CAREGIVER_SECOND_PHONE_NUMBER,
+            AppConstants.KEY.CAREGIVER_SECOND_PHONE_NUMBER_OWNER,
+            AppConstants.KEY.CAREGIVER_ADDRESS
+    );
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,6 +51,16 @@ public class ChildRegistrationDataFragment extends BaseChildRegistrationDataFrag
         return AppConstants.JsonForm.CHILD_ENROLLMENT;
     }
 
+    @Override
+    public List<Field> getFields() {
+        ArrayList<Field> requiredFields = new ArrayList<>();
+        List<Field> allFields = super.getFields();
+        for (Field field : allFields) {
+            if (requiredFieldsList.contains(field.getKey()))
+                requiredFields.add(field);
+        }
+        return requiredFields;
+    }
 
     @Override
     protected List<String> addUnFormattedNumberFields(String... key) {
@@ -43,26 +71,15 @@ public class ChildRegistrationDataFragment extends BaseChildRegistrationDataFrag
     protected Map<String, String> getDataRowLabelResourceIds() {
         fieldNameResourceMap = new HashMap<String, Integer>() {
             {
-                put("Date_Birth", R.string.child_DOB);
-                put("father_last_name", R.string.father_last_name);
-                put("father_first_name", R.string.father_first_name);
-                put("father_dob", R.string.father_dob);
-                put("father_nationality", R.string.father_nationality);
-                put("father_nationality_other", R.string.father_nationality_other);
-                put("father_phone", R.string.father_phone);
-                put("mother_guardian_last_name", R.string.mother_caregiver_last_name);
-                put("mother_guardian_first_name", R.string.mother_caregiver_first_name);
-                put("mother_guardian_date_birth", R.string.mother_dob);
-                put("mother_nationality", R.string.mother_nationality);
-                put("mother_nationality_other", R.string.mother_nationality_other);
-                put("mother_guardian_number", R.string.mother_caregiver_phone);
-                put("second_phone_number", R.string.mother_caregiver_alt_phone);
-                put("mother_tdv_doses", R.string.mother_tdv_doses);
-                put("mother_rubella", R.string.mother_rubella);
-                put("first_birth", R.string.first_birth);
-                put("rubella_serology", R.string.rubella_serology);
-                put("serology_results", R.string.serology_results);
-                put("sms_recipient", R.string.sms_recipient);
+                put(AppConstants.KEY.SURNAME, R.string.last_name);
+                put(AppConstants.KEY.DATE_BIRTH, R.string.dob);
+                put(AppConstants.KEY.CAREGIVER_FIRST_NAME, R.string.mother_caregiver_first_name);
+                put(AppConstants.KEY.CAREGIVER_LAST_NAME, R.string.mother_caregiver_last_name);
+                put(AppConstants.KEY.CAREGIVER_FIRST_PHONE_NUMBER, R.string.primary_number);
+                put(AppConstants.KEY.CAREGIVER_FIRST_PHONE_NUMBER_OWNER, R.string.primary_number_belongs_to);
+                put(AppConstants.KEY.CAREGIVER_SECOND_PHONE_NUMBER, R.string.second_number);
+                put(AppConstants.KEY.CAREGIVER_SECOND_PHONE_NUMBER_OWNER, R.string.second_number_belongs_to);
+                put(AppConstants.KEY.CAREGIVER_ADDRESS, R.string.address);
             }
         };
         return super.getDataRowLabelResourceIds();
