@@ -5,15 +5,16 @@ import org.smartregister.child.provider.RegisterQueryProvider;
 import org.smartregister.child.util.Constants;
 import org.smartregister.unicefangola.util.AppConstants;
 
+import static org.smartregister.unicefangola.util.AppConstants.KEY.AGE;
 import static org.smartregister.unicefangola.util.AppConstants.KEY.BASE_ENTITY_ID;
 import static org.smartregister.unicefangola.util.AppConstants.KEY.BIRTH_REGISTRATION_NUMBER;
+import static org.smartregister.unicefangola.util.AppConstants.KEY.CAREGIVER_AGE;
 import static org.smartregister.unicefangola.util.AppConstants.KEY.CHILD_REG;
 import static org.smartregister.unicefangola.util.AppConstants.KEY.DOB;
+import static org.smartregister.unicefangola.util.AppConstants.KEY.DOB_UNKNOWN;
 import static org.smartregister.unicefangola.util.AppConstants.KEY.FATHER_DOB;
 import static org.smartregister.unicefangola.util.AppConstants.KEY.FATHER_NATIONALITY;
 import static org.smartregister.unicefangola.util.AppConstants.KEY.FATHER_NATIONALITY_OTHER;
-import static org.smartregister.unicefangola.util.AppConstants.KEY.FATHER_PHONE;
-import static org.smartregister.unicefangola.util.AppConstants.KEY.FATHER_PHONE_NUMBER;
 import static org.smartregister.unicefangola.util.AppConstants.KEY.FATHER_RELATIONAL_ID;
 import static org.smartregister.unicefangola.util.AppConstants.KEY.FIRST_BIRTH;
 import static org.smartregister.unicefangola.util.AppConstants.KEY.FIRST_NAME;
@@ -80,6 +81,7 @@ public class AppChildRegisterQueryProvider extends RegisterQueryProvider {
                 getAllClientColumn(VILLAGE),
                 getAllClientColumn(HOME_ADDRESS),
                 getAllClientColumn(DOB),
+                getAllClientColumn(DOB_UNKNOWN),
                 getAllClientColumn(REGISTRATION_DATE),
                 getAllClientColumn(LAST_INTERACTED_WITH),
                 getAllClientColumn(MIDDLE_NAME),
@@ -91,11 +93,26 @@ public class AppChildRegisterQueryProvider extends RegisterQueryProvider {
                 getMotherDetailsColumn(RUBELLA_SEROLOGY),
                 getMotherDetailsColumn(SEROLOGY_RESULTS),
                 getMotherDetailsColumn(MOTHER_RUBELLA),
-                getMotherDetailsColumn(MOTHER_GUARDIAN_NUMBER) + "as " + MOTHER_PHONE_NUMBER,
-                getMotherDetailsColumn(SECOND_PHONE_NUMBER) + "as " + MOTHER_SECOND_PHONE_NUMBER,
+                getMotherDetailsColumn(AppConstants.KEY.CAREGIVER_FIRST_PHONE_NUMBER),
+                getMotherDetailsColumn(AppConstants.KEY.CAREGIVER_FIRST_PHONE_NUMBER_OWNER),
+                getMotherDetailsColumn(AppConstants.KEY.CAREGIVER_FIRST_PHONE_NUMBER_VALUE),
+                getMotherDetailsColumn(AppConstants.KEY.CAREGIVER_SECOND_PHONE_NUMBER),
+                getMotherDetailsColumn(AppConstants.KEY.CAREGIVER_SECOND_PHONE_NUMBER_OWNER),
+                getMotherDetailsColumn(AppConstants.KEY.CAREGIVER_SECOND_PHONE_NUMBER_VALUE),
+                getMotherDetailsColumn(AppConstants.KEY.CAREGIVER_HIGHEST_EDUCATION),
+                getMotherDetailsColumn(AppConstants.KEY.CAREGIVER_RELIGION),
+                getMotherDetailsColumn(AppConstants.KEY.CAREGIVER_MARITAL_STATUS),
+                getMotherDetailsColumn(AppConstants.KEY.CAREGIVER_EMPLOYMENT),
+                getMotherDetailsColumn(AppConstants.KEY.CAREGIVER_NO_OF_CHILDREN),
+                getMotherDetailsColumn(AppConstants.KEY.CAREGIVER_LIVES),
+                getMotherDetailsColumn(AppConstants.KEY.CAREGIVER_NAME),
+                getMotherDetailsColumn(AppConstants.KEY.CAREGIVER_ADDRESS),
+                getMotherDetailsColumn(CAREGIVER_AGE),
                 getFatherDetailsColumn(FATHER_NATIONALITY),
                 getFatherDetailsColumn(FATHER_NATIONALITY_OTHER),
-                getFatherDetailsColumn(FATHER_PHONE) + "as " + FATHER_PHONE_NUMBER,
+                getChildDetailsColumn(AppConstants.KEY.BIRTH_LOCATION),
+                getChildDetailsColumn(AppConstants.KEY.ANC),
+                getChildDetailsColumn(AppConstants.KEY.NO_ANC),
                 getChildDetailsColumn(INACTIVE),
                 getChildDetailsColumn(LOST_TO_FOLLOW_UP),
                 getChildDetailsColumn(RELATIONAL_ID),
@@ -103,12 +120,15 @@ public class AppChildRegisterQueryProvider extends RegisterQueryProvider {
                 getChildDetailsColumn(SHOW_BCG2_REMINDER),
                 getChildDetailsColumn(BIRTH_REGISTRATION_NUMBER),
                 getChildDetailsColumn(CHILD_REG),
+                getChildDetailsColumn(AGE),
                 getChildDetailsColumn(PLACE_OF_BIRTH),
                 getChildDetailsColumn(GA_AT_BIRTH),
                 getChildDetailsColumn(FATHER_RELATIONAL_ID),
                 "mother.first_name                     as " + AppConstants.KEY.MOTHER_FIRST_NAME,
                 "mother.last_name                      as " + AppConstants.KEY.MOTHER_LAST_NAME,
+                "mother.middle_name                    as " + AppConstants.KEY.CAREGIVER_MIDDLE_NAME,
                 "mother.dob                            as " + MOTHER_DOB,
+                "mother.gender                         as " + AppConstants.KEY.CAREGIVER_SEX,
                 "father.first_name                     as " + AppConstants.KEY.FATHER_FIRST_NAME,
                 "father.last_name                      as " + AppConstants.KEY.FATHER_LAST_NAME,
                 "father.dob                            as " + FATHER_DOB

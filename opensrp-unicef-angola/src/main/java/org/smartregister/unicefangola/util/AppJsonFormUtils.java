@@ -68,9 +68,11 @@ public class AppJsonFormUtils extends ChildJsonFormUtils {
             JSONObject jsonObject = jsonArray.getJSONObject(i);
             prefix = getPrefix(jsonObject);
 
-            if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(Constants.KEY.PHOTO)) {
+            if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.CONSENT)) {
+                jsonObject.put(ChildJsonFormUtils.VALUE, "yes");
+            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.PIC_CHILD)) {
                 processPhoto(childDetails.get(Constants.KEY.BASE_ENTITY_ID), jsonObject);
-            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.DOB_UNKNOWN)) {
+            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.CAREGIVER_BIRTHDATE_UNKNOWN)) {
                 getDobUnknown(childDetails, jsonObject);
             } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(Constants.JSON_FORM_KEY.AGE)) {
                 processAge(Utils.getValue(childDetails, AppConstants.KEY.DOB, false), jsonObject);
@@ -84,18 +86,24 @@ public class AppJsonFormUtils extends ChildJsonFormUtils {
                 jsonObject.put(ChildJsonFormUtils.VALUE, middleName);
             } else if (jsonObject.has(JsonFormConstants.TREE)) {
                 processLocationTree(childDetails, jsonObject);
-            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase("mother_guardian_first_name")) {
+            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.CAREGIVER_FIRST_NAME)) {
                 String motherFirstName = Utils.getValue(childDetails, AppConstants.KEY.MOTHER_FIRST_NAME, true);
                 jsonObject.put(ChildJsonFormUtils.VALUE, motherFirstName);
-            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase("mother_guardian_last_name")) {
+            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.CAREGIVER_LAST_NAME)) {
                 String motherLastName = Utils.getValue(childDetails, AppConstants.KEY.MOTHER_LAST_NAME, true);
                 jsonObject.put(ChildJsonFormUtils.VALUE, motherLastName);
+            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.CAREGIVER_MIDDLE_NAME)) {
+                String motherMiddleName = Utils.getValue(childDetails, AppConstants.KEY.CAREGIVER_MIDDLE_NAME, true);
+                jsonObject.put(ChildJsonFormUtils.VALUE, motherMiddleName);
             } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.FATHER_FIRST_NAME)) {
                 String fatherFirstName = Utils.getValue(childDetails, AppConstants.KEY.FATHER_FIRST_NAME, true);
                 jsonObject.put(ChildJsonFormUtils.VALUE, fatherFirstName);
             } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.FATHER_LAST_NAME)) {
                 String fatherLastName = Utils.getValue(childDetails, AppConstants.KEY.FATHER_LAST_NAME, true);
                 jsonObject.put(ChildJsonFormUtils.VALUE, fatherLastName);
+            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.SURNAME)) {
+                String childLastName = Utils.getValue(childDetails, AppConstants.KEY.LAST_NAME, true);
+                jsonObject.put(ChildJsonFormUtils.VALUE, childLastName);
             } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase("mother_guardian_number")) {
                 String motherPhoneNumber = Utils.getValue(childDetails, "mother_phone_number", true);
                 jsonObject.put(ChildJsonFormUtils.VALUE, motherPhoneNumber);
@@ -170,10 +178,10 @@ public class AppJsonFormUtils extends ChildJsonFormUtils {
 
         //Update father details if it exists or create a new one
         if (form.has(Constants.KEY.FATHER) && childDetails.containsKey(AppConstants.KEY.FATHER_RELATIONAL_ID)
-                && childDetails.get(AppConstants.KEY.FATHER_RELATIONAL_ID) != null){
+                && childDetails.get(AppConstants.KEY.FATHER_RELATIONAL_ID) != null) {
             form.getJSONObject(Constants.KEY.FATHER).put(ENCOUNTER_TYPE, Constants.EventType.UPDATE_FATHER_DETAILS);
         }
-        if (form.has(Constants.KEY.MOTHER)){
+        if (form.has(Constants.KEY.MOTHER)) {
             form.getJSONObject(Constants.KEY.MOTHER).put(ENCOUNTER_TYPE, Constants.EventType.UPDATE_MOTHER_DETAILS);
         }
     }

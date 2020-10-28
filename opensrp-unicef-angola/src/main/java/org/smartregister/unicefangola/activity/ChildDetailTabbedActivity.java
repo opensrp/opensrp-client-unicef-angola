@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.vijay.jsonwizard.activities.JsonWizardFormActivity;
 import com.vijay.jsonwizard.constants.JsonFormConstants;
@@ -46,12 +47,52 @@ import static org.smartregister.unicefangola.util.AppUtils.setAppLocale;
  * Created by ndegwamartin on 06/03/2019.
  */
 public class ChildDetailTabbedActivity extends BaseChildDetailTabbedActivity {
-    private final static List<String> nonEditableFields = Arrays.asList("Sex", "zeir_id", "mother_rubella", "protected_at_birth");
+    private final static List<String> nonEditableFields = Arrays.asList(
+            AppConstants.KEY.CONSENT,
+            "zeir_id",
+            AppConstants.KEY.DATE_BIRTH,
+            AppConstants.KEY.SEX,
+            "birth_location",
+            "anc",
+            "no_anc",
+            AppConstants.KEY.CAREGIVER_FIRST_PHONE_NUMBER,
+            AppConstants.KEY.CAREGIVER_FIRST_PHONE_NUMBER_OWNER,
+            AppConstants.KEY.CAREGIVER_SECOND_PHONE_NUMBER,
+            AppConstants.KEY.CAREGIVER_SECOND_PHONE_NUMBER_OWNER,
+            "lives",
+            "highest_education",
+            "religion",
+            "marital_status",
+            "employment",
+            "no_children"
+    );
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getChildUnderFiveFragment().showRecurringServices(false);
+    }
+
+    @Override
+    protected String constructChildName() {
+        String firstName = org.smartregister.child.util.Utils.getValue(this.childDetails.getColumnmaps(), "first_name", true);
+        String lastName = org.smartregister.child.util.Utils.getValue(this.childDetails.getColumnmaps(), "last_name", true);
+        String middleName = org.smartregister.child.util.Utils.getValue(this.childDetails.getColumnmaps(), "middle_name", true);
+        if (middleName.isEmpty())
+            return firstName + " " + lastName;
+        return firstName + " " + middleName + " " + lastName;
+    }
+
+    @Override
+    public void renderProfileWidget(Map<String, String> childDetails) {
+        super.renderProfileWidget(childDetails);
+        TextView profileName = (TextView)this.findViewById(org.smartregister.child.R.id.name);
+        String firstName = org.smartregister.child.util.Utils.getValue(this.childDetails.getColumnmaps(), "first_name", true);
+        String lastName = org.smartregister.child.util.Utils.getValue(this.childDetails.getColumnmaps(), "last_name", true);
+        String middleName = org.smartregister.child.util.Utils.getValue(this.childDetails.getColumnmaps(), "middle_name", true);
+        if (middleName.isEmpty())
+            profileName.setText(String.format("%s %s", firstName, lastName));
+        profileName.setText(String.format("%s %s %s", firstName, middleName, lastName));
     }
 
     @Override

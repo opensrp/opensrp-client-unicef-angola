@@ -9,9 +9,9 @@ actions:
 name: step1_caregiver_name
 description: This will concatinate Firs, middle and surname fields
 priority: 1
-condition: "step1_caregiver_first_name != '' && step1_caregiver_middle_name != '' && step1_caregiver_surname != ''"
+condition: "step1_caregiver_first_name != '' && step1_caregiver_surname != ''"
 actions:
-  - "calculation = step1_caregiver_first_name+' '+step1_caregiver_middle_name+' '+step1_caregiver_surname"
+  - "calculation = ((step1_caregiver_middle_name != '') ? step1_caregiver_first_name+' '+step1_caregiver_middle_name+' '+step1_caregiver_surname : step1_caregiver_first_name+' '+step1_caregiver_surname)"
 ---
 name: step1_tel1
 description: This will concatinate region code with number

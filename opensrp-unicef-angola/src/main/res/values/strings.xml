@@ -46,7 +46,7 @@
 
     <!-- Override labels in profile and immunization section -->
 <!--    <string name="label_zeir">IDV NUMBER</string>-->
-    <string name="system_id_colon">IDV NUMBER:</string>
+    <string name="system_id_colon">ID:</string>
     <string name="settings">Settings</string>
 
     <string name="loading">Loading</string>

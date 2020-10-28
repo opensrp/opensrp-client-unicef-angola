@@ -280,14 +280,14 @@
         "hint": "Sex",
         "options": [
           {
-            "key": "male",
+            "key": "Male",
             "openmrs_entity": "",
             "openmrs_entity_id": "NA",
             "openmrs_entity_parent": "",
             "text": "Male"
           },
           {
-            "key": "female",
+            "key": "Female",
             "openmrs_entity": "",
             "openmrs_entity_id": "NA",
             "openmrs_entity_parent": "",
@@ -578,7 +578,7 @@
         }
       },
       {
-        "key": "caregiver_age",
+        "key": "Mother_Guardian_Age",
         "openmrs_entity_parent": "",
         "openmrs_entity": "person_attribute",
         "openmrs_entity_id": "caregiver_age",
@@ -757,12 +757,13 @@
         "entity_id": "mother",
         "edit_type": "number",
         "hint": "Second telephone number",
-        "v_regex": {
-          "value": "^(?:\\d{9}|)$",
-          "err": "Please enter a 9 digit telephone number"
-        },
         "v_required": {
-          "value": "false"
+          "value": "true",
+          "err": "Please enter second telephone number"
+        },
+        "v_regex": {
+          "value": "^[0-9]{9}$",
+          "err": "Please enter a 9 digit telephone number"
         },
         "relevance": {
           "rules-engine": {

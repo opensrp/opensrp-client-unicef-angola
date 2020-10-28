@@ -10,6 +10,12 @@ public class AppConstants {
 
     public static final class KEY {
         public static final String CHILD = "child";
+        public static final String CONSENT = "consent";
+        public static final String PIC_CHILD = "pic_child";
+        public static final String CAREGIVER_FIRST_NAME = "caregiver_first_name";
+        public static final String CAREGIVER_MIDDLE_NAME = "caregiver_middle_name";
+        public static final String CAREGIVER_LAST_NAME = "caregiver_surname";
+        public static final String CAREGIVER_SEX = "caregiver_sex";
         public static final String MOTHER_FIRST_NAME = "mother_first_name";
         public static final String FATHER_FIRST_NAME = "father_first_name";
         public static final String FATHER_LAST_NAME = "father_last_name";
@@ -34,6 +40,12 @@ public class AppConstants {
         public static final String DATE_REMOVED = "date_removed";
         public static final String MOTHER_NRC_NUMBER = "nrc_number";
         public static final String SECOND_PHONE_NUMBER = "second_phone_number";
+        public static final String CAREGIVER_FIRST_PHONE_NUMBER = "tel_number1";
+        public static final String CAREGIVER_FIRST_PHONE_NUMBER_OWNER = "tel_owner1";
+        public static final String CAREGIVER_FIRST_PHONE_NUMBER_VALUE = "tel1";
+        public static final String CAREGIVER_SECOND_PHONE_NUMBER = "tel_number2";
+        public static final String CAREGIVER_SECOND_PHONE_NUMBER_OWNER = "tel_owner2";
+        public static final String CAREGIVER_SECOND_PHONE_NUMBER_VALUE = "tel2";
         public static final String VIEW_CONFIGURATION_PREFIX = "ViewConfiguration_";
         public static final String HOME_FACILITY = "home_address";
         public static final String APP_ID = "mer_id";
@@ -83,6 +95,22 @@ public class AppConstants {
         public static final String CHILD_REG = "child_reg";
         public static final String GA_AT_BIRTH = "ga_at_birth";
         public static final String PLACE_OF_BIRTH = "place_of_birth";
+        public static final String AGE = "age";
+        public static final String SEX = "Sex";
+        public static final String BIRTH_LOCATION = "birth_location";
+        public static final String ANC = "anc";
+        public static final String NO_ANC = "no_anc";
+        public static final String CAREGIVER_HIGHEST_EDUCATION = "highest_education";
+        public static final String CAREGIVER_RELIGION = "religion";
+        public static final String CAREGIVER_MARITAL_STATUS = "marital_status";
+        public static final String CAREGIVER_EMPLOYMENT = "employment";
+        public static final String CAREGIVER_NO_OF_CHILDREN = "no_children";
+        public static final String CAREGIVER_AGE = "caregiver_age";
+        public static final String CAREGIVER_LIVES = "lives";
+        public static final String CAREGIVER_BIRTHDATE_UNKNOWN = "Mother_Guardian_Date_Birth_Unknown";
+        public static final String CAREGIVER_NAME = "caregiver_name";
+        public static final String SURNAME = "surname";
+        public static final String CAREGIVER_ADDRESS = "address";
     }
 
     public static final class DrawerMenu {

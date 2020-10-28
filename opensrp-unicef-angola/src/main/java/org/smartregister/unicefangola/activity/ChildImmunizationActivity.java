@@ -48,6 +48,8 @@ public class ChildImmunizationActivity extends BaseChildImmunizationActivity {
         String firstName = Utils.getValue(this.childDetails.getColumnmaps(), "first_name", true);
         String lastName = Utils.getValue(this.childDetails.getColumnmaps(), "last_name", true);
         String middleName = Utils.getValue(this.childDetails.getColumnmaps(), "middle_name", true);
+        if (middleName.isEmpty())
+            return firstName + " " + lastName;
         return firstName + " " + middleName + " " + lastName;
     }
 
