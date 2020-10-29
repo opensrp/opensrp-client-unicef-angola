@@ -70,7 +70,7 @@ public class AppJsonFormUtils extends ChildJsonFormUtils {
 
             if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.CONSENT)) {
                 jsonObject.put(ChildJsonFormUtils.VALUE, "yes");
-            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.PIC_CHILD)) {
+            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(Constants.KEY.PHOTO)) {
                 processPhoto(childDetails.get(Constants.KEY.BASE_ENTITY_ID), jsonObject);
             } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.CAREGIVER_BIRTHDATE_UNKNOWN)) {
                 getDobUnknown(childDetails, jsonObject);
