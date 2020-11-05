@@ -309,10 +309,12 @@ public class NavigationMenu implements NavigationContract.View, SyncStatusBroadc
         languageSpinner.setOnItemSelectedListener(null);
         String langPref = LangUtils.getLanguage(activity.getApplicationContext());
         for (int i = 0; i < langArray.length; i++) {
-
-            if (langPref != null && langArray[i].toLowerCase().startsWith(langPref)) {
-                languageSpinner.setSelection(i);
-                break;
+            if (langPref != null) {
+                Locale locale = new Locale(langPref);
+                if (langArray[i].toLowerCase().equalsIgnoreCase(locale.getDisplayLanguage(locale)))
+                    languageSpinner.setSelection(i);
+                else
+                    languageSpinner.setSelection(0);
             } else {
                 languageSpinner.setSelection(0);
             }
@@ -330,12 +332,8 @@ public class NavigationMenu implements NavigationContract.View, SyncStatusBroadc
                     String lang = adapter.getItem(i).toString().toLowerCase();
                     Locale LOCALE;
                     switch (lang) {
-                        case "français":
-                            LOCALE = Locale.FRENCH;
-                            break;
-                        case "عربى":
-                        case "العربية":
-                            LOCALE = new Locale(AppConstants.LOCALE.ARABIC_LOCALE);
+                        case "português":
+                            LOCALE = new Locale(AppConstants.LOCALE.PORTUGUESE_LOCALE);
                             languageSpinner.setSelection(i);
                             break;
                         default:

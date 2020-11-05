@@ -5,7 +5,7 @@ public class AppConstants {
     public static final String REACTION_VACCINE = "Reaction_Vaccine";
 
     public interface LOCALE {
-        String ARABIC_LOCALE = "ar";
+        String PORTUGUESE_LOCALE = "pt";
     }
 
     public static final class KEY {
