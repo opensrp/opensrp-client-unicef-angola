@@ -25,4 +25,4 @@ description: This will concatinate region code with number
 priority: 1
 condition: "step1_tel_number2 != ''"
 actions:
-  - "calculation = '+244'+step1_tel_number2"
+  - "calculation = ((step1_tel_number2 != empty) ? '+244'+step1_tel_number2 : ''"

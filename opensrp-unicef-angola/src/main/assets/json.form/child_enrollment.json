@@ -102,10 +102,11 @@
         "type": "label",
         "text": "Child Details",
         "has_bg": true,
-        "text_color": "#000000",
+        "bg_color" : "#148bc7",
+        "text_color": "#FFFFFF",
         "left_padding": "20dp",
         "right_padding": "20dp",
-        "text_size": "28sp",
+        "text_size": "26sp",
         "label_text_style": "bold",
         "openmrs_entity_parent": "",
         "openmrs_entity": "",
@@ -243,9 +244,13 @@
         "type": "date_picker",
         "hint": "Date of birth",
         "max_date": "today",
+        "min_date": "today-2m",
         "v_required": {
           "value": "true",
           "err": "Please enter child date of birth"
+        },
+        "duration": {
+          "label": "Age"
         },
         "relevance": {
           "rules-engine": {
@@ -419,10 +424,11 @@
         "type": "label",
         "text": "Caregiver Details",
         "has_bg": true,
-        "text_color": "#000000",
+        "bg_color" : "#148bc7",
+        "text_color": "#FFFFFF",
         "left_padding": "20dp",
         "right_padding": "20dp",
-        "text_size": "28sp",
+        "text_size": "26sp",
         "label_text_style": "bold",
         "openmrs_entity_parent": "",
         "openmrs_entity": "",
@@ -757,12 +763,8 @@
         "entity_id": "mother",
         "edit_type": "number",
         "hint": "Second telephone number",
-        "v_required": {
-          "value": "true",
-          "err": "Please enter second telephone number"
-        },
         "v_regex": {
-          "value": "^[0-9]{9}$",
+          "value": "^(?:\\d{9}|)$",
           "err": "Please enter a 9 digit telephone number"
         },
         "relevance": {

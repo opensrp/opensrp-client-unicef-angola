@@ -164,7 +164,7 @@ actions:
 name: step1_tel_owner2
 description: show if consented
 priority: 1
-condition: "step1_consent == 'yes'"
+condition: "step1_consent == 'yes' && step1_tel_number2 != empty"
 actions:
   - "isRelevant = true"
 ---
