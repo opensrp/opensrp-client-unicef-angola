@@ -1,5 +1,6 @@
 package org.smartregister.unicefangola.activity;
 
+import android.annotation.SuppressLint;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
@@ -55,10 +56,10 @@ public class ChildDetailTabbedActivity extends BaseChildDetailTabbedActivity {
             "birth_location",
             "anc",
             "no_anc",
-            AppConstants.KEY.CAREGIVER_FIRST_PHONE_NUMBER,
-            AppConstants.KEY.CAREGIVER_FIRST_PHONE_NUMBER_OWNER,
-            AppConstants.KEY.CAREGIVER_SECOND_PHONE_NUMBER,
-            AppConstants.KEY.CAREGIVER_SECOND_PHONE_NUMBER_OWNER,
+//            AppConstants.KEY.CAREGIVER_FIRST_PHONE_NUMBER,
+//            AppConstants.KEY.CAREGIVER_FIRST_PHONE_NUMBER_OWNER,
+//            AppConstants.KEY.CAREGIVER_SECOND_PHONE_NUMBER,
+//            AppConstants.KEY.CAREGIVER_SECOND_PHONE_NUMBER_OWNER,
             "lives",
             "highest_education",
             "religion",
@@ -126,6 +127,7 @@ public class ChildDetailTabbedActivity extends BaseChildDetailTabbedActivity {
         return true;
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         detailsMap = ChildDbUtils.fetchChildDetails(getChildDetails().entityId());
