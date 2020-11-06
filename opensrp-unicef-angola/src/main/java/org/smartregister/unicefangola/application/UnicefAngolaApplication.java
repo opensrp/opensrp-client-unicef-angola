@@ -250,7 +250,7 @@ public class UnicefAngolaApplication extends DrishtiApplication implements TimeC
         ImmunizationLibrary.init(context, getRepository(), createCommonFtsObject(context.applicationContext()),
                 BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
         ImmunizationLibrary.getInstance().setVaccineSyncTime(3, TimeUnit.MINUTES);
-        ImmunizationLibrary.getInstance().getConditionalVaccinesMap().put(AppConstants.ConditionalVaccines.PRETERM_VACCINES, "preterm_vaccines.json");
+//        ImmunizationLibrary.getInstance().getConditionalVaccinesMap().put(AppConstants.ConditionalVaccines.PRETERM_VACCINES, "preterm_vaccines.json");
         fixHardcodedVaccineConfiguration();
 
         ConfigurableViewsLibrary.init(context);
@@ -305,7 +305,7 @@ public class UnicefAngolaApplication extends DrishtiApplication implements TimeC
             List<Vaccine> specialVaccines = VaccinatorUtils.getSpecialVaccines(this);
             VaccineSchedule.init(childVaccines, specialVaccines, AppConstants.KEY.CHILD);
         } catch (Exception e) {
-            Timber.e(e, "UnicefTunisiaApplication --> initOfflineSchedules");
+            Timber.e(e, "UnicefAngolaApplication --> initOfflineSchedules");
         }
     }
 
@@ -434,7 +434,7 @@ public class UnicefAngolaApplication extends DrishtiApplication implements TimeC
         VaccineRepo.Vaccine[] vaccines = ImmunizationLibrary.getInstance().getVaccines();
 
         HashMap<String, VaccineDuplicate> replacementVaccines = new HashMap<>();
-        replacementVaccines.put("BCG 2", new VaccineDuplicate("BCG 2", VaccineRepo.Vaccine.bcg, 1825, 0, 15, "child"));
+//        replacementVaccines.put("BCG 2", new VaccineDuplicate("BCG 2", VaccineRepo.Vaccine.bcg, 1825, 0, 15, "child"));
 
         for (VaccineRepo.Vaccine vaccine : vaccines) {
             if (replacementVaccines.containsKey(vaccine.display())) {

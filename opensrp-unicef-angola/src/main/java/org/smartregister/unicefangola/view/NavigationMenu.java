@@ -38,8 +38,6 @@ import org.smartregister.domain.FetchStatus;
 import org.smartregister.receiver.SyncStatusBroadcastReceiver;
 import org.smartregister.reporting.service.IndicatorGeneratorIntentService;
 import org.smartregister.unicefangola.R;
-import org.smartregister.unicefangola.activity.ChildRegisterActivity;
-import org.smartregister.unicefangola.activity.HIA2ReportsActivity;
 import org.smartregister.unicefangola.application.UnicefAngolaApplication;
 import org.smartregister.unicefangola.contract.NavigationContract;
 import org.smartregister.unicefangola.presenter.NavigationPresenter;
@@ -62,7 +60,7 @@ public class NavigationMenu implements NavigationContract.View, SyncStatusBroadc
     private LinearLayout syncMenuItem;
     private LinearLayout outOfAreaMenu;
     private LinearLayout registerView;
-    private LinearLayout reportView;
+//    private LinearLayout reportView;
     private TextView loggedInUserTextView;
     private TextView userInitialsTextView;
     private TextView syncTextView;
@@ -99,7 +97,7 @@ public class NavigationMenu implements NavigationContract.View, SyncStatusBroadc
             prepareViews(activity);
             appLogout(activity);
             syncApp(activity);
-            goToReport();
+//            goToReport();
             recordOutOfArea(activity);
             attachCloseDrawer();
             goToRegister();
@@ -118,7 +116,7 @@ public class NavigationMenu implements NavigationContract.View, SyncStatusBroadc
         syncMenuItem = activity.findViewById(R.id.sync_menu);
         outOfAreaMenu = activity.findViewById(R.id.out_of_area_menu);
         registerView = activity.findViewById(R.id.register_view);
-        reportView = activity.findViewById(R.id.report_view);
+//        reportView = activity.findViewById(R.id.report_view);
         loggedInUserTextView = activity.findViewById(R.id.logged_in_user_text_view);
         userInitialsTextView = activity.findViewById(R.id.user_initials_text_view);
         syncTextView = activity.findViewById(R.id.sync_text_view);
@@ -190,9 +188,9 @@ public class NavigationMenu implements NavigationContract.View, SyncStatusBroadc
         });
     }
 
-    private void goToReport() {
-        reportView.setOnClickListener(v -> startReportActivity());
-    }
+//    private void goToReport() {
+//        reportView.setOnClickListener(v -> startReportActivity());
+//    }
 
     private void recordOutOfArea(final Activity parentActivity) {
         outOfAreaMenu.setOnClickListener(v -> startFormActivity(parentActivity));
@@ -212,15 +210,15 @@ public class NavigationMenu implements NavigationContract.View, SyncStatusBroadc
     }
 
     private void goToRegister() {
-        registerView.setOnClickListener(v -> {
-            if (activityWeakReference.get() instanceof HIA2ReportsActivity) {
-                // start register activity
-                Intent intent = new Intent(activityWeakReference.get(), ChildRegisterActivity.class);
-                activityWeakReference.get().startActivity(intent);
-            } else {
+//        registerView.setOnClickListener(v -> {
+//            if (activityWeakReference.get() instanceof HIA2ReportsActivity) {
+//                 start register activity
+//                Intent intent = new Intent(activityWeakReference.get(), ChildRegisterActivity.class);
+//                activityWeakReference.get().startActivity(intent);
+//            } else {
                 drawer.closeDrawer(GravityCompat.START);
-            }
-        });
+//            }
+//        });
     }
 
     @Override
@@ -361,7 +359,7 @@ public class NavigationMenu implements NavigationContract.View, SyncStatusBroadc
         fromActivity.getApplicationContext().startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
     }
 
-    private void startReportActivity() {
+    /*private void startReportActivity() {
 
         if (activityWeakReference.get() instanceof HIA2ReportsActivity) {
             drawer.closeDrawer(GravityCompat.START);
@@ -370,7 +368,7 @@ public class NavigationMenu implements NavigationContract.View, SyncStatusBroadc
         Intent intent = new Intent(activityWeakReference.get(), HIA2ReportsActivity.class);
         activityWeakReference.get().startActivity(intent);
         drawer.closeDrawer(GravityCompat.START);
-    }
+    }*/
 
     public void openDrawer() {
         drawer.openDrawer(GravityCompat.START);

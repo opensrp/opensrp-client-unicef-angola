@@ -33,9 +33,9 @@ public class ReportRegisterActivity extends BaseActivity {
         ListView listView = findViewById(R.id.lv_reportRegister_groupings);
         TextView titleTv = findViewById(R.id.title);
 
-        if (titleTv != null) {
-            titleTv.setText(R.string.dhis2_reports);
-        }
+//        if (titleTv != null) {
+//            titleTv.setText(R.string.dhis2_reports);
+//        }
 
         reportSyncBtn = findViewById(R.id.report_sync_btn);
         reportSyncBtn.setOnClickListener(v -> AppUtils.startReportJob(getApplicationContext()));

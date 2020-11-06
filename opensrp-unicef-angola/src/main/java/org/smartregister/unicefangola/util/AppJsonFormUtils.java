@@ -92,24 +92,24 @@ public class AppJsonFormUtils extends ChildJsonFormUtils {
             } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.CAREGIVER_LAST_NAME)) {
                 String motherLastName = Utils.getValue(childDetails, AppConstants.KEY.MOTHER_LAST_NAME, true);
                 jsonObject.put(ChildJsonFormUtils.VALUE, motherLastName);
-            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.CAREGIVER_MIDDLE_NAME)) {
-                String motherMiddleName = Utils.getValue(childDetails, AppConstants.KEY.CAREGIVER_MIDDLE_NAME, true);
-                jsonObject.put(ChildJsonFormUtils.VALUE, motherMiddleName);
-            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.FATHER_FIRST_NAME)) {
-                String fatherFirstName = Utils.getValue(childDetails, AppConstants.KEY.FATHER_FIRST_NAME, true);
-                jsonObject.put(ChildJsonFormUtils.VALUE, fatherFirstName);
-            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.FATHER_LAST_NAME)) {
-                String fatherLastName = Utils.getValue(childDetails, AppConstants.KEY.FATHER_LAST_NAME, true);
-                jsonObject.put(ChildJsonFormUtils.VALUE, fatherLastName);
+//            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.CAREGIVER_MIDDLE_NAME)) {
+//                String motherMiddleName = Utils.getValue(childDetails, AppConstants.KEY.CAREGIVER_MIDDLE_NAME, true);
+//                jsonObject.put(ChildJsonFormUtils.VALUE, motherMiddleName);
+//            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.FATHER_FIRST_NAME)) {
+//                String fatherFirstName = Utils.getValue(childDetails, AppConstants.KEY.FATHER_FIRST_NAME, true);
+//                jsonObject.put(ChildJsonFormUtils.VALUE, fatherFirstName);
+//            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.FATHER_LAST_NAME)) {
+//                String fatherLastName = Utils.getValue(childDetails, AppConstants.KEY.FATHER_LAST_NAME, true);
+//                jsonObject.put(ChildJsonFormUtils.VALUE, fatherLastName);
             } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.SURNAME)) {
                 String childLastName = Utils.getValue(childDetails, AppConstants.KEY.LAST_NAME, true);
                 jsonObject.put(ChildJsonFormUtils.VALUE, childLastName);
-            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase("mother_guardian_number")) {
-                String motherPhoneNumber = Utils.getValue(childDetails, "mother_phone_number", true);
-                jsonObject.put(ChildJsonFormUtils.VALUE, motherPhoneNumber);
-            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.FATHER_PHONE)) {
-                String fatherPhoneNumber = Utils.getValue(childDetails, "father_phone_number", true);
-                jsonObject.put(ChildJsonFormUtils.VALUE, fatherPhoneNumber);
+//            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase("mother_guardian_number")) {
+//                String motherPhoneNumber = Utils.getValue(childDetails, "mother_phone_number", true);
+//                jsonObject.put(ChildJsonFormUtils.VALUE, motherPhoneNumber);
+//            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.FATHER_PHONE)) {
+//                String fatherPhoneNumber = Utils.getValue(childDetails, "father_phone_number", true);
+//                jsonObject.put(ChildJsonFormUtils.VALUE, fatherPhoneNumber);
             } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.SECOND_PHONE_NUMBER)) {
                 String secondPhone = Utils.getValue(childDetails, "mother_second_phone_number", true);
                 jsonObject.put(ChildJsonFormUtils.VALUE, secondPhone);

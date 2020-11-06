@@ -56,10 +56,6 @@ public class ChildDetailTabbedActivity extends BaseChildDetailTabbedActivity {
             "birth_location",
             "anc",
             "no_anc",
-//            AppConstants.KEY.CAREGIVER_FIRST_PHONE_NUMBER,
-//            AppConstants.KEY.CAREGIVER_FIRST_PHONE_NUMBER_OWNER,
-//            AppConstants.KEY.CAREGIVER_SECOND_PHONE_NUMBER,
-//            AppConstants.KEY.CAREGIVER_SECOND_PHONE_NUMBER_OWNER,
             "lives",
             "highest_education",
             "religion",
@@ -123,7 +119,9 @@ public class ChildDetailTabbedActivity extends BaseChildDetailTabbedActivity {
         overflow.findItem(org.smartregister.child.R.id.register_card).setVisible(false);
         overflow.findItem(org.smartregister.child.R.id.write_to_card).setVisible(false);
         overflow.findItem(org.smartregister.child.R.id.recurring_services_data).setVisible(false);
-        overflow.findItem(org.smartregister.child.R.id.record_dynamic_vaccines).setVisible(true);
+        overflow.findItem(org.smartregister.child.R.id.report_deceased).setVisible(false);
+        overflow.findItem(org.smartregister.child.R.id.report_adverse_event).setVisible(false);
+        overflow.findItem(org.smartregister.child.R.id.record_dynamic_vaccines).setVisible(false);
         return true;
     }
 
@@ -152,18 +150,18 @@ public class ChildDetailTabbedActivity extends BaseChildDetailTabbedActivity {
                 }
                 return true;
 
-            case R.id.recurring_services_data:
-                if (viewPager.getCurrentItem() != 1) {
-                    viewPager.setCurrentItem(1);
-                }
-                Utils.startAsyncTask(
-                        new LoadAsyncTask(org.smartregister.child.enums.Status.EDIT_SERVICE, detailsMap, getChildDetails(), this, getChildDataFragment(), getChildUnderFiveFragment(), getOverflow()),
-                        null);
-                saveButton.setVisibility(View.VISIBLE);
-                for (int i = 0; i < overflow.size(); i++) {
-                    overflow.getItem(i).setVisible(false);
-                }
-                return true;
+//            case R.id.recurring_services_data:
+//                if (viewPager.getCurrentItem() != 1) {
+//                    viewPager.setCurrentItem(1);
+//                }
+//                Utils.startAsyncTask(
+//                        new LoadAsyncTask(org.smartregister.child.enums.Status.EDIT_SERVICE, detailsMap, getChildDetails(), this, getChildDataFragment(), getChildUnderFiveFragment(), getOverflow()),
+//                        null);
+//                saveButton.setVisibility(View.VISIBLE);
+//                for (int i = 0; i < overflow.size(); i++) {
+//                    overflow.getItem(i).setVisible(false);
+//                }
+//                return true;
             case R.id.weight_data:
                 if (viewPager.getCurrentItem() != 1) {
                     viewPager.setCurrentItem(1);
@@ -175,10 +173,10 @@ public class ChildDetailTabbedActivity extends BaseChildDetailTabbedActivity {
                 }
                 return true;
 
-            case R.id.report_deceased:
-                String reportDeceasedMetadata = getReportDeceasedMetadata();
-                startFormActivity(reportDeceasedMetadata);
-                return true;
+//            case R.id.report_deceased:
+//                String reportDeceasedMetadata = getReportDeceasedMetadata();
+//                startFormActivity(reportDeceasedMetadata);
+//                return true;
             case R.id.change_status:
                 FragmentTransaction ft = this.getFragmentManager().beginTransaction();
                 android.app.Fragment prev = this.getFragmentManager().findFragmentByTag(DIALOG_TAG);
@@ -187,15 +185,15 @@ public class ChildDetailTabbedActivity extends BaseChildDetailTabbedActivity {
                 }
                 StatusEditDialogFragment.newInstance(detailsMap).show(ft, DIALOG_TAG);
                 return true;
-            case R.id.report_adverse_event:
-                return launchAdverseEventForm();
-            case R.id.record_dynamic_vaccines:
-                if (getExtraChildVaccines().size() < 10) {
-                    launchDynamicVaccinesForm(AppConstants.JsonForm.DYNAMIC_VACCINES, Constants.KEY.PRIVATE_SECTOR_VACCINE);
-                } else {
-                    Utils.showToast(this, getString(R.string.maximum_extra_vaccines_reached));
-                }
-                return true;
+//            case R.id.report_adverse_event:
+//                return launchAdverseEventForm();
+//            case R.id.record_dynamic_vaccines:
+//                if (getExtraChildVaccines().size() < 10) {
+//                    launchDynamicVaccinesForm(AppConstants.JsonForm.DYNAMIC_VACCINES, Constants.KEY.PRIVATE_SECTOR_VACCINE);
+//                } else {
+//                    Utils.showToast(this, getString(R.string.maximum_extra_vaccines_reached));
+//                }
+//                return true;
             default:
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
@@ -221,7 +219,7 @@ public class ChildDetailTabbedActivity extends BaseChildDetailTabbedActivity {
             if (formJson.has(JsonFormConstants.ENCOUNTER_TYPE) &&
                     formJson.getString(JsonFormConstants.ENCOUNTER_TYPE).equalsIgnoreCase(Constants.EventType.AEFI)) {
                 form.setWizard(true);
-                form.setName(getString(R.string.adverse_effects));
+//                form.setName(getString(R.string.adverse_effects));
                 form.setHideSaveLabel(true);
                 form.setNextLabel(getString(R.string.next));
                 form.setPreviousLabel(getString(R.string.previous));
