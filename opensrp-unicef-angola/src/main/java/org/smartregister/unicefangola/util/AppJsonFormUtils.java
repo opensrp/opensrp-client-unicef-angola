@@ -137,8 +137,6 @@ public class AppJsonFormUtils extends ChildJsonFormUtils {
             String entityId = jsonObject.getString(ChildJsonFormUtils.ENTITY_ID);
             if (!TextUtils.isEmpty(entityId) && entityId.equalsIgnoreCase(Constants.KEY.MOTHER))
                 prefix = "mother_";
-            else if (!TextUtils.isEmpty(entityId) && entityId.equalsIgnoreCase(Constants.KEY.FATHER))
-                prefix = "father_";
         }
         return prefix;
     }
@@ -177,10 +175,6 @@ public class AppJsonFormUtils extends ChildJsonFormUtils {
         }
 
         //Update father details if it exists or create a new one
-        if (form.has(Constants.KEY.FATHER) && childDetails.containsKey(AppConstants.KEY.FATHER_RELATIONAL_ID)
-                && childDetails.get(AppConstants.KEY.FATHER_RELATIONAL_ID) != null) {
-            form.getJSONObject(Constants.KEY.FATHER).put(ENCOUNTER_TYPE, Constants.EventType.UPDATE_FATHER_DETAILS);
-        }
         if (form.has(Constants.KEY.MOTHER)) {
             form.getJSONObject(Constants.KEY.MOTHER).put(ENCOUNTER_TYPE, Constants.EventType.UPDATE_MOTHER_DETAILS);
         }
