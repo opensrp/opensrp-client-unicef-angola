@@ -2,6 +2,7 @@ package org.smartregister.unicefangola.activity;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +20,7 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.robolectric.Robolectric;
 import org.robolectric.android.controller.ActivityController;
+import org.robolectric.shadows.ShadowApplication;
 import org.robolectric.util.ReflectionHelpers;
 import org.smartregister.unicefangola.BaseActivityUnitTest;
 import org.smartregister.unicefangola.R;
@@ -210,4 +212,25 @@ public class LoginActivityTest extends BaseActivityUnitTest {
     protected ActivityController<LoginActivity> getActivityController() {
         return controller;
     }
+
+    @Test
+    public void testGoToHomeRegisterWithRemoteTrue() {
+        LoginActivity spyActivity = Mockito.spy(loginActivity);
+        spyActivity.goToHome(true);
+        assertActivityStarted(spyActivity, new ChildRegisterActivity());
+    }
+
+    @Test
+    public void testGoToHomeRegisterWithRemote() {
+        LoginActivity spyActivity = Mockito.spy(loginActivity);
+        spyActivity.goToHome(false);
+        assertActivityStarted(spyActivity, new ChildRegisterActivity());
+    }
+
+    private void assertActivityStarted(Activity currActivity, Activity nextActivity) {
+        Intent expectedIntent = new Intent(currActivity, nextActivity.getClass());
+        Intent actual = ShadowApplication.getInstance().getNextStartedActivity();
+        Assert.assertEquals(expectedIntent.getComponent(), actual.getComponent());
+    }
+
 }
