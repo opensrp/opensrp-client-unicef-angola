@@ -7,13 +7,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.robolectric.Robolectric;
 import org.robolectric.android.controller.ActivityController;
-import org.smartregister.child.domain.ChildMetadata;
-import org.smartregister.child.util.Utils;
 import org.smartregister.unicefangola.BaseActivityUnitTest;
 
 
@@ -35,6 +32,7 @@ public class ChildRegisterActivityTest extends BaseActivityUnitTest {
         return childRegisterActivity;
     }
 
+    @SuppressWarnings("rawtypes")
     @Override
     protected ActivityController getActivityController() {
         return controller;
