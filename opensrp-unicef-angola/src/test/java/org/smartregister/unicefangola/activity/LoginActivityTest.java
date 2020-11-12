@@ -227,10 +227,4 @@ public class LoginActivityTest extends BaseActivityUnitTest {
         assertActivityStarted(spyActivity, new ChildRegisterActivity());
     }
 
-    private void assertActivityStarted(Activity currActivity, Activity nextActivity) {
-        Intent expectedIntent = new Intent(currActivity, nextActivity.getClass());
-        Intent actual = ShadowApplication.getInstance().getNextStartedActivity();
-        Assert.assertEquals(expectedIntent.getComponent(), actual.getComponent());
-    }
-
 }
