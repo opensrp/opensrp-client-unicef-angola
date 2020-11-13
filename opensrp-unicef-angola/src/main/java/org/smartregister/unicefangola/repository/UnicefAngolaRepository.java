@@ -70,32 +70,9 @@ public class UnicefAngolaRepository extends Repository {
 
         ClientRegisterTypeRepository.createTable(database);
         ChildAlertUpdatedRepository.createTable(database);
-        //reporting
-        IndicatorRepository.createTable(database);
-        IndicatorQueryRepository.createTable(database);
-        DailyIndicatorCountRepository.createTable(database);
-
-//        EventClientRepository.createTable(database, Hia2ReportRepository.Table.hia2_report, Hia2ReportRepository.report_column.values());
 
         runLegacyUpgrades(database);
-
         onUpgrade(database, 10, BuildConfig.DATABASE_VERSION);
-
-        // initialize from yml file
-        ReportingLibrary reportingLibraryInstance = ReportingLibrary.getInstance();
-        // Check if indicator data initialised
-        String indicatorDataInitialisedPref = AppConstants.Pref.INDICATOR_DATA_INITIALISED;
-        boolean indicatorDataInitialised = Boolean.parseBoolean(reportingLibraryInstance.getContext()
-                .allSharedPreferences().getPreference(indicatorDataInitialisedPref));
-        boolean isUpdated = checkIfAppUpdated();
-        if (!indicatorDataInitialised || isUpdated) {
-            Timber.d("Initialising indicator repositories!!");
-            //Reinstate when reporting work begins
-//            String indicatorsConfigFile = AppConstants.File.INDICATOR_CONFIG_FILE;
-//            reportingLibraryInstance.initIndicatorData(indicatorsConfigFile, database); // This will persist the data in the DB
-//            reportingLibraryInstance.getContext().allSharedPreferences().savePreference(indicatorDataInitialisedPref, "true");
-//            reportingLibraryInstance.getContext().allSharedPreferences().savePreference(appVersionCodePref, String.valueOf(BuildConfig.VERSION_CODE));
-        }
     }
 
 
