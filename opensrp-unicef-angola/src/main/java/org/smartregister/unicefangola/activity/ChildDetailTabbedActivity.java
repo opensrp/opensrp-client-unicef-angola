@@ -28,7 +28,6 @@ import org.smartregister.unicefangola.fragment.ChildRegistrationDataFragment;
 import org.smartregister.unicefangola.util.AppConstants;
 import org.smartregister.unicefangola.util.AppJsonFormUtils;
 import org.smartregister.unicefangola.util.AppUtils;
-import org.smartregister.unicefangola.util.VaccineUtils;
 import org.smartregister.util.FormUtils;
 import org.smartregister.util.JsonFormUtils;
 import org.smartregister.util.Utils;
@@ -293,8 +292,8 @@ public class ChildDetailTabbedActivity extends BaseChildDetailTabbedActivity {
     @Override
     public void onRegistrationSaved(boolean isEdit) {
         super.onRegistrationSaved(isEdit);
-        if (isEdit) {
-            VaccineUtils.refreshImmunizationSchedules(childDetails.getCaseId());
-        }
+//        if (isEdit) {
+//            VaccineUtils.refreshImmunizationSchedules(childDetails.getCaseId());
+//        }
     }
 }

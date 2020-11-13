@@ -17,7 +17,6 @@ import org.smartregister.commonregistry.CommonPersonObjectClient;
 import org.smartregister.immunization.job.VaccineSchedulesUpdateJob;
 import org.smartregister.unicefangola.application.UnicefAngolaApplication;
 import org.smartregister.unicefangola.util.AppUtils;
-import org.smartregister.unicefangola.util.VaccineUtils;
 
 import java.util.Calendar;
 import java.util.Map;
@@ -36,7 +35,7 @@ public class ChildImmunizationActivity extends BaseChildImmunizationActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        VaccineUtils.refreshImmunizationSchedules(childDetails.getCaseId());
+//        VaccineUtils.refreshImmunizationSchedules(childDetails.getCaseId());
         LocationSwitcherToolbar myToolbar = (LocationSwitcherToolbar) this.getToolbar();
         if (myToolbar != null) {
             myToolbar.setNavigationOnClickListener(v -> finish());
