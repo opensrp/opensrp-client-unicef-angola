@@ -359,24 +359,13 @@ public class NavigationMenu implements NavigationContract.View, SyncStatusBroadc
         fromActivity.getApplicationContext().startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
     }
 
-    /*private void startReportActivity() {
-
-        if (activityWeakReference.get() instanceof HIA2ReportsActivity) {
-            drawer.closeDrawer(GravityCompat.START);
-            return;
-        }
-        Intent intent = new Intent(activityWeakReference.get(), HIA2ReportsActivity.class);
-        activityWeakReference.get().startActivity(intent);
-        drawer.closeDrawer(GravityCompat.START);
-    }*/
-
     public void openDrawer() {
         drawer.openDrawer(GravityCompat.START);
     }
 
     public static void closeDrawer() {
         if (instance != null && instance.getDrawer() != null) {
-            instance.getDrawer().closeDrawer(Gravity.START);
+            instance.getDrawer().closeDrawer(GravityCompat.START);
         }
     }
 }

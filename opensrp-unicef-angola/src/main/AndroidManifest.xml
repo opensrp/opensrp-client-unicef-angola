@@ -29,9 +29,6 @@
         android:theme="@style/AppTheme"
         tools:replace="android:allowBackup,android:icon,android:label,android:theme">
         <activity
-            android:name=".activity.ReportRegisterActivity"
-            android:theme="@style/ChildTheme.NoActionBar" />
-        <activity
             android:name=".activity.ChildImmunizationActivity"
             android:label="@string/title_activity_child_immunization"
             android:screenOrientation="portrait"
@@ -72,21 +69,6 @@
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
             android:name="org.smartregister.unicefangola.activity.ChildProfileActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/ChildTheme.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-        <activity
-            android:name="org.smartregister.unicefangola.activity.HIA2ReportsActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/ChildTheme.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-        <activity
-            android:name="org.smartregister.unicefangola.activity.ReportSummaryActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/ChildTheme.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
-        <activity
-            android:name="org.smartregister.unicefangola.activity.AppStockJsonFormActivity"
             android:screenOrientation="portrait"
             android:theme="@style/ChildTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />

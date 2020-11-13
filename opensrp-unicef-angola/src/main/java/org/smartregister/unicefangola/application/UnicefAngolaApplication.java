@@ -42,7 +42,6 @@ import org.smartregister.location.helper.LocationHelper;
 import org.smartregister.receiver.SyncStatusBroadcastReceiver;
 import org.smartregister.reporting.ReportingLibrary;
 import org.smartregister.repository.EventClientRepository;
-import org.smartregister.repository.Hia2ReportRepository;
 import org.smartregister.repository.Repository;
 import org.smartregister.sync.ClientProcessorForJava;
 import org.smartregister.sync.DrishtiSyncScheduler;
@@ -59,9 +58,6 @@ import org.smartregister.unicefangola.processor.TripleResultProcessor;
 import org.smartregister.unicefangola.repository.AppChildRegisterQueryProvider;
 import org.smartregister.unicefangola.repository.ChildAlertUpdatedRepository;
 import org.smartregister.unicefangola.repository.ClientRegisterTypeRepository;
-import org.smartregister.unicefangola.repository.DailyTalliesRepository;
-import org.smartregister.unicefangola.repository.HIA2IndicatorsRepository;
-import org.smartregister.unicefangola.repository.MonthlyTalliesRepository;
 import org.smartregister.unicefangola.repository.UnicefAngolaRepository;
 import org.smartregister.unicefangola.util.AppConstants;
 import org.smartregister.unicefangola.util.AppUtils;
@@ -87,10 +83,6 @@ public class UnicefAngolaApplication extends DrishtiApplication implements TimeC
     private ClientProcessorForJava clientProcessorForJava;
 
     private EventClientRepository eventClientRepository;
-    private HIA2IndicatorsRepository hia2IndicatorsRepository;
-    private DailyTalliesRepository dailyTalliesRepository;
-    private MonthlyTalliesRepository monthlyTalliesRepository;
-    private Hia2ReportRepository hia2ReportRepository;
 
     private boolean lastModified;
     private ECSyncHelper ecSyncHelper;
@@ -449,35 +441,6 @@ public class UnicefAngolaApplication extends DrishtiApplication implements TimeC
         }
 
         ImmunizationLibrary.getInstance().setVaccines(vaccines);
-    }
-
-    public DailyTalliesRepository dailyTalliesRepository() {
-        if (dailyTalliesRepository == null) {
-            dailyTalliesRepository = new DailyTalliesRepository();
-        }
-        return dailyTalliesRepository;
-    }
-
-    public HIA2IndicatorsRepository hIA2IndicatorsRepository() {
-        if (hia2IndicatorsRepository == null) {
-            hia2IndicatorsRepository = new HIA2IndicatorsRepository();
-        }
-        return hia2IndicatorsRepository;
-    }
-
-    public MonthlyTalliesRepository monthlyTalliesRepository() {
-        if (monthlyTalliesRepository == null) {
-            monthlyTalliesRepository = new MonthlyTalliesRepository();
-        }
-
-        return monthlyTalliesRepository;
-    }
-
-    public Hia2ReportRepository hia2ReportRepository() {
-        if (hia2ReportRepository == null) {
-            hia2ReportRepository = new Hia2ReportRepository();
-        }
-        return hia2ReportRepository;
     }
 
     public static List<VaccineGroup> getVaccineGroups(android.content.Context context) {
