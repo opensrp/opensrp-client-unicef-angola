@@ -140,7 +140,7 @@ public class UnicefAngolaApplication extends DrishtiApplication implements TimeC
             List<VaccineGroup> vaccineList = VaccinatorUtils.getVaccineGroupsFromVaccineConfigFile(context, VaccinatorUtils.vaccines_file);
             List<String> names = new ArrayList<>();
             names.add(DBConstants.KEY.INACTIVE);
-            names.add(DBConstants.KEY.RELATIONAL_ID);
+            names.add(AppConstants.KEY.RELATIONAL_ID);
             names.add(DBConstants.KEY.LOST_TO_FOLLOW_UP);
 
             for (VaccineGroup vaccineGroup : vaccineList) {
@@ -424,7 +424,7 @@ public class UnicefAngolaApplication extends DrishtiApplication implements TimeC
 
     @VisibleForTesting
     protected void fixHardcodedVaccineConfiguration() {
-        VaccineRepo.Vaccine[] vaccines = ImmunizationLibrary.getInstance().getVaccines();
+        VaccineRepo.Vaccine[] vaccines = ImmunizationLibrary.getInstance().getVaccines("child");
 
         HashMap<String, VaccineDuplicate> replacementVaccines = new HashMap<>();
 //        replacementVaccines.put("BCG 2", new VaccineDuplicate("BCG 2", VaccineRepo.Vaccine.bcg, 1825, 0, 15, "child"));
@@ -440,7 +440,7 @@ public class UnicefAngolaApplication extends DrishtiApplication implements TimeC
             }
         }
 
-        ImmunizationLibrary.getInstance().setVaccines(vaccines);
+        ImmunizationLibrary.getInstance().setVaccines(vaccines, "child");
     }
 
     public static List<VaccineGroup> getVaccineGroups(android.content.Context context) {
