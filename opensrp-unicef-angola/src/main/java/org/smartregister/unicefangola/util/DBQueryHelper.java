@@ -16,7 +16,7 @@ import java.util.List;
 public class DBQueryHelper {
 
     public static String getHomeRegisterCondition() {
-        return AppConstants.TABLE_NAME.ALL_CLIENTS + "." + Constants.KEY.DATE_REMOVED + " IS NULL ";
+        return AppConstants.TableNameConstants.ALL_CLIENTS + "." + Constants.KEY.DATE_REMOVED + " IS NULL ";
     }
 
     public static String getFilterSelectionCondition(boolean urgentOnly) {
@@ -65,7 +65,7 @@ public class DBQueryHelper {
     }
 
     public static String getSortQuery() {
-        return Utils.metadata().getRegisterQueryProvider().getDemographicTable() + "." + AppConstants.KEY.LAST_INTERACTED_WITH + " DESC ";
+        return Utils.metadata().getRegisterQueryProvider().getDemographicTable() + "." + AppConstants.KeyConstants.LAST_INTERACTED_WITH + " DESC ";
     }
 
 }

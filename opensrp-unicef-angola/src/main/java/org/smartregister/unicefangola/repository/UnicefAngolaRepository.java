@@ -19,10 +19,7 @@ import org.smartregister.immunization.repository.RecurringServiceRecordRepositor
 import org.smartregister.immunization.repository.RecurringServiceTypeRepository;
 import org.smartregister.immunization.repository.VaccineRepository;
 import org.smartregister.immunization.util.IMDatabaseUtils;
-import org.smartregister.reporting.ReportingLibrary;
-import org.smartregister.reporting.repository.DailyIndicatorCountRepository;
 import org.smartregister.reporting.repository.IndicatorQueryRepository;
-import org.smartregister.reporting.repository.IndicatorRepository;
 import org.smartregister.repository.AlertRepository;
 import org.smartregister.repository.EventClientRepository;
 import org.smartregister.repository.Hia2ReportRepository;
@@ -31,7 +28,6 @@ import org.smartregister.repository.SettingsRepository;
 import org.smartregister.repository.UniqueIdRepository;
 import org.smartregister.unicefangola.BuildConfig;
 import org.smartregister.unicefangola.application.UnicefAngolaApplication;
-import org.smartregister.unicefangola.util.AppConstants;
 import org.smartregister.util.DatabaseMigrationUtils;
 
 import java.util.ArrayList;
@@ -43,8 +39,8 @@ public class UnicefAngolaRepository extends Repository {
     private SQLiteDatabase readableDatabase;
     private SQLiteDatabase writableDatabase;
 
-    private Context context;
-    private String appVersionCodePref = AppConstants.Pref.APP_VERSION_CODE;
+    final private Context context;
+//    private String appVersionCodePref = AppConstants.Pref.APP_VERSION_CODE;
 
     public UnicefAngolaRepository(@NonNull Context context, @NonNull org.smartregister.Context openSRPContext) {
         super(context, AllConstants.DATABASE_NAME, BuildConfig.DATABASE_VERSION, openSRPContext.session(),
@@ -207,7 +203,6 @@ public class UnicefAngolaRepository extends Repository {
     /**
      * Version 2 added some columns to the ec_child table
      *
-     * @param database
      */
     private void upgradeToVersion2(@NonNull SQLiteDatabase database) {
         try {
@@ -363,7 +358,7 @@ public class UnicefAngolaRepository extends Repository {
         }
     }
 
-    private boolean checkIfAppUpdated() {
+    /*private boolean checkIfAppUpdated() {
         String savedAppVersion = ReportingLibrary.getInstance().getContext().allSharedPreferences().getPreference(appVersionCodePref);
         if (savedAppVersion.isEmpty()) {
             return true;
@@ -371,5 +366,5 @@ public class UnicefAngolaRepository extends Repository {
             int savedVersion = Integer.parseInt(savedAppVersion);
             return (BuildConfig.VERSION_CODE > savedVersion);
         }
-    }
+    }*/
 }

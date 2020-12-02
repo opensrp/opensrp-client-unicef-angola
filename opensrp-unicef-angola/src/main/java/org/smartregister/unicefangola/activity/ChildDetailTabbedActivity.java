@@ -48,10 +48,10 @@ import static org.smartregister.unicefangola.util.AppUtils.setAppLocale;
  */
 public class ChildDetailTabbedActivity extends BaseChildDetailTabbedActivity {
     private final static List<String> nonEditableFields = Arrays.asList(
-            AppConstants.KEY.CONSENT,
+            AppConstants.KeyConstants.CONSENT,
             "zeir_id",
-            AppConstants.KEY.DATE_BIRTH,
-            AppConstants.KEY.SEX,
+            AppConstants.KeyConstants.DATE_BIRTH,
+            AppConstants.KeyConstants.SEX,
             "birth_location",
             "anc",
             "no_anc",
@@ -82,7 +82,7 @@ public class ChildDetailTabbedActivity extends BaseChildDetailTabbedActivity {
     @Override
     public void renderProfileWidget(Map<String, String> childDetails) {
         super.renderProfileWidget(childDetails);
-        TextView profileName = (TextView)this.findViewById(org.smartregister.child.R.id.name);
+        TextView profileName = this.findViewById(org.smartregister.child.R.id.name);
         String firstName = org.smartregister.child.util.Utils.getValue(this.childDetails.getColumnmaps(), "first_name", true);
         String lastName = org.smartregister.child.util.Utils.getValue(this.childDetails.getColumnmaps(), "last_name", true);
         String middleName = org.smartregister.child.util.Utils.getValue(this.childDetails.getColumnmaps(), "middle_name", true);
@@ -188,7 +188,7 @@ public class ChildDetailTabbedActivity extends BaseChildDetailTabbedActivity {
 //                return launchAdverseEventForm();
 //            case R.id.record_dynamic_vaccines:
 //                if (getExtraChildVaccines().size() < 10) {
-//                    launchDynamicVaccinesForm(AppConstants.JsonForm.DYNAMIC_VACCINES, Constants.KEY.PRIVATE_SECTOR_VACCINE);
+//                    launchDynamicVaccinesForm(AppConstants.JsonForm.DYNAMIC_VACCINES, Constants.KeyConstants.PRIVATE_SECTOR_VACCINE);
 //                } else {
 //                    Utils.showToast(this, getString(R.string.maximum_extra_vaccines_reached));
 //                }
@@ -214,6 +214,7 @@ public class ChildDetailTabbedActivity extends BaseChildDetailTabbedActivity {
             Intent intent;
             Form form = new Form();
 
+            String formDataLocal;
             JSONObject formJson = new JSONObject(formData);
             if (formJson.has(JsonFormConstants.ENCOUNTER_TYPE) &&
                     formJson.getString(JsonFormConstants.ENCOUNTER_TYPE).equalsIgnoreCase(Constants.EventType.AEFI)) {
@@ -226,16 +227,17 @@ public class ChildDetailTabbedActivity extends BaseChildDetailTabbedActivity {
                 form.setActionBarBackground(R.color.actionbar);
                 form.setNavigationBackground(R.color.primary_dark);
                 intent = new Intent(this, JsonWizardFormActivity.class);
-                formData = obtainUpdatedForm(formJson);
+                formDataLocal = obtainUpdatedForm(formJson);
             } else {
                 form.setWizard(false);
                 form.setHideSaveLabel(true);
                 form.setNextLabel("");
                 intent = new Intent(this, org.smartregister.child.util.Utils.metadata().childFormActivity);
+                formDataLocal = formData;
             }
 
             intent.putExtra(JsonFormConstants.JSON_FORM_KEY.FORM, form);
-            intent.putExtra(JsonFormConstants.JSON_FORM_KEY.JSON, formData);
+            intent.putExtra(JsonFormConstants.JSON_FORM_KEY.JSON, formDataLocal);
             intent.putExtra(JsonFormConstants.PERFORM_FORM_TRANSLATION, true);
             startActivityForResult(intent, REQUEST_CODE_GET_JSON);
         } catch (JSONException e) {
@@ -248,10 +250,10 @@ public class ChildDetailTabbedActivity extends BaseChildDetailTabbedActivity {
         for (int i = 0; i < fields.length(); i++) {
             JSONObject field = fields.getJSONObject(i);
             if (field != null && field.getString(JsonFormConstants.TYPE).equalsIgnoreCase(JsonFormConstants.DATE_PICKER)
-                    && !childDetails.getDetails().isEmpty() && childDetails.getDetails().containsKey(AppConstants.KEY.DOB)) {
-                Date date = Utils.dobStringToDate(childDetails.getDetails().get(AppConstants.KEY.DOB));
+                    && !childDetails.getDetails().isEmpty() && childDetails.getDetails().containsKey(AppConstants.KeyConstants.DOB)) {
+                Date date = Utils.dobStringToDate(childDetails.getDetails().get(AppConstants.KeyConstants.DOB));
                 field.put(JsonFormConstants.MIN_DATE, new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(date));
-                field.put(JsonFormConstants.MAX_DATE, AppConstants.KEY.TODAY);
+                field.put(JsonFormConstants.MAX_DATE, AppConstants.KeyConstants.TODAY);
             }
         }
         return formJson.toString();

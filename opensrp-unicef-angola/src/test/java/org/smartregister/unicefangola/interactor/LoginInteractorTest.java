@@ -15,7 +15,7 @@ import org.smartregister.job.PullUniqueIdsServiceJob;
 import org.smartregister.job.SyncServiceJob;
 import org.smartregister.reporting.job.RecurringIndicatorGeneratingJob;
 import org.smartregister.unicefangola.BaseRobolectricTest;
-import org.smartregister.unicefangola.shadow.ShadowBaseJob;
+import org.smartregister.unicefangola.shadow.ShadowBaseJobUtils;
 import org.smartregister.view.contract.BaseLoginContract;
 
 import java.util.ArrayList;
@@ -39,8 +39,8 @@ public class LoginInteractorTest extends BaseRobolectricTest {
     public void scheduleJobsPeriodically() {
         loginInteractor.scheduleJobsPeriodically();
 
-        Assert.assertTrue(ShadowBaseJob.getShadowHelper().isCalled(ShadowBaseJob.scheduleJobMN));
-        HashMap<Integer, ArrayList<Object>> methodCalls = ShadowBaseJob.getShadowHelper().getMethodCalls(ShadowBaseJob.scheduleJobMN);
+        Assert.assertTrue(ShadowBaseJobUtils.getShadowHelper().isCalled(ShadowBaseJobUtils.scheduleJobMN));
+        HashMap<Integer, ArrayList<Object>> methodCalls = ShadowBaseJobUtils.getShadowHelper().getMethodCalls(ShadowBaseJobUtils.scheduleJobMN);
         assertEquals(9, methodCalls.size());
         assertEquals(VaccineServiceJob.TAG, methodCalls.get(0).get(0));
         assertEquals(RecurringServiceJob.TAG, methodCalls.get(1).get(0));
@@ -59,8 +59,8 @@ public class LoginInteractorTest extends BaseRobolectricTest {
     public void scheduleJobsImmediatelyShouldCallEachJobToScheduleImmediateExecution() {
         loginInteractor.scheduleJobsImmediately();
 
-        Assert.assertTrue(ShadowBaseJob.getShadowHelper().isCalled(ShadowBaseJob.scheduleJobImmediatelyMN));
-        HashMap<Integer, ArrayList<Object>> methodCalls = ShadowBaseJob.getShadowHelper().getMethodCalls(ShadowBaseJob.scheduleJobImmediatelyMN);
+        Assert.assertTrue(ShadowBaseJobUtils.getShadowHelper().isCalled(ShadowBaseJobUtils.scheduleJobImmediatelyMN));
+        HashMap<Integer, ArrayList<Object>> methodCalls = ShadowBaseJobUtils.getShadowHelper().getMethodCalls(ShadowBaseJobUtils.scheduleJobImmediatelyMN);
         assertEquals(4, methodCalls.size());
         assertEquals(SyncServiceJob.TAG, methodCalls.get(0).get(0));
         assertEquals(PullUniqueIdsServiceJob.TAG, methodCalls.get(1).get(0));

@@ -8,7 +8,7 @@ import org.smartregister.job.BaseJob;
  * Created by Ephraim Kigamba - nek.eam@gmail.com on 05-03-2020.
  */
 @Implements(BaseJob.class)
-public class ShadowBaseJob {
+public class ShadowBaseJobUtils {
 
     private static ShadowHelper shadowHelper = new ShadowHelper();
     public static String scheduleJobMN = "scheduleJob(String, Long, Long)";

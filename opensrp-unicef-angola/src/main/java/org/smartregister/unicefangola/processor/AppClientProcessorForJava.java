@@ -197,7 +197,7 @@ public class AppClientProcessorForJava extends ClientProcessorForJava {
     }
 
     private boolean processDeathEvent(@NonNull EventClient eventClient) {
-        if (eventClient.getEvent().getEntityType().equals(AppConstants.EntityType.CHILD)) {
+        if (eventClient.getEvent().getEntityType().equals(AppConstants.EntityTypeConstants.CHILD)) {
             return AppUtils.updateChildDeath(eventClient);
         }
 
@@ -595,7 +595,7 @@ public class AppClientProcessorForJava extends ClientProcessorForJava {
         }
 
         // Todo: Disable this in favour of the vaccine post-processing at the end :shrug: Might not be the best for real-time updates to the register
-        if (contentValues != null && AppConstants.TABLE_NAME.ALL_CLIENTS.equals(tableName)) {
+        if (contentValues != null && AppConstants.TableNameConstants.ALL_CLIENTS.equals(tableName)) {
             String dobString = contentValues.getAsString(Constants.KEY.DOB);
             // TODO: Fix this to use the ec_child_details table & fetch the birthDateTime from the ec_client table
             if (StringUtils.isNotBlank(dobString)) {

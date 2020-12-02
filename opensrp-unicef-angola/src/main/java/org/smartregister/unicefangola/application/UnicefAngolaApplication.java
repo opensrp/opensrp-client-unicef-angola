@@ -126,21 +126,21 @@ public class UnicefAngolaApplication extends DrishtiApplication implements TimeC
     }
 
     private static String[] getFtsSortFields(String tableName, android.content.Context context) {
-        if (tableName.equals(AppConstants.TABLE_NAME.ALL_CLIENTS)) {
+        if (tableName.equals(AppConstants.TableNameConstants.ALL_CLIENTS)) {
             List<String> names = new ArrayList<>();
-            names.add(AppConstants.KEY.FIRST_NAME);
-            names.add(AppConstants.KEY.LAST_NAME);
-            names.add(AppConstants.KEY.DOB);
-            names.add(AppConstants.KEY.ZEIR_ID);
-            names.add(AppConstants.KEY.LAST_INTERACTED_WITH);
-            names.add(AppConstants.KEY.DOD);
-            names.add(AppConstants.KEY.DATE_REMOVED);
+            names.add(AppConstants.KeyConstants.FIRST_NAME);
+            names.add(AppConstants.KeyConstants.LAST_NAME);
+            names.add(AppConstants.KeyConstants.DOB);
+            names.add(AppConstants.KeyConstants.ZEIR_ID);
+            names.add(AppConstants.KeyConstants.LAST_INTERACTED_WITH);
+            names.add(AppConstants.KeyConstants.DOD);
+            names.add(AppConstants.KeyConstants.DATE_REMOVED);
             return names.toArray(new String[0]);
         } else if (tableName.equals(DBConstants.RegisterTable.CHILD_DETAILS)) {
             List<VaccineGroup> vaccineList = VaccinatorUtils.getVaccineGroupsFromVaccineConfigFile(context, VaccinatorUtils.vaccines_file);
             List<String> names = new ArrayList<>();
             names.add(DBConstants.KEY.INACTIVE);
-            names.add(AppConstants.KEY.RELATIONAL_ID);
+            names.add(AppConstants.KeyConstants.RELATIONAL_ID);
             names.add(DBConstants.KEY.LOST_TO_FOLLOW_UP);
 
             for (VaccineGroup vaccineGroup : vaccineList) {
@@ -273,12 +273,12 @@ public class UnicefAngolaApplication extends DrishtiApplication implements TimeC
     private ChildMetadata getMetadata() {
         ChildMetadata metadata = new ChildMetadata(ChildFormActivity.class, ChildProfileActivity.class,
                 ChildImmunizationActivity.class, ChildRegisterActivity.class, true, new AppChildRegisterQueryProvider());
-        metadata.updateChildRegister(AppConstants.JsonForm.CHILD_ENROLLMENT, AppConstants.TABLE_NAME.ALL_CLIENTS,
-                AppConstants.TABLE_NAME.ALL_CLIENTS, AppConstants.EventType.CHILD_REGISTRATION,
-                AppConstants.EventType.UPDATE_CHILD_REGISTRATION, AppConstants.EventType.OUT_OF_CATCHMENT, AppConstants.CONFIGURATION.CHILD_REGISTER,
-                AppConstants.RELATIONSHIP.MOTHER, AppConstants.JsonForm.OUT_OF_CATCHMENT_SERVICE);
-        metadata.setupFatherRelation(AppConstants.TABLE_NAME.ALL_CLIENTS, AppConstants.RELATIONSHIP.FATHER);
-        //TODO include this metadata.setFieldsWithLocationHierarchy(new HashSet<>(Collections.singletonList(AppConstants.KEY.HOME_ADDRESS)));
+        metadata.updateChildRegister(AppConstants.JsonForm.CHILD_ENROLLMENT, AppConstants.TableNameConstants.ALL_CLIENTS,
+                AppConstants.TableNameConstants.ALL_CLIENTS, AppConstants.EventTypeConstants.CHILD_REGISTRATION,
+                AppConstants.EventTypeConstants.UPDATE_CHILD_REGISTRATION, AppConstants.EventTypeConstants.OUT_OF_CATCHMENT, AppConstants.ConfigurationConstants.CHILD_REGISTER,
+                AppConstants.RelationshipConstants.MOTHER, AppConstants.JsonForm.OUT_OF_CATCHMENT_SERVICE);
+        metadata.setupFatherRelation(AppConstants.TableNameConstants.ALL_CLIENTS, AppConstants.RelationshipConstants.FATHER);
+        //TODO include this metadata.setFieldsWithLocationHierarchy(new HashSet<>(Collections.singletonList(AppConstants.KeyConstants.HOME_ADDRESS)));
         metadata.setLocationLevels(AppUtils.getLocationLevels());
         metadata.setHealthFacilityLevels(AppUtils.getHealthFacilityLevels());
         return metadata;
@@ -296,7 +296,7 @@ public class UnicefAngolaApplication extends DrishtiApplication implements TimeC
         try {
             List<VaccineGroup> childVaccines = VaccinatorUtils.getSupportedVaccines(this);
             List<Vaccine> specialVaccines = VaccinatorUtils.getSpecialVaccines(this);
-            VaccineSchedule.init(childVaccines, specialVaccines, AppConstants.KEY.CHILD);
+            VaccineSchedule.init(childVaccines, specialVaccines, AppConstants.KeyConstants.CHILD);
         } catch (Exception e) {
             Timber.e(e, "UnicefAngolaApplication --> initOfflineSchedules");
         }

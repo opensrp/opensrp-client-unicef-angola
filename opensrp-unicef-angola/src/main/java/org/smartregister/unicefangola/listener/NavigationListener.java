@@ -25,7 +25,7 @@ public class NavigationListener implements View.OnClickListener {
         if (v.getTag() != null && v.getTag() instanceof String) {
             String tag = (String) v.getTag();
 
-            if (AppConstants.DrawerMenu.CHILD_CLIENTS.equals(tag)) {
+            if (AppConstants.DrawerMenuConstants.CHILD_CLIENTS.equals(tag)) {
                 navigateToActivity();
             }
             navigationAdapter.setSelectedView(tag);

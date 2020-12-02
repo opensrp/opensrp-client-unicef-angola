@@ -11,7 +11,7 @@ import org.robolectric.annotation.Implements;
  * Created by Ephraim Kigamba - nek.eam@gmail.com on 06-03-2020.
  */
 @Implements(SQLiteDatabase.class)
-public class ShadowSQLiteDatabase {
+public class ShadowSQLiteDatabaseUtils {
 
     @Implementation
     public static synchronized void loadLibs (Context context) {

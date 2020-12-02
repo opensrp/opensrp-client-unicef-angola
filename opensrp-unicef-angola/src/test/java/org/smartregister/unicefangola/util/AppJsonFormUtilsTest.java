@@ -66,20 +66,20 @@ public class AppJsonFormUtilsTest {
             {
                 put(Constants.KEY.BASE_ENTITY_ID, "baseEntityId");
                 put(Constants.KEY.RELATIONAL_ID, "relationalId");
-                put(AppConstants.KEY.APP_ID, "unicef_tunisia");
+                put(AppConstants.KeyConstants.APP_ID, "unicef_tunisia");
                 put(Constants.JSON_FORM_KEY.UNIQUE_ID, "opensrpId");
-                put(AppConstants.KEY.DOB, "2010-06-30");
-                put(AppConstants.KEY.FIRST_NAME, "first");
-                put(AppConstants.KEY.MOTHER_FIRST_NAME, "first");
-                put(AppConstants.KEY.MOTHER_LAST_NAME, "surname");
-                put(AppConstants.KEY.LAST_NAME, "surname");
-                put(AppConstants.KEY.MIDDLE_NAME, "middle");
-                put(AppConstants.KEY.MOTHER_NRC_NUMBER, "nrc_number");
-                put(AppConstants.KEY.MOTHER_SECOND_PHONE_NUMBER, "0232453923");
-                put(AppConstants.KEY.HOME_FACILITY, "facility");
-                put(AppConstants.KEY.CONSENT, "yes");
-                put(AppConstants.KEY.SURNAME, "surname");
-                put(AppConstants.KEY.DOB_UNKNOWN, "false");
+                put(AppConstants.KeyConstants.DOB, "2010-06-30");
+                put(AppConstants.KeyConstants.FIRST_NAME, "first");
+                put(AppConstants.KeyConstants.MOTHER_FIRST_NAME, "first");
+                put(AppConstants.KeyConstants.MOTHER_LAST_NAME, "surname");
+                put(AppConstants.KeyConstants.LAST_NAME, "surname");
+                put(AppConstants.KeyConstants.MIDDLE_NAME, "middle");
+                put(AppConstants.KeyConstants.MOTHER_NRC_NUMBER, "nrc_number");
+                put(AppConstants.KeyConstants.MOTHER_SECOND_PHONE_NUMBER, "0232453923");
+                put(AppConstants.KeyConstants.HOME_FACILITY, "facility");
+                put(AppConstants.KeyConstants.CONSENT, "yes");
+                put(AppConstants.KeyConstants.SURNAME, "surname");
+                put(AppConstants.KeyConstants.DOB_UNKNOWN, "false");
             }
         };
     }
@@ -147,21 +147,21 @@ public class AppJsonFormUtilsTest {
         JSONObject jsonResultObject = new JSONObject(result);
         JSONObject stepOne = jsonResultObject.getJSONObject(ChildJsonFormUtils.STEP1);
         JSONArray stepOneFields = stepOne.optJSONArray(org.smartregister.util.JsonFormUtils.FIELDS);
-        JSONObject motherDateBirthUnknownObject = ChildJsonFormUtils.getFieldJSONObject(stepOneFields, AppConstants.KEY.CAREGIVER_BIRTHDATE_UNKNOWN);
+        JSONObject motherDateBirthUnknownObject = ChildJsonFormUtils.getFieldJSONObject(stepOneFields, AppConstants.KeyConstants.CAREGIVER_BIRTHDATE_UNKNOWN);
 
-        Assert.assertEquals("yes", ChildJsonFormUtils.getFieldValue(stepOneFields, AppConstants.KEY.CONSENT));
+        Assert.assertEquals("yes", ChildJsonFormUtils.getFieldValue(stepOneFields, AppConstants.KeyConstants.CONSENT));
 
-        Assert.assertEquals("first", ChildJsonFormUtils.getFieldValue(stepOneFields, AppConstants.KEY.FIRST_NAME));
+        Assert.assertEquals("first", ChildJsonFormUtils.getFieldValue(stepOneFields, AppConstants.KeyConstants.FIRST_NAME));
 
-        Assert.assertEquals("First", ChildJsonFormUtils.getFieldValue(stepOneFields, AppConstants.KEY.CAREGIVER_FIRST_NAME));
+        Assert.assertEquals("First", ChildJsonFormUtils.getFieldValue(stepOneFields, AppConstants.KeyConstants.CAREGIVER_FIRST_NAME));
 
-        Assert.assertEquals("Surname", ChildJsonFormUtils.getFieldValue(stepOneFields, AppConstants.KEY.SURNAME));
+        Assert.assertEquals("Surname", ChildJsonFormUtils.getFieldValue(stepOneFields, AppConstants.KeyConstants.SURNAME));
 
-        Assert.assertEquals("Surname", ChildJsonFormUtils.getFieldValue(stepOneFields, AppConstants.KEY.CAREGIVER_LAST_NAME));
+        Assert.assertEquals("Surname", ChildJsonFormUtils.getFieldValue(stepOneFields, AppConstants.KeyConstants.CAREGIVER_LAST_NAME));
 
-        Assert.assertEquals("30-06-2010", ChildJsonFormUtils.getFieldValue(stepOneFields, AppConstants.KEY.DATE_BIRTH));
+        Assert.assertEquals("30-06-2010", ChildJsonFormUtils.getFieldValue(stepOneFields, AppConstants.KeyConstants.DATE_BIRTH));
 
-        Assert.assertEquals("Middle", ChildJsonFormUtils.getFieldValue(stepOneFields, AppConstants.KEY.MIDDLE_NAME));
+        Assert.assertEquals("Middle", ChildJsonFormUtils.getFieldValue(stepOneFields, AppConstants.KeyConstants.MIDDLE_NAME));
 
         Assert.assertEquals("baseEntityId", jsonResultObject.optString(ChildJsonFormUtils.ENTITY_ID));
 
@@ -169,11 +169,11 @@ public class AppJsonFormUtilsTest {
 
         Assert.assertEquals("Unicef Tunisia", jsonResultObject.optString(ChildJsonFormUtils.CURRENT_ZEIR_ID));
 
-        Assert.assertEquals("nrc_number", ChildJsonFormUtils.getFieldValue(stepOneFields, AppConstants.KEY.MOTHER_NRC_NUMBER));
+        Assert.assertEquals("nrc_number", ChildJsonFormUtils.getFieldValue(stepOneFields, AppConstants.KeyConstants.MOTHER_NRC_NUMBER));
 
-        Assert.assertEquals("0232453923", ChildJsonFormUtils.getFieldValue(stepOneFields, AppConstants.KEY.SECOND_PHONE_NUMBER));
+        Assert.assertEquals("0232453923", ChildJsonFormUtils.getFieldValue(stepOneFields, AppConstants.KeyConstants.SECOND_PHONE_NUMBER));
 
-        Assert.assertEquals("false", ChildJsonFormUtils.getFieldValue(motherDateBirthUnknownObject.getJSONArray(Constants.JSON_FORM_KEY.OPTIONS), AppConstants.KEY.CAREGIVER_BIRTHDATE_UNKNOWN));
+        Assert.assertEquals("false", ChildJsonFormUtils.getFieldValue(motherDateBirthUnknownObject.getJSONArray(Constants.JSON_FORM_KEY.OPTIONS), AppConstants.KeyConstants.CAREGIVER_BIRTHDATE_UNKNOWN));
     }
 
     @After

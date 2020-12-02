@@ -11,7 +11,7 @@ import org.smartregister.util.AssetHandler;
  */
 
 @Implements(AssetHandler.class)
-public class ShadowAssetHandler {
+public class ShadowAssetHandlerUtils {
 
     @Implementation
     public static String readFileFromAssetsFolder(String fileName, Context context) {

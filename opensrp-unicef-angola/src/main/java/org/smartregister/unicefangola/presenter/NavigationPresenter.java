@@ -38,10 +38,10 @@ public class NavigationPresenter implements NavigationContract.Presenter {
     }
 
     private void initialize() {
-        tableMap.put(AppConstants.DrawerMenu.CHILD_CLIENTS, AppConstants.RegisterType.CHILD);
-        tableMap.put(AppConstants.DrawerMenu.ANC_CLIENTS, AppConstants.RegisterType.ANC);
-        tableMap.put(AppConstants.DrawerMenu.ANC, AppConstants.RegisterType.ANC);
-        tableMap.put(AppConstants.DrawerMenu.ALL_CLIENTS, AppConstants.RegisterType.OPD);
+        tableMap.put(AppConstants.DrawerMenuConstants.CHILD_CLIENTS, AppConstants.RegisterType.CHILD);
+        tableMap.put(AppConstants.DrawerMenuConstants.ANC_CLIENTS, AppConstants.RegisterType.ANC);
+        tableMap.put(AppConstants.DrawerMenuConstants.ANC, AppConstants.RegisterType.ANC);
+        tableMap.put(AppConstants.DrawerMenuConstants.ALL_CLIENTS, AppConstants.RegisterType.OPD);
     }
 
     @Override

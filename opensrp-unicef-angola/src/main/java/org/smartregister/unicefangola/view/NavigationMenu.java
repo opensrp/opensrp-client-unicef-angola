@@ -8,7 +8,6 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import android.text.TextUtils;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,8 +58,7 @@ public class NavigationMenu implements NavigationContract.View, SyncStatusBroadc
     private static String[] langArray;
     private LinearLayout syncMenuItem;
     private LinearLayout outOfAreaMenu;
-    private LinearLayout registerView;
-//    private LinearLayout reportView;
+    //    private LinearLayout reportView;
     private TextView loggedInUserTextView;
     private TextView userInitialsTextView;
     private TextView syncTextView;
@@ -115,7 +113,7 @@ public class NavigationMenu implements NavigationContract.View, SyncStatusBroadc
         logoutButton = activity.findViewById(R.id.logout_button);
         syncMenuItem = activity.findViewById(R.id.sync_menu);
         outOfAreaMenu = activity.findViewById(R.id.out_of_area_menu);
-        registerView = activity.findViewById(R.id.register_view);
+//        LinearLayout registerView = activity.findViewById(R.id.register_view);
 //        reportView = activity.findViewById(R.id.report_view);
         loggedInUserTextView = activity.findViewById(R.id.logged_in_user_text_view);
         userInitialsTextView = activity.findViewById(R.id.user_initials_text_view);
@@ -309,7 +307,7 @@ public class NavigationMenu implements NavigationContract.View, SyncStatusBroadc
         for (int i = 0; i < langArray.length; i++) {
             if (langPref != null) {
                 Locale locale = new Locale(langPref);
-                if (langArray[i].toLowerCase().equalsIgnoreCase(locale.getDisplayLanguage(locale)))
+                if (langArray[i].equalsIgnoreCase(locale.getDisplayLanguage(locale)))
                     languageSpinner.setSelection(i);
                 else
                     languageSpinner.setSelection(0);
@@ -349,7 +347,7 @@ public class NavigationMenu implements NavigationContract.View, SyncStatusBroadc
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
+                Timber.i("onNothingSelected(): NavigationMenu");
             }
         });
     }

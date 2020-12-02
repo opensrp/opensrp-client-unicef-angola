@@ -51,10 +51,10 @@ public class DBQueryHelperTest extends BaseUnitTest {
 
         ChildMetadata metadata = new ChildMetadata(ChildFormActivity.class, ChildProfileActivity.class,
                 ChildImmunizationActivity.class, ChildRegisterActivity.class, true, new AppChildRegisterQueryProvider());
-        metadata.updateChildRegister(AppConstants.JsonForm.CHILD_ENROLLMENT, AppConstants.TABLE_NAME.ALL_CLIENTS,
-                AppConstants.TABLE_NAME.ALL_CLIENTS, AppConstants.EventType.CHILD_REGISTRATION,
-                AppConstants.EventType.UPDATE_CHILD_REGISTRATION, AppConstants.EventType.OUT_OF_CATCHMENT, AppConstants.CONFIGURATION.CHILD_REGISTER,
-                AppConstants.RELATIONSHIP.MOTHER, AppConstants.JsonForm.OUT_OF_CATCHMENT_SERVICE);
+        metadata.updateChildRegister(AppConstants.JsonForm.CHILD_ENROLLMENT, AppConstants.TableNameConstants.ALL_CLIENTS,
+                AppConstants.TableNameConstants.ALL_CLIENTS, AppConstants.EventTypeConstants.CHILD_REGISTRATION,
+                AppConstants.EventTypeConstants.UPDATE_CHILD_REGISTRATION, AppConstants.EventTypeConstants.OUT_OF_CATCHMENT, AppConstants.ConfigurationConstants.CHILD_REGISTER,
+                AppConstants.RelationshipConstants.MOTHER, AppConstants.JsonForm.OUT_OF_CATCHMENT_SERVICE);
 
         Mockito.doReturn(metadata).when(childLibrary).metadata();
 
@@ -74,7 +74,7 @@ public class DBQueryHelperTest extends BaseUnitTest {
 
     @Test
     public void testGetHomeRegisterCondition() {
-        Assert.assertEquals(AppConstants.TABLE_NAME.ALL_CLIENTS + "." + Constants.KEY.DATE_REMOVED + " IS NULL ", DBQueryHelper.getHomeRegisterCondition());
+        Assert.assertEquals(AppConstants.TableNameConstants.ALL_CLIENTS + "." + Constants.KEY.DATE_REMOVED + " IS NULL ", DBQueryHelper.getHomeRegisterCondition());
     }
 
     @After

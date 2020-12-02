@@ -16,15 +16,15 @@ import java.util.Map;
 
 import static org.smartregister.child.util.Constants.KEY.FATHER_RELATIONAL_ID;
 import static org.smartregister.child.util.Constants.KEY.RELATIONALID;
-import static org.smartregister.unicefangola.util.AppConstants.KEY.DOB;
-import static org.smartregister.unicefangola.util.AppConstants.KEY.FIRST_NAME;
-import static org.smartregister.unicefangola.util.AppConstants.KEY.GENDER;
-import static org.smartregister.unicefangola.util.AppConstants.KEY.ID;
-import static org.smartregister.unicefangola.util.AppConstants.KEY.INACTIVE;
-import static org.smartregister.unicefangola.util.AppConstants.KEY.LAST_NAME;
-import static org.smartregister.unicefangola.util.AppConstants.KEY.LOST_TO_FOLLOW_UP;
-import static org.smartregister.unicefangola.util.AppConstants.KEY.RELATIONAL_ID;
-import static org.smartregister.unicefangola.util.AppConstants.KEY.ZEIR_ID;
+import static org.smartregister.unicefangola.util.AppConstants.KeyConstants.DOB;
+import static org.smartregister.unicefangola.util.AppConstants.KeyConstants.FIRST_NAME;
+import static org.smartregister.unicefangola.util.AppConstants.KeyConstants.GENDER;
+import static org.smartregister.unicefangola.util.AppConstants.KeyConstants.ID;
+import static org.smartregister.unicefangola.util.AppConstants.KeyConstants.INACTIVE;
+import static org.smartregister.unicefangola.util.AppConstants.KeyConstants.LAST_NAME;
+import static org.smartregister.unicefangola.util.AppConstants.KeyConstants.LOST_TO_FOLLOW_UP;
+import static org.smartregister.unicefangola.util.AppConstants.KeyConstants.RELATIONAL_ID;
+import static org.smartregister.unicefangola.util.AppConstants.KeyConstants.ZEIR_ID;
 import static org.smartregister.unicefangola.util.TableUtil.getAllClientColumn;
 import static org.smartregister.unicefangola.util.TableUtil.getChildDetailsColumn;
 
@@ -42,19 +42,19 @@ public class AdvancedSearchModel extends BaseChildAdvancedSearchModel {
     public AdvancedMatrixCursor createMatrixCursor(Response<String> response) {
 
         String[] columns = new String[]{
-                AppConstants.KEY.ID_LOWER_CASE,
-                AppConstants.KEY.RELATIONALID,
-                AppConstants.KEY.RELATIONAL_ID,
-                AppConstants.KEY.FATHER_BASE_ENTITY_ID,
-                AppConstants.KEY.FIRST_NAME,
-                AppConstants.KEY.LAST_NAME,
-                AppConstants.KEY.GENDER,
-                AppConstants.KEY.DOB,
-                AppConstants.KEY.ZEIR_ID,
-                AppConstants.KEY.MOTHER_FIRST_NAME,
-                AppConstants.KEY.MOTHER_LAST_NAME,
-                AppConstants.KEY.INACTIVE,
-                AppConstants.KEY.LOST_TO_FOLLOW_UP
+                AppConstants.KeyConstants.ID_LOWER_CASE,
+                RELATIONALID,
+                RELATIONAL_ID,
+                AppConstants.KeyConstants.FATHER_BASE_ENTITY_ID,
+                FIRST_NAME,
+                LAST_NAME,
+                GENDER,
+                DOB,
+                ZEIR_ID,
+                AppConstants.KeyConstants.MOTHER_FIRST_NAME,
+                AppConstants.KeyConstants.MOTHER_LAST_NAME,
+                INACTIVE,
+                LOST_TO_FOLLOW_UP
         };
 
         AdvancedMatrixCursor matrixCursor = new AdvancedMatrixCursor(columns);
@@ -73,7 +73,7 @@ public class AdvancedSearchModel extends BaseChildAdvancedSearchModel {
     @Override
     public String mainSelect(String mainCondition) {
         return "select " + StringUtils.join(getColumns(), ",") + " from " + DBConstants.RegisterTable.CHILD_DETAILS + " " +
-                "join " + DBConstants.RegisterTable.MOTHER_DETAILS + " on " + DBConstants.RegisterTable.CHILD_DETAILS + "." + Constants.KEY.RELATIONAL_ID + " = " + DBConstants.RegisterTable.MOTHER_DETAILS + "." + Constants.KEY.BASE_ENTITY_ID + " " +
+                "join " + DBConstants.RegisterTable.MOTHER_DETAILS + " on " + DBConstants.RegisterTable.CHILD_DETAILS + "." + RELATIONAL_ID + " = " + DBConstants.RegisterTable.MOTHER_DETAILS + "." + Constants.KEY.BASE_ENTITY_ID + " " +
                 "join " + DBConstants.RegisterTable.CLIENT + " on " + DBConstants.RegisterTable.CLIENT + "." + Constants.KEY.BASE_ENTITY_ID + " = " + DBConstants.RegisterTable.CHILD_DETAILS + "." + Constants.KEY.BASE_ENTITY_ID + " " +
                 "join " + DBConstants.RegisterTable.CLIENT + " mother on mother." + Constants.KEY.BASE_ENTITY_ID + " = " + DBConstants.RegisterTable.MOTHER_DETAILS + "." + Constants.KEY.BASE_ENTITY_ID + " where " + mainCondition;
     }
@@ -91,8 +91,8 @@ public class AdvancedSearchModel extends BaseChildAdvancedSearchModel {
                 getAllClientColumn(GENDER),
                 getAllClientColumn(DOB),
                 getAllClientColumn(ZEIR_ID),
-                "mother.first_name                     as " + AppConstants.KEY.MOTHER_FIRST_NAME,
-                "mother.last_name                      as " + AppConstants.KEY.MOTHER_LAST_NAME,
+                "mother.first_name                     as " + AppConstants.KeyConstants.MOTHER_FIRST_NAME,
+                "mother.last_name                      as " + AppConstants.KeyConstants.MOTHER_LAST_NAME,
                 getChildDetailsColumn(INACTIVE),
                 getChildDetailsColumn(LOST_TO_FOLLOW_UP)
         };

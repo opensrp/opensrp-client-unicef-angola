@@ -10,14 +10,10 @@ import org.smartregister.Context;
 import org.smartregister.domain.Setting;
 import org.smartregister.repository.AllSettings;
 import org.smartregister.unicefangola.BaseUnitTest;
-import org.smartregister.unicefangola.application.UnicefAngolaApplication;
 import org.smartregister.unicefangola.util.AppConstants;
 import org.smartregister.view.contract.BaseLoginContract;
 
 public class LoginPresenterTest extends BaseUnitTest {
-
-    @Mock
-    private UnicefAngolaApplication unicefAngolaApplication;
 
     @Mock
     private Context context;
@@ -48,7 +44,7 @@ public class LoginPresenterTest extends BaseUnitTest {
 
         Setting setting = new Setting();
         setting.setValue(value);
-        Mockito.when(allSettings.getSetting(AppConstants.KEY.SITE_CHARACTERISTICS)).thenReturn(setting);
+        Mockito.when(allSettings.getSetting(AppConstants.KeyConstants.SITE_CHARACTERISTICS)).thenReturn(setting);
         Mockito.when(context.allSettings()).thenReturn(allSettings);
         LoginPresenter loginPresenter = new LoginPresenter(Mockito.mock(BaseLoginContract.View.class));
         Assert.assertTrue(loginPresenter.isServerSettingsSet());
@@ -72,7 +68,7 @@ public class LoginPresenterTest extends BaseUnitTest {
 
         Setting setting = new Setting();
         setting.setValue(value);
-        Mockito.when(allSettings.getSetting(AppConstants.KEY.SITE_CHARACTERISTICS)).thenReturn(setting);
+        Mockito.when(allSettings.getSetting(AppConstants.KeyConstants.SITE_CHARACTERISTICS)).thenReturn(setting);
         Mockito.when(context.allSettings()).thenReturn(allSettings);
         LoginPresenter loginPresenter = new LoginPresenter(Mockito.mock(BaseLoginContract.View.class));
         Assert.assertTrue(loginPresenter.isServerSettingsSet());

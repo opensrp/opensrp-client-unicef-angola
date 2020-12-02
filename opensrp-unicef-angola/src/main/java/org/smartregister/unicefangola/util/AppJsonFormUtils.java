@@ -33,15 +33,15 @@ public class AppJsonFormUtils extends ChildJsonFormUtils {
         try {
             JSONObject birthRegistrationForm = FormUtils.getInstance(context)
                     .getFormJson(Utils.metadata().childRegister.formName);
-            updateRegistrationEventType(birthRegistrationForm, childDetails);
+            updateRegistrationEventType(birthRegistrationForm);
             ChildJsonFormUtils.addRegistrationFormLocationHierarchyQuestions(birthRegistrationForm);
 
             birthRegistrationForm.put(ChildJsonFormUtils.ENTITY_ID, childDetails.get(Constants.KEY.BASE_ENTITY_ID));
             birthRegistrationForm.put(ChildJsonFormUtils.RELATIONAL_ID, childDetails.get(RELATIONAL_ID));
-            birthRegistrationForm.put(AppConstants.KEY.FATHER_RELATIONAL_ID, childDetails.get(AppConstants.KEY.FATHER_RELATIONAL_ID));
+            birthRegistrationForm.put(AppConstants.KeyConstants.FATHER_RELATIONAL_ID, childDetails.get(AppConstants.KeyConstants.FATHER_RELATIONAL_ID));
 
             birthRegistrationForm.put(ChildJsonFormUtils.CURRENT_ZEIR_ID,
-                    Utils.getValue(childDetails, AppConstants.KEY.APP_ID, true).replace("-", ""));
+                    Utils.getValue(childDetails, AppConstants.KeyConstants.APP_ID, true).replace("-", ""));
             birthRegistrationForm.put(ChildJsonFormUtils.CURRENT_OPENSRP_ID,
                     Utils.getValue(childDetails, Constants.JSON_FORM_KEY.UNIQUE_ID, false));
 
@@ -68,55 +68,55 @@ public class AppJsonFormUtils extends ChildJsonFormUtils {
             JSONObject jsonObject = jsonArray.getJSONObject(i);
             prefix = getPrefix(jsonObject);
 
-            if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.CONSENT)) {
+            if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KeyConstants.CONSENT)) {
                 jsonObject.put(ChildJsonFormUtils.VALUE, "yes");
             } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(Constants.KEY.PHOTO)) {
                 processPhoto(childDetails.get(Constants.KEY.BASE_ENTITY_ID), jsonObject);
-            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.CAREGIVER_BIRTHDATE_UNKNOWN)) {
+            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KeyConstants.CAREGIVER_BIRTHDATE_UNKNOWN)) {
                 getDobUnknown(childDetails, jsonObject);
             } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(Constants.JSON_FORM_KEY.AGE)) {
-                processAge(Utils.getValue(childDetails, AppConstants.KEY.DOB, false), jsonObject);
+                processAge(Utils.getValue(childDetails, AppConstants.KeyConstants.DOB, false), jsonObject);
             } else if (jsonObject.getString(JsonFormConstants.TYPE).equalsIgnoreCase(JsonFormConstants.DATE_PICKER)) {
                 processDate(childDetails, prefix, jsonObject);
             } else if (jsonObject.getString(ChildJsonFormUtils.OPENMRS_ENTITY).equalsIgnoreCase(ChildJsonFormUtils.PERSON_INDENTIFIER)) {
                 jsonObject.put(ChildJsonFormUtils.VALUE, Utils.getValue(childDetails,
                         jsonObject.getString(ChildJsonFormUtils.OPENMRS_ENTITY_ID).toLowerCase(), true).replace("-", ""));
-            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.MIDDLE_NAME)) {
-                String middleName = Utils.getValue(childDetails, AppConstants.KEY.MIDDLE_NAME, true);
+            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KeyConstants.MIDDLE_NAME)) {
+                String middleName = Utils.getValue(childDetails, AppConstants.KeyConstants.MIDDLE_NAME, true);
                 jsonObject.put(ChildJsonFormUtils.VALUE, middleName);
             } else if (jsonObject.has(JsonFormConstants.TREE)) {
                 processLocationTree(childDetails, jsonObject);
-            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.CAREGIVER_FIRST_NAME)) {
-                String motherFirstName = Utils.getValue(childDetails, AppConstants.KEY.MOTHER_FIRST_NAME, true);
+            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KeyConstants.CAREGIVER_FIRST_NAME)) {
+                String motherFirstName = Utils.getValue(childDetails, AppConstants.KeyConstants.MOTHER_FIRST_NAME, true);
                 jsonObject.put(ChildJsonFormUtils.VALUE, motherFirstName);
-            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.CAREGIVER_LAST_NAME)) {
-                String motherLastName = Utils.getValue(childDetails, AppConstants.KEY.MOTHER_LAST_NAME, true);
+            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KeyConstants.CAREGIVER_LAST_NAME)) {
+                String motherLastName = Utils.getValue(childDetails, AppConstants.KeyConstants.MOTHER_LAST_NAME, true);
                 jsonObject.put(ChildJsonFormUtils.VALUE, motherLastName);
-//            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.CAREGIVER_MIDDLE_NAME)) {
-//                String motherMiddleName = Utils.getValue(childDetails, AppConstants.KEY.CAREGIVER_MIDDLE_NAME, true);
+//            } else if (jsonObject.getString(ChildJsonFormUtils.KeyConstants).equalsIgnoreCase(AppConstants.KeyConstants.CAREGIVER_MIDDLE_NAME)) {
+//                String motherMiddleName = Utils.getValue(childDetails, AppConstants.KeyConstants.CAREGIVER_MIDDLE_NAME, true);
 //                jsonObject.put(ChildJsonFormUtils.VALUE, motherMiddleName);
-//            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.FATHER_FIRST_NAME)) {
-//                String fatherFirstName = Utils.getValue(childDetails, AppConstants.KEY.FATHER_FIRST_NAME, true);
+//            } else if (jsonObject.getString(ChildJsonFormUtils.KeyConstants).equalsIgnoreCase(AppConstants.KeyConstants.FATHER_FIRST_NAME)) {
+//                String fatherFirstName = Utils.getValue(childDetails, AppConstants.KeyConstants.FATHER_FIRST_NAME, true);
 //                jsonObject.put(ChildJsonFormUtils.VALUE, fatherFirstName);
-//            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.FATHER_LAST_NAME)) {
-//                String fatherLastName = Utils.getValue(childDetails, AppConstants.KEY.FATHER_LAST_NAME, true);
+//            } else if (jsonObject.getString(ChildJsonFormUtils.KeyConstants).equalsIgnoreCase(AppConstants.KeyConstants.FATHER_LAST_NAME)) {
+//                String fatherLastName = Utils.getValue(childDetails, AppConstants.KeyConstants.FATHER_LAST_NAME, true);
 //                jsonObject.put(ChildJsonFormUtils.VALUE, fatherLastName);
-            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.SURNAME)) {
-                String childLastName = Utils.getValue(childDetails, AppConstants.KEY.LAST_NAME, true);
+            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KeyConstants.SURNAME)) {
+                String childLastName = Utils.getValue(childDetails, AppConstants.KeyConstants.LAST_NAME, true);
                 jsonObject.put(ChildJsonFormUtils.VALUE, childLastName);
-//            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase("mother_guardian_number")) {
+//            } else if (jsonObject.getString(ChildJsonFormUtils.KeyConstants).equalsIgnoreCase("mother_guardian_number")) {
 //                String motherPhoneNumber = Utils.getValue(childDetails, "mother_phone_number", true);
 //                jsonObject.put(ChildJsonFormUtils.VALUE, motherPhoneNumber);
-//            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.FATHER_PHONE)) {
+//            } else if (jsonObject.getString(ChildJsonFormUtils.KeyConstants).equalsIgnoreCase(AppConstants.KeyConstants.FATHER_PHONE)) {
 //                String fatherPhoneNumber = Utils.getValue(childDetails, "father_phone_number", true);
 //                jsonObject.put(ChildJsonFormUtils.VALUE, fatherPhoneNumber);
-            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.SECOND_PHONE_NUMBER)) {
+            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KeyConstants.SECOND_PHONE_NUMBER)) {
                 String secondPhone = Utils.getValue(childDetails, "mother_second_phone_number", true);
                 jsonObject.put(ChildJsonFormUtils.VALUE, secondPhone);
             } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase("Sex")) {
                 jsonObject.put(ChildJsonFormUtils.VALUE, childDetails.get(ChildJsonFormUtils.GENDER));
-            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.BIRTH_WEIGHT)) {
-                jsonObject.put(ChildJsonFormUtils.VALUE, childDetails.get(AppConstants.KEY.BIRTH_WEIGHT.toLowerCase()));
+            } else if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KeyConstants.BIRTH_WEIGHT)) {
+                jsonObject.put(ChildJsonFormUtils.VALUE, childDetails.get(AppConstants.KeyConstants.BIRTH_WEIGHT.toLowerCase()));
             } else {
                 jsonObject.put(ChildJsonFormUtils.VALUE, childDetails.get(jsonObject.getString(ChildJsonFormUtils.KEY)));
             }
@@ -127,7 +127,7 @@ public class AppJsonFormUtils extends ChildJsonFormUtils {
     private static void getDobUnknown(Map<String, String> childDetails, JSONObject jsonObject) throws JSONException {
         JSONObject optionsObject = jsonObject.getJSONArray(Constants.JSON_FORM_KEY.OPTIONS).getJSONObject(0);
         optionsObject.put(ChildJsonFormUtils.VALUE,
-                Utils.getValue(childDetails, AppConstants.KEY.DOB_UNKNOWN, false));
+                Utils.getValue(childDetails, AppConstants.KeyConstants.DOB_UNKNOWN, false));
     }
 
     @NotNull
@@ -146,9 +146,9 @@ public class AppJsonFormUtils extends ChildJsonFormUtils {
     }
 
     private static void updateHomeFacilityHierarchy(Map<String, String> childDetails, JSONObject jsonObject) throws JSONException {
-        if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KEY.HOME_FACILITY)) {
+        if (jsonObject.getString(ChildJsonFormUtils.KEY).equalsIgnoreCase(AppConstants.KeyConstants.HOME_FACILITY)) {
             List<String> homeFacilityHierarchy = LocationHelper.getInstance().getOpenMrsLocationHierarchy(
-                    Utils.getValue(childDetails, AppConstants.KEY.HOME_FACILITY, false), false);
+                    Utils.getValue(childDetails, AppConstants.KeyConstants.HOME_FACILITY, false), false);
             String homeFacilityHierarchyString = AssetHandler
                     .javaToJsonString(homeFacilityHierarchy, new TypeToken<List<String>>() {
                     }.getType());
@@ -163,15 +163,15 @@ public class AppJsonFormUtils extends ChildJsonFormUtils {
         }
     }
 
-    private static void updateRegistrationEventType(JSONObject form, Map<String, String> childDetails) throws JSONException {
+    private static void updateRegistrationEventType(JSONObject form) throws JSONException {
         if (form.has(ChildJsonFormUtils.ENCOUNTER_TYPE) && form.getString(ChildJsonFormUtils.ENCOUNTER_TYPE)
                 .equals(Constants.EventType.BITRH_REGISTRATION)) {
             form.put(ChildJsonFormUtils.ENCOUNTER_TYPE, Constants.EventType.UPDATE_BITRH_REGISTRATION);
         }
 
-        if (form.has(ChildJsonFormUtils.STEP1) && form.getJSONObject(ChildJsonFormUtils.STEP1).has(AppConstants.KEY.TITLE) && form.getJSONObject(ChildJsonFormUtils.STEP1).getString(AppConstants.KEY.TITLE)
+        if (form.has(ChildJsonFormUtils.STEP1) && form.getJSONObject(ChildJsonFormUtils.STEP1).has(AppConstants.KeyConstants.TITLE) && form.getJSONObject(ChildJsonFormUtils.STEP1).getString(AppConstants.KeyConstants.TITLE)
                 .equals(Constants.EventType.BITRH_REGISTRATION)) {
-            form.getJSONObject(ChildJsonFormUtils.STEP1).put(AppConstants.KEY.TITLE, AppConstants.FormTitleUtil.UPDATE_CHILD_FORM);
+            form.getJSONObject(ChildJsonFormUtils.STEP1).put(AppConstants.KeyConstants.TITLE, AppConstants.FormTitleUtil.UPDATE_CHILD_FORM);
         }
 
         //Update father details if it exists or create a new one

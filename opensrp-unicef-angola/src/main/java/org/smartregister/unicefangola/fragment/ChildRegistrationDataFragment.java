@@ -19,18 +19,18 @@ import java.util.Map;
 public class ChildRegistrationDataFragment extends BaseChildRegistrationDataFragment {
 
     private final static List<String> requiredFieldsList = Arrays.asList(
-            AppConstants.KEY.FIRST_NAME,
-            AppConstants.KEY.SURNAME,
+            AppConstants.KeyConstants.FIRST_NAME,
+            AppConstants.KeyConstants.SURNAME,
             "zeir_id",
-            AppConstants.KEY.SEX,
-            AppConstants.KEY.DATE_BIRTH,
-            AppConstants.KEY.CAREGIVER_FIRST_NAME,
-            AppConstants.KEY.CAREGIVER_LAST_NAME,
-            AppConstants.KEY.CAREGIVER_FIRST_PHONE_NUMBER,
-            AppConstants.KEY.CAREGIVER_FIRST_PHONE_NUMBER_OWNER,
-            AppConstants.KEY.CAREGIVER_SECOND_PHONE_NUMBER,
-            AppConstants.KEY.CAREGIVER_SECOND_PHONE_NUMBER_OWNER,
-            AppConstants.KEY.CAREGIVER_ADDRESS
+            AppConstants.KeyConstants.SEX,
+            AppConstants.KeyConstants.DATE_BIRTH,
+            AppConstants.KeyConstants.CAREGIVER_FIRST_NAME,
+            AppConstants.KeyConstants.CAREGIVER_LAST_NAME,
+            AppConstants.KeyConstants.CAREGIVER_FIRST_PHONE_NUMBER,
+            AppConstants.KeyConstants.CAREGIVER_FIRST_PHONE_NUMBER_OWNER,
+            AppConstants.KeyConstants.CAREGIVER_SECOND_PHONE_NUMBER,
+            AppConstants.KeyConstants.CAREGIVER_SECOND_PHONE_NUMBER_OWNER,
+            AppConstants.KeyConstants.CAREGIVER_ADDRESS
     );
 
 
@@ -71,15 +71,15 @@ public class ChildRegistrationDataFragment extends BaseChildRegistrationDataFrag
     protected Map<String, String> getDataRowLabelResourceIds() {
         fieldNameResourceMap = new HashMap<String, Integer>() {
             {
-                put(AppConstants.KEY.SURNAME, R.string.last_name);
-                put(AppConstants.KEY.DATE_BIRTH, R.string.dob);
-                put(AppConstants.KEY.CAREGIVER_FIRST_NAME, R.string.mother_caregiver_first_name);
-                put(AppConstants.KEY.CAREGIVER_LAST_NAME, R.string.mother_caregiver_last_name);
-                put(AppConstants.KEY.CAREGIVER_FIRST_PHONE_NUMBER, R.string.primary_number);
-                put(AppConstants.KEY.CAREGIVER_FIRST_PHONE_NUMBER_OWNER, R.string.primary_number_belongs_to);
-                put(AppConstants.KEY.CAREGIVER_SECOND_PHONE_NUMBER, R.string.second_number);
-                put(AppConstants.KEY.CAREGIVER_SECOND_PHONE_NUMBER_OWNER, R.string.second_number_belongs_to);
-                put(AppConstants.KEY.CAREGIVER_ADDRESS, R.string.address);
+                put(AppConstants.KeyConstants.SURNAME, R.string.last_name);
+                put(AppConstants.KeyConstants.DATE_BIRTH, R.string.dob);
+                put(AppConstants.KeyConstants.CAREGIVER_FIRST_NAME, R.string.mother_caregiver_first_name);
+                put(AppConstants.KeyConstants.CAREGIVER_LAST_NAME, R.string.mother_caregiver_last_name);
+                put(AppConstants.KeyConstants.CAREGIVER_FIRST_PHONE_NUMBER, R.string.primary_number);
+                put(AppConstants.KeyConstants.CAREGIVER_FIRST_PHONE_NUMBER_OWNER, R.string.primary_number_belongs_to);
+                put(AppConstants.KeyConstants.CAREGIVER_SECOND_PHONE_NUMBER, R.string.second_number);
+                put(AppConstants.KeyConstants.CAREGIVER_SECOND_PHONE_NUMBER_OWNER, R.string.second_number_belongs_to);
+                put(AppConstants.KeyConstants.CAREGIVER_ADDRESS, R.string.address);
             }
         };
         return super.getDataRowLabelResourceIds();

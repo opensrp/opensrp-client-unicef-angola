@@ -13,12 +13,12 @@ import org.robolectric.annotation.Config;
 import org.robolectric.util.ReflectionHelpers;
 import org.smartregister.unicefangola.BaseRobolectricTest;
 import org.smartregister.unicefangola.application.UnicefAngolaApplication;
-import org.smartregister.unicefangola.shadow.ShadowSQLiteDatabase;
+import org.smartregister.unicefangola.shadow.ShadowSQLiteDatabaseUtils;
 
 /**
  * Created by Ephraim Kigamba - nek.eam@gmail.com on 06-03-2020.
  */
-@Config(shadows = {ShadowSQLiteDatabase.class})
+@Config(shadows = {ShadowSQLiteDatabaseUtils.class})
 public class UnicefAngolaRepositoryTest extends BaseRobolectricTest {
 
     @Rule

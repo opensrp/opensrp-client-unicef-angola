@@ -22,7 +22,7 @@ import java.util.Locale;
 public class NavigationAdapter extends RecyclerView.Adapter<NavigationAdapter.MyViewHolder> {
 
     private final List<NavigationOption> navigationOptionList;
-    private String selectedView = AppConstants.DrawerMenu.ALL_FAMILIES;
+    private String selectedView = AppConstants.DrawerMenuConstants.ALL_FAMILIES;
     private View.OnClickListener onClickListener;
     private Activity context;
 
@@ -72,7 +72,8 @@ public class NavigationAdapter extends RecyclerView.Adapter<NavigationAdapter.My
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        private TextView tvName, tvCount;
+        private TextView tvCount;
+        private TextView tvName;
         private ImageView ivIcon;
         private View myView;
 

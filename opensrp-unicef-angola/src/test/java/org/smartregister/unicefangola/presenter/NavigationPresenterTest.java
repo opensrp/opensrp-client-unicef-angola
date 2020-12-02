@@ -32,10 +32,10 @@ public class NavigationPresenterTest extends BaseUnitTest {
         ReflectionHelpers.setField(navigationPresenter, "tableMap", tableMap);
         ReflectionHelpers.callInstanceMethod(navigationPresenter, "initialize");
         Assert.assertEquals(4, tableMap.size());
-        Assert.assertTrue(tableMap.containsKey(AppConstants.DrawerMenu.ALL_CLIENTS));
-        Assert.assertTrue(tableMap.containsKey(AppConstants.DrawerMenu.CHILD_CLIENTS));
-        Assert.assertTrue(tableMap.containsKey(AppConstants.DrawerMenu.ANC));
-        Assert.assertTrue(tableMap.containsKey(AppConstants.DrawerMenu.ANC_CLIENTS));
+        Assert.assertTrue(tableMap.containsKey(AppConstants.DrawerMenuConstants.ALL_CLIENTS));
+        Assert.assertTrue(tableMap.containsKey(AppConstants.DrawerMenuConstants.CHILD_CLIENTS));
+        Assert.assertTrue(tableMap.containsKey(AppConstants.DrawerMenuConstants.ANC));
+        Assert.assertTrue(tableMap.containsKey(AppConstants.DrawerMenuConstants.ANC_CLIENTS));
     }
 
     @Test
