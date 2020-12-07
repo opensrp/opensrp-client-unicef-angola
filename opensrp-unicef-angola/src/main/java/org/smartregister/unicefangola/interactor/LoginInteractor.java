@@ -8,6 +8,7 @@ import org.smartregister.immunization.job.RecurringServiceJob;
 import org.smartregister.immunization.job.VaccineServiceJob;
 import org.smartregister.job.ImageUploadServiceJob;
 import org.smartregister.job.PullUniqueIdsServiceJob;
+import org.smartregister.job.SyncAllLocationsServiceJob;
 import org.smartregister.job.SyncServiceJob;
 import org.smartregister.login.interactor.BaseLoginInteractor;
 import org.smartregister.reporting.job.RecurringIndicatorGeneratingJob;
@@ -47,8 +48,10 @@ public class LoginInteractor extends BaseLoginInteractor implements BaseLoginCon
                 getFlexValue(BuildConfig.DATA_SYNC_DURATION_MINUTES));
 
         SyncServiceJob.scheduleJob(SyncServiceJob.TAG, TimeUnit.MINUTES.toMinutes(BuildConfig.DATA_SYNC_DURATION_MINUTES),
-                getFlexValue(BuildConfig
-                        .DATA_SYNC_DURATION_MINUTES));
+                getFlexValue(BuildConfig.DATA_SYNC_DURATION_MINUTES));
+
+        SyncAllLocationsServiceJob.scheduleJob(SyncAllLocationsServiceJob.TAG, TimeUnit.MINUTES.toMinutes(BuildConfig.DATA_SYNC_DURATION_MINUTES),
+                getFlexValue(BuildConfig.DATA_SYNC_DURATION_MINUTES));
 
         PullUniqueIdsServiceJob
                 .scheduleJob(PullUniqueIdsServiceJob.TAG, TimeUnit.MINUTES.toMinutes(BuildConfig.PULL_UNIQUE_IDS_MINUTES),
@@ -71,6 +74,7 @@ public class LoginInteractor extends BaseLoginInteractor implements BaseLoginCon
     protected void scheduleJobsImmediately() {
         //        schedule jobs
         SyncServiceJob.scheduleJobImmediately(SyncServiceJob.TAG);
+        SyncAllLocationsServiceJob.scheduleJobImmediately(SyncAllLocationsServiceJob.TAG);
         PullUniqueIdsServiceJob.scheduleJobImmediately(PullUniqueIdsServiceJob.TAG); //need these asap!
         ZScoreRefreshIntentServiceJob.scheduleJobImmediately(ZScoreRefreshIntentServiceJob.TAG);
         ImageUploadServiceJob.scheduleJobImmediately(ImageUploadServiceJob.TAG);

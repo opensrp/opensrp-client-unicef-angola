@@ -95,6 +95,7 @@
         <service android:name="org.smartregister.growthmonitoring.service.intent.HeightIntentService" />
         <service android:name="org.smartregister.growthmonitoring.service.intent.WeightForHeightIntentService" />
         <service android:name="org.smartregister.sync.intent.PullUniqueIdsIntentService" />
+        <service android:name="org.smartregister.sync.intent.SyncAllLocationsIntentService"/>
         <service android:name="org.smartregister.sync.intent.ValidateIntentService" />
         <service android:name="org.smartregister.sync.intent.ExtendedSyncIntentService" />
         <service android:name="org.smartregister.sync.intent.SettingsSyncIntentService" />

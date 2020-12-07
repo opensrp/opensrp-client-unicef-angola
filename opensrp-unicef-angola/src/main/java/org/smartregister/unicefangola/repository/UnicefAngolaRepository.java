@@ -23,6 +23,8 @@ import org.smartregister.reporting.repository.IndicatorQueryRepository;
 import org.smartregister.repository.AlertRepository;
 import org.smartregister.repository.EventClientRepository;
 import org.smartregister.repository.Hia2ReportRepository;
+import org.smartregister.repository.LocationRepository;
+import org.smartregister.repository.LocationTagRepository;
 import org.smartregister.repository.Repository;
 import org.smartregister.repository.SettingsRepository;
 import org.smartregister.repository.UniqueIdRepository;
@@ -63,6 +65,9 @@ public class UnicefAngolaRepository extends Repository {
         HeightRepository.createTable(database);
         VaccineRepository.createTable(database);
         WeightForHeightRepository.createTable(database);
+
+        LocationRepository.createTable(database);
+        LocationTagRepository.createTable(database);
 
         ClientRegisterTypeRepository.createTable(database);
         ChildAlertUpdatedRepository.createTable(database);
