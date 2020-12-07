@@ -23,6 +23,20 @@ jacoco {
     toolVersion = jacocoVersion
 }
 
+Properties properties = new Properties()
+if (project.rootProject.file("local.properties").exists()) {
+    properties.load(project.rootProject.file("local.properties").newDataInputStream())
+}
+
+ext.getLocalProperty = { key ->
+    if (properties != null && properties.containsKey(key)) {
+        println(key + ": " + properties[key])
+        return properties[key]
+    } else {
+        return "\"sample_property_value\""
+    }
+}
+
 android {
     useLibrary 'org.apache.http.legacy'
     compileSdkVersion androidCompileSdkVersion
@@ -42,32 +56,8 @@ android {
         buildConfigField "long", "BUILD_TIMESTAMP", System.currentTimeMillis() + "L"
         buildConfigField "boolean", "IS_SYNC_SETTINGS", "false"
         buildConfigField "long", "EVENT_VERSION", System.currentTimeMillis() + "L"
-        buildConfigField "String", "OAUTH_CLIENT_ID", '"opensrp-trusted-client"'
-        buildConfigField "String", "OAUTH_CLIENT_SECRET", '"O@aTHS#cr3t"'
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         javaCompileOptions.annotationProcessorOptions.includeCompileClasspath true
-
-        if (project.rootProject.file("local.properties").exists()) {
-
-            Properties properties = new Properties()
-            properties.load(project.rootProject.file("local.properties").newDataInputStream())
-
-            if (properties != null && properties.containsKey("oauth.client.id.debug")) {
-
-                buildConfigField "String", "OAUTH_CLIENT_ID", properties["oauth.client.id.debug"]
-
-            } else {
-                project.logger.error("oauth.client.id variable is not set in your local.properties")
-            }
-
-            if (properties != null && properties.containsKey("oauth.client.secret.debug")) {
-
-                buildConfigField "String", "OAUTH_CLIENT_SECRET", properties["oauth.client.secret.debug"]
-
-            } else {
-                project.logger.error("oauth.client.secret variable is not set in your local.properties")
-            }
-        }
 
         javaCompileOptions {
             annotationProcessorOptions {
@@ -115,6 +105,8 @@ android {
             buildConfigField "String[]", "LOCATION_LEVELS", '{"Country", "Provice", "Municipality", "Health Facility"}'
             buildConfigField "String[]", "HEALTH_FACILITY_LEVELS", '{"Country", "Provice", "Municipality", "Health Facility"}'
             buildConfigField "String", 'DEFAULT_LOCATION', '"Health Facility"'
+            buildConfigField "String", "OAUTH_CLIENT_ID", getLocalProperty("oauth.client.id.release")
+            buildConfigField "String", "OAUTH_CLIENT_SECRET", getLocalProperty("oauth.client.secret.release")
         }
 
         debug {
@@ -139,6 +131,8 @@ android {
             buildConfigField "String[]", "LOCATION_LEVELS", '{"Country", "Provice", "Municipality", "Health Facility"}'
             buildConfigField "String[]", "HEALTH_FACILITY_LEVELS", '{"Country", "Provice", "Municipality", "Health Facility"}'
             buildConfigField "String", 'DEFAULT_LOCATION', '"Health Facility"'
+            buildConfigField "String", "OAUTH_CLIENT_ID", getLocalProperty("oauth.client.id.debug")
+            buildConfigField "String", "OAUTH_CLIENT_SECRET", getLocalProperty("oauth.client.secret.debug")
             testCoverageEnabled true
         }
 
@@ -168,6 +162,8 @@ android {
             buildConfigField "String[]", "LOCATION_LEVELS", '{"Country", "Provice", "Municipality", "Health Facility"}'
             buildConfigField "String[]", "HEALTH_FACILITY_LEVELS", '{"Country", "Provice", "Municipality", "Health Facility"}'
             buildConfigField "String", 'DEFAULT_LOCATION', '"Health Facility"'
+            buildConfigField "String", "OAUTH_CLIENT_ID", getLocalProperty("oauth.client.id.preview")
+            buildConfigField "String", "OAUTH_CLIENT_SECRET", getLocalProperty("oauth.client.secret.preview")
         }
     }
 
