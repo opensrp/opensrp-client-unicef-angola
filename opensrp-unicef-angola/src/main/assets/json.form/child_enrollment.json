@@ -1,0 +1,1171 @@
+{
+  "count": "1",
+  "encounter_type": "Birth Registration",
+  "validate_on_submit": true,
+  "show_errors_on_submit": true,
+  "mother": {
+    "encounter_type": "New Woman Registration"
+  },
+  "entity_id": "",
+  "relational_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "today": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "encounter",
+      "openmrs_entity_id": "encounter_date"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "{{child_enrollment.step1.title}}",
+    "fields": [
+      {
+        "key": "informed_consent_note",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "text": "{{child_enrollment.step1.informed_consent_note.text}}",
+        "text_color": "#1199F9",
+        "toaster_type": "info"
+      },
+      {
+        "key": "consent",
+        "type": "spinner",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "openmrs_entity_parent": "",
+        "hint": "{{child_enrollment.step1.consent.hint}}",
+        "options": [
+          {
+            "key": "yes",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.consent.options.yes.text}}"
+          },
+          {
+            "key": "no",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.consent.options.no.text}}"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "{{child_enrollment.step1.consent.v_required.err}}"
+        }
+      },
+      {
+        "key": "label_1",
+        "type": "label",
+        "text": "{{child_enrollment.step1.label_1.text}}",
+        "has_bg": true,
+        "bg_color": "#148bc7",
+        "text_color": "#FFFFFF",
+        "left_padding": "20dp",
+        "right_padding": "20dp",
+        "text_size": "26sp",
+        "label_text_style": "bold",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_register_registration_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "spacer",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "spacer",
+        "type": "spacer",
+        "spacer_height": "10dp",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_register_registration_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "photo",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "choose_image",
+        "uploadButtonText": "{{child_enrollment.step1.photo.uploadButtonText}}",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_register_registration_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "zeir_id",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person_identifier",
+        "openmrs_entity_id": "zeir_id",
+        "type": "edit_text",
+        "hint": "{{child_enrollment.step1.zeir_id.hint}}",
+        "value": "0",
+        "scanButtonText": "Scan QR Code",
+        "read_only": true,
+        "v_numeric": {
+          "value": "true",
+          "err": "{{child_enrollment.step1.zeir_id.v_numeric.err}}"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "{{child_enrollment.step1.zeir_id.v_required.err}}"
+        }
+      },
+      {
+        "key": "first_name",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person",
+        "openmrs_entity_id": "first_name",
+        "type": "edit_text",
+        "hint": "{{child_enrollment.step1.first_name.hint}}",
+        "edit_type": "name",
+        "v_required": {
+          "value": "true",
+          "err": "{{child_enrollment.step1.first_name.v_required.err}}"
+        },
+        "v_regex": {
+          "value": "[A-Za-z\\s\\.\\-]*",
+          "err": "{{child_enrollment.step1.first_name.v_regex.err}}"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_register_registration_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "middle_name",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person",
+        "openmrs_entity_id": "middle_name",
+        "type": "edit_text",
+        "hint": "{{child_enrollment.step1.middle_name.hint}}",
+        "edit_type": "name",
+        "v_regex": {
+          "value": "[A-Za-z\\s\\.\\-]*",
+          "err": "{{child_enrollment.step1.middle_name.v_regex.err}}"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_register_registration_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "surname",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person",
+        "openmrs_entity_id": "last_name",
+        "type": "edit_text",
+        "hint": "{{child_enrollment.step1.surname.hint}}",
+        "edit_type": "name",
+        "v_required": {
+          "value": "true",
+          "err": "{{child_enrollment.step1.surname.v_required.err}}"
+        },
+        "v_regex": {
+          "value": "[A-Za-z\\s\\.\\-]*",
+          "err": "{{child_enrollment.step1.surname.v_regex.err}}"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_register_registration_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "Date_Birth",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person",
+        "openmrs_entity_id": "birthdate",
+        "type": "date_picker",
+        "hint": "{{child_enrollment.step1.Date_Birth.hint}}",
+        "max_date": "today",
+        "min_date": "today-2m",
+        "v_required": {
+          "value": "true",
+          "err": "{{child_enrollment.step1.Date_Birth.v_required.err}}"
+        },
+        "duration": {
+          "label": "{{child_enrollment.step1.Date_Birth.duration.label}}"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_register_registration_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "age",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person_attribute",
+        "openmrs_entity_id": "age",
+        "type": "hidden",
+        "read_only": true,
+        "hint": "{{child_enrollment.step1.age.hint}}",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_register_registration_calculation_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "Sex",
+        "type": "spinner",
+        "openmrs_entity": "person",
+        "openmrs_entity_id": "gender",
+        "openmrs_entity_parent": "",
+        "hint": "{{child_enrollment.step1.Sex.hint}}",
+        "options": [
+          {
+            "key": "Male",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "NA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.Sex.options.Male.text}}"
+          },
+          {
+            "key": "Female",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "NA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.Sex.options.Female.text}}"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "{{child_enrollment.step1.Sex.v_required.err}}"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_register_registration_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "birth_location",
+        "type": "spinner",
+        "openmrs_entity": "person_attribute",
+        "openmrs_entity_id": "birth_location",
+        "openmrs_entity_parent": "",
+        "hint": "{{child_enrollment.step1.birth_location.hint}}",
+        "options": [
+          {
+            "key": "home",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "1536AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.birth_location.options.home.text}}"
+          },
+          {
+            "key": "heath_facility",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "1589AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.birth_location.options.heath_facility.text}}"
+          },
+          {
+            "key": "other",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.birth_location.options.other.text}}"
+          },
+          {
+            "key": "dont_know",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.birth_location.options.dont_know.text}}"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "{{child_enrollment.step1.birth_location.v_required.err}}"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_register_registration_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "anc",
+        "type": "spinner",
+        "openmrs_entity": "person_attribute",
+        "openmrs_entity_id": "anc",
+        "openmrs_entity_parent": "",
+        "hint": "{{child_enrollment.step1.anc.hint}}",
+        "options": [
+          {
+            "key": "yes",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.anc.options.yes.text}}"
+          },
+          {
+            "key": "no",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.anc.options.no.text}}"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "{{child_enrollment.step1.anc.v_required.err}}"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_register_registration_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "no_anc",
+        "type": "edit_text",
+        "openmrs_entity": "person_attribute",
+        "openmrs_entity_id": "no_anc",
+        "openmrs_entity_parent": "",
+        "edit_type": "number",
+        "hint": "{{child_enrollment.step1.no_anc.hint}}",
+        "v_required": {
+          "value": "true",
+          "err": "{{child_enrollment.step1.no_anc.v_required.err}}"
+        },
+        "v_regex": {
+          "value": "[0-9\\d]*",
+          "err": "{{child_enrollment.step1.no_anc.v_regex.err}}"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_register_registration_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "label_2",
+        "type": "label",
+        "text": "{{child_enrollment.step1.label_2.text}}",
+        "has_bg": true,
+        "bg_color": "#148bc7",
+        "text_color": "#FFFFFF",
+        "left_padding": "20dp",
+        "right_padding": "20dp",
+        "text_size": "26sp",
+        "label_text_style": "bold",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_register_registration_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "caregiver_first_name",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person",
+        "openmrs_entity_id": "first_name",
+        "entity_id": "mother",
+        "type": "edit_text",
+        "hint": "{{child_enrollment.step1.caregiver_first_name.hint}}",
+        "edit_type": "name",
+        "v_required": {
+          "value": "true",
+          "err": "{{child_enrollment.step1.caregiver_first_name.v_required.err}}"
+        },
+        "v_regex": {
+          "value": "[A-Za-z\\s\\.\\-]*",
+          "err": "{{child_enrollment.step1.caregiver_first_name.v_regex.err}}"
+        },
+        "name": "Caregiver Details",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_register_registration_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "caregiver_middle_name",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person",
+        "openmrs_entity_id": "middle_name",
+        "entity_id": "mother",
+        "type": "edit_text",
+        "hint": "{{child_enrollment.step1.caregiver_middle_name.hint}}",
+        "edit_type": "name",
+        "v_regex": {
+          "value": "[A-Za-z\\s\\.\\-]*",
+          "err": "{{child_enrollment.step1.caregiver_middle_name.v_regex.err}}"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_register_registration_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "caregiver_surname",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person",
+        "openmrs_entity_id": "last_name",
+        "entity_id": "mother",
+        "type": "edit_text",
+        "hint": "{{child_enrollment.step1.caregiver_surname.hint}}",
+        "edit_type": "name",
+        "v_required": {
+          "value": "true",
+          "err": "{{child_enrollment.step1.caregiver_surname.v_required.err}}"
+        },
+        "v_regex": {
+          "value": "[A-Za-z\\s\\.\\-]*",
+          "err": "{{child_enrollment.step1.caregiver_surname.v_regex.err}}"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_register_registration_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "caregiver_name",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person_attribute",
+        "openmrs_entity_id": "caregiver_name",
+        "entity_id": "mother",
+        "type": "hidden",
+        "hint": "{{child_enrollment.step1.caregiver_name.hint}}",
+        "edit_type": "name",
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_register_registration_calculation_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "Mother_Guardian_Date_Birth",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person",
+        "openmrs_entity_id": "birthdate",
+        "entity_id": "mother",
+        "type": "date_picker",
+        "hint": "{{child_enrollment.step1.Mother_Guardian_Date_Birth.hint}}",
+        "look_up": "true",
+        "expanded": false,
+        "duration": {
+          "label": "{{child_enrollment.step1.Mother_Guardian_Date_Birth.duration.label}}"
+        },
+        "min_date": "01-01-1900",
+        "max_date": "today-10y",
+        "v_required": {
+          "value": "true",
+          "err": "{{child_enrollment.step1.Mother_Guardian_Date_Birth.v_required.err}}"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_register_registration_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "Mother_Guardian_Date_Birth_Unknown",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person",
+        "openmrs_entity_id": "birthdateApprox",
+        "entity_id": "mother",
+        "look_up": "true",
+        "type": "check_box",
+        "options": [
+          {
+            "key": "Mother_Guardian_Date_Birth_Unknown",
+            "text": "{{child_enrollment.step1.Mother_Guardian_Date_Birth_Unknown.options.Mother_Guardian_Date_Birth_Unknown.text}}",
+            "text_size": "18px",
+            "value": "false"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_register_registration_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "Mother_Guardian_Age",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person_attribute",
+        "openmrs_entity_id": "caregiver_age",
+        "entity_id": "mother",
+        "type": "edit_text",
+        "hint": "{{child_enrollment.step1.Mother_Guardian_Age.hint}}",
+        "v_numeric": {
+          "value": "true",
+          "err": "{{child_enrollment.step1.Mother_Guardian_Age.v_numeric.err}}"
+        },
+        "v_min": {
+          "value": "15",
+          "err": "{{child_enrollment.step1.Mother_Guardian_Age.v_min.err}}"
+        },
+        "v_max": {
+          "value": "100",
+          "err": "{{child_enrollment.step1.Mother_Guardian_Age.v_max.err}}"
+        },
+        "v_regex": {
+          "value": "^$|([0-9]+)",
+          "err": "{{child_enrollment.step1.Mother_Guardian_Age.v_regex.err}}"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_register_registration_relevance_rules.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": true,
+          "err": "{{child_enrollment.step1.Mother_Guardian_Age.v_required.err}}"
+        }
+      },
+      {
+        "key": "caregiver_sex",
+        "type": "spinner",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person",
+        "openmrs_entity_id": "gender",
+        "entity_id": "mother",
+        "hint": "{{child_enrollment.step1.caregiver_sex.hint}}",
+        "options": [
+          {
+            "key": "male",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "NA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.caregiver_sex.options.male.text}}"
+          },
+          {
+            "key": "female",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "NA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.caregiver_sex.options.female.text}}"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "{{child_enrollment.step1.caregiver_sex.v_required.err}}"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_register_registration_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "tel_number1",
+        "type": "edit_text",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person_attribute",
+        "openmrs_entity_id": "tel_number1",
+        "entity_id": "mother",
+        "edit_type": "number",
+        "hint": "{{child_enrollment.step1.tel_number1.hint}}",
+        "v_required": {
+          "value": "true",
+          "err": "{{child_enrollment.step1.tel_number1.v_required.err}}"
+        },
+        "v_regex": {
+          "value": "^[0-9]{9}$",
+          "err": "{{child_enrollment.step1.tel_number1.v_regex.err}}"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_register_registration_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "tel1",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person_attribute",
+        "openmrs_entity_id": "tel1",
+        "entity_id": "mother",
+        "type": "hidden",
+        "read_only": true,
+        "hint": "{{child_enrollment.step1.tel1.hint}}",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_register_registration_calculation_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "tel_owner1",
+        "type": "spinner",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person_attribute",
+        "openmrs_entity_id": "tel_owner1",
+        "entity_id": "mother",
+        "hint": "{{child_enrollment.step1.tel_owner1.hint}}",
+        "options": [
+          {
+            "key": "caregiver",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "NA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.tel_owner1.options.caregiver.text}}"
+          },
+          {
+            "key": "family_member",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "NA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.tel_owner1.options.family_member.text}}"
+          },
+          {
+            "key": "friend",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "NA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.tel_owner1.options.friend.text}}"
+          },
+          {
+            "key": "neighbor",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "NA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.tel_owner1.options.neighbor.text}}"
+          },
+          {
+            "key": "other",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "NA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.tel_owner1.options.other.text}}"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "{{child_enrollment.step1.tel_owner1.v_required.err}}"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_register_registration_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "tel_number2",
+        "type": "edit_text",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person_attribute",
+        "openmrs_entity_id": "tel_number2",
+        "entity_id": "mother",
+        "edit_type": "number",
+        "hint": "{{child_enrollment.step1.tel_number2.hint}}",
+        "v_regex": {
+          "value": "^(?:\\d{9}|)$",
+          "err": "{{child_enrollment.step1.tel_number2.v_regex.err}}"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_register_registration_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "tel2",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person_attribute",
+        "openmrs_entity_id": "tel2",
+        "entity_id": "mother",
+        "type": "hidden",
+        "read_only": true,
+        "hint": "{{child_enrollment.step1.tel2.hint}}",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_register_registration_calculation_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "tel_owner2",
+        "type": "spinner",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person_attribute",
+        "openmrs_entity_id": "tel_owner2",
+        "entity_id": "mother",
+        "hint": "{{child_enrollment.step1.tel_owner2.hint}}",
+        "options": [
+          {
+            "key": "caregiver",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.tel_owner2.options.caregiver.text}}"
+          },
+          {
+            "key": "family_member",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.tel_owner2.options.family_member.text}}"
+          },
+          {
+            "key": "friend",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.tel_owner2.options.friend.text}}"
+          },
+          {
+            "key": "neighbor",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.tel_owner2.options.neighbor.text}}"
+          },
+          {
+            "key": "other",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.tel_owner2.options.other.text}}"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "{{child_enrollment.step1.tel_owner2.v_required.err}}"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_register_registration_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "address",
+        "type": "edit_text",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person_address",
+        "openmrs_entity_id": "address",
+        "entity_id": "mother",
+        "edit_type": "name",
+        "hint": "{{child_enrollment.step1.address.hint}}",
+        "v_required": {
+          "value": "true",
+          "err": "{{child_enrollment.step1.address.v_required.err}}"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_register_registration_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "lives",
+        "type": "spinner",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person_attribute",
+        "openmrs_entity_id": "lives",
+        "entity_id": "mother",
+        "hint": "{{child_enrollment.step1.lives.hint}}",
+        "options": [
+          {
+            "key": "urban",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.lives.options.urban.text}}"
+          },
+          {
+            "key": "rural",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.lives.options.rural.text}}"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "{{child_enrollment.step1.lives.v_required.err}}"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_register_registration_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "highest_education",
+        "type": "spinner",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person_attribute",
+        "openmrs_entity_id": "highest_education",
+        "entity_id": "mother",
+        "hint": "{{child_enrollment.step1.highest_education.hint}}",
+        "options": [
+          {
+            "key": "none",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "160294AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.highest_education.options.none.text}}"
+          },
+          {
+            "key": "early_childhood_education",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "160289AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.highest_education.options.early_childhood_education.text}}"
+          },
+          {
+            "key": "primary",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "1713AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.highest_education.options.primary.text}}"
+          },
+          {
+            "key": "lower_secondary",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "160291AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.highest_education.options.lower_secondary.text}}"
+          },
+          {
+            "key": "upper_secondary",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "1714AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.highest_education.options.upper_secondary.text}}"
+          },
+          {
+            "key": "higher",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "159785AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.highest_education.options.higher.text}}"
+          },
+          {
+            "key": "98",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.highest_education.options.98.text}}"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "{{child_enrollment.step1.highest_education.v_required.err}}"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_register_registration_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "religion",
+        "type": "spinner",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person_attribute",
+        "openmrs_entity_id": "religion",
+        "entity_id": "mother",
+        "hint": "{{child_enrollment.step1.religion.hint}}",
+        "options": [
+          {
+            "key": "christianity",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "163125AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.religion.options.christianity.text}}"
+          },
+          {
+            "key": "islam",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "162933AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.religion.options.islam.text}}"
+          },
+          {
+            "key": "traditional",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "1821AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.religion.options.traditional.text}}"
+          },
+          {
+            "key": "other",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.religion.options.other.text}}"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "{{child_enrollment.step1.religion.v_required.err}}"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_register_registration_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "marital_status",
+        "type": "spinner",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person_attribute",
+        "openmrs_entity_id": "marital_status",
+        "entity_id": "mother",
+        "hint": "{{child_enrollment.step1.marital_status.hint}}",
+        "options": [
+          {
+            "key": "married",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "5555AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.marital_status.options.married.text}}"
+          },
+          {
+            "key": "living_with_partner",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "1060AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.marital_status.options.living_with_partner.text}}"
+          },
+          {
+            "key": "widowed",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "1059AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.marital_status.options.widowed.text}}"
+          },
+          {
+            "key": "separated",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "1056AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.marital_status.options.separated.text}}"
+          },
+          {
+            "key": "divorced",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "1058AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.marital_status.options.divorced.text}}"
+          },
+          {
+            "key": "single",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "1057AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.marital_status.options.single.text}}"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "{{child_enrollment.step1.marital_status.v_required.err}}"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_register_registration_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "employment",
+        "type": "spinner",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person_attribute",
+        "openmrs_entity_id": "employment",
+        "entity_id": "mother",
+        "hint": "{{child_enrollment.step1.employment.hint}}",
+        "options": [
+          {
+            "key": "full_time",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "NA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.employment.options.full_time.text}}"
+          },
+          {
+            "key": "part_time",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "NA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.employment.options.part_time.text}}"
+          },
+          {
+            "key": "student",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "NA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.employment.options.student.text}}"
+          },
+          {
+            "key": "not_employed",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "NA",
+            "openmrs_entity_parent": "",
+            "text": "{{child_enrollment.step1.employment.options.not_employed.text}}"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "{{child_enrollment.step1.employment.v_required.err}}"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_register_registration_relevance_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "no_children",
+        "type": "edit_text",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person_attribute",
+        "openmrs_entity_id": "no_children",
+        "entity_id": "mother",
+        "edit_type": "number",
+        "hint": "{{child_enrollment.step1.no_children.hint}}",
+        "v_regex": {
+          "value": "[0-9\\d]*",
+          "err": "{{child_enrollment.step1.no_children.v_regex.err}}"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "{{child_enrollment.step1.no_children.v_required.err}}"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_register_registration_relevance_rules.yml"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "properties_file_name": "child_enrollment"
+}

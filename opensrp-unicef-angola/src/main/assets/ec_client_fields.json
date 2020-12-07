@@ -1,0 +1,472 @@
+{
+  "bindobjects": [
+    {
+      "name": "ec_client",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Client",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "dob_unknown",
+          "type": "Client",
+          "json_mapping": {
+            "field": "birthdateApprox"
+          }
+        },
+        {
+          "column_name": "opensrp_id",
+          "type": "Client",
+          "json_mapping": {
+            "field": "identifiers.zeir_id"
+          }
+        },
+        {
+          "column_name": "first_name",
+          "type": "Client",
+          "json_mapping": {
+            "field": "firstName"
+          }
+        },
+        {
+          "column_name": "last_name",
+          "type": "Client",
+          "json_mapping": {
+            "field": "lastName"
+          }
+        },
+        {
+          "column_name": "middle_name",
+          "type": "Client",
+          "json_mapping": {
+            "field": "middleName"
+          }
+        },
+        {
+          "column_name": "dob",
+          "type": "Client",
+          "json_mapping": {
+            "field": "birthdate"
+          }
+        },
+        {
+          "column_name": "dod",
+          "type": "Client",
+          "json_mapping": {
+            "field": "deathdate"
+          }
+        },
+        {
+          "column_name": "zeir_id",
+          "type": "Client",
+          "json_mapping": {
+            "field": "identifiers.zeir_id"
+          }
+        },
+        {
+          "column_name": "dod",
+          "type": "Client",
+          "json_mapping": {
+            "field": "deathdate"
+          }
+        },
+        {
+          "column_name": "middle_name",
+          "type": "Client",
+          "json_mapping": {
+            "field": "middleName"
+          }
+        },
+        {
+          "column_name": "phone_number",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.phone_number"
+          }
+        },
+        {
+          "column_name": "gender",
+          "type": "Client",
+          "json_mapping": {
+            "field": "gender"
+          }
+        },
+        {
+          "column_name": "date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "eventDate"
+          }
+        },
+        {
+          "column_name": "date_removed",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.dateRemoved"
+          }
+        },
+        {
+          "column_name": "last_interacted_with",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
+          }
+        },
+        {
+          "column_name": "home_address",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "162725AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+          }
+        },
+        {
+          "column_name": "home_address",
+          "type": "Client",
+          "json_mapping": {
+            "field": "addresses.address2"
+          }
+        },
+        {
+          "column_name": "client_reg_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "eventDate"
+          }
+        },
+        {
+          "column_name": "village",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "1354AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+          }
+        },
+        {
+          "column_name": "village",
+          "type": "Client",
+          "json_mapping": {
+            "field": "addresses.address1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_mother_details",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Client",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "mother_guardian_number",
+          "type": "Client",
+          "json_mapping": {
+            "field": "Client",
+            "concept": "attributes.mother_guardian_number"
+          }
+        },
+        {
+          "column_name": "mother_nationality",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.mother_nationality"
+          }
+        },
+        {
+          "column_name": "mother_nationality_other",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.mother_nationality_other"
+          }
+        },
+        {
+          "column_name": "second_phone_number",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.second_phone_number"
+          }
+        },
+        {
+          "column_name": "mother_tdv_doses",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.mother_tdv_doses"
+          }
+        },
+        {
+          "column_name": "protected_at_birth",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "164826AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+          }
+        },
+        {
+          "column_name": "first_birth",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.first_birth"
+          }
+        },
+        {
+          "column_name": "rubella_serology",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.rubella_serology"
+          }
+        },
+        {
+          "column_name": "serology_results",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.serology_results"
+          }
+        },
+        {
+          "column_name": "mother_rubella",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.mother_rubella"
+          }
+        },
+        {
+          "column_name": "date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "eventDate"
+          }
+        },
+        {
+          "column_name": "date_removed",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.dateRemoved"
+          }
+        },
+        {
+          "column_name": "caregiver_name",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.caregiver_name"
+          }
+        },
+        {
+          "column_name": "caregiver_age",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.caregiver_age"
+          }
+        },
+        {
+          "column_name": "tel_number1",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.tel_number1"
+          }
+        },
+        {
+          "column_name": "tel1",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.tel1"
+          }
+        },
+        {
+          "column_name": "tel_owner1",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.tel_owner1"
+          }
+        },
+        {
+          "column_name": "tel_number2",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.tel_number2"
+          }
+        },
+        {
+          "column_name": "tel2",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.tel2"
+          }
+        },
+        {
+          "column_name": "tel_owner2",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.tel_owner2"
+          }
+        },
+        {
+          "column_name": "address",
+          "type": "Client",
+          "json_mapping": {
+            "field": "addresses.address"
+          }
+        },
+        {
+          "column_name": "lives",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.lives"
+          }
+        },
+        {
+          "column_name": "highest_education",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.highest_education"
+          }
+        },
+        {
+          "column_name": "religion",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.religion"
+          }
+        },
+        {
+          "column_name": "marital_status",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.marital_status"
+          }
+        },
+        {
+          "column_name": "employment",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.employment"
+          }
+        },
+        {
+          "column_name": "no_children",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.no_children"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_child_details",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Client",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "inactive",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.inactive"
+          }
+        },
+        {
+          "column_name": "lost_to_follow_up",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.lost_to_follow_up"
+          }
+        },
+        {
+          "column_name": "relational_id",
+          "type": "Client",
+          "json_mapping": {
+            "field": "relationships.mother"
+          }
+        },
+        {
+          "column_name": "father_relational_id",
+          "type": "Client",
+          "json_mapping": {
+            "field": "relationships.father"
+          }
+        },
+        {
+          "column_name": "birth_registration_number",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.birth_registration_number"
+          }
+        },
+        {
+          "column_name": "child_reg",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.child_reg"
+          }
+        },
+        {
+          "column_name": "place_of_birth",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.place_of_birth"
+          }
+        },
+        {
+          "column_name": "ga_at_birth",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.ga_at_birth"
+          }
+        },
+        {
+          "column_name": "pcv4_required",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "pcv4_required"
+          }
+        },
+        {
+          "column_name": "sms_recipient",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.sms_recipient"
+          }
+        },
+        {
+          "column_name": "age",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.age"
+          }
+        },
+        {
+          "column_name": "birth_location",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.birth_location"
+          }
+        },
+        {
+          "column_name": "anc",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.anc"
+          }
+        },
+        {
+          "column_name": "no_anc",
+          "type": "Client",
+          "json_mapping": {
+            "field": "attributes.no_anc"
+          }
+        }
+      ]
+    }
+  ]
+}

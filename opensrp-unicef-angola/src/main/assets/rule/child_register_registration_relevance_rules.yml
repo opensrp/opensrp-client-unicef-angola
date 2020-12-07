@@ -1,0 +1,218 @@
+---
+name: step1_label_1
+description: show if consented
+priority: 1
+condition: "step1_consent == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_spacer
+description: show if consented
+priority: 1
+condition: "step1_consent == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_photo
+description: show pic_child if consented
+priority: 1
+condition: "step1_consent == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_zeir_id
+description: show zeir_id if consented
+priority: 1
+condition: "step1_consent == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_first_name
+description: show if consented
+priority: 1
+condition: "step1_consent == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_middle_name
+description: show if consented
+priority: 1
+condition: "step1_consent == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_surname
+description: show if consented
+priority: 1
+condition: "step1_consent == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_Date_Birth
+description: show if consented
+priority: 1
+condition: "step1_consent == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_Sex
+description: show if consented
+priority: 1
+condition: "step1_consent == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_birth_location
+description: show if consented
+priority: 1
+condition: "step1_consent == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_anc
+description: show if consented
+priority: 1
+condition: "step1_consent == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_no_anc
+description: show if consented
+priority: 1
+condition: "step1_consent == 'yes' && step1_anc == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_label_2
+description: show if consented
+priority: 1
+condition: "step1_consent == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_caregiver_first_name
+description: show if consented
+priority: 1
+condition: "step1_consent == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_caregiver_middle_name
+description: show if consented
+priority: 1
+condition: "step1_consent == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_caregiver_surname
+description: show if consented
+priority: 1
+condition: "step1_consent == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_Mother_Guardian_Date_Birth_Unknown
+description: show if consented
+priority: 1
+condition: "step1_consent == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_Mother_Guardian_Date_Birth
+description: dob relevance
+priority: 1
+condition: "step1_consent == 'yes' && !step1_Mother_Guardian_Date_Birth_Unknown.contains('Mother_Guardian_Date_Birth_Unknown')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_Mother_Guardian_Age
+description: age relevance
+priority: 1
+condition: "step1_consent == 'yes' && step1_Mother_Guardian_Date_Birth_Unknown.contains('Mother_Guardian_Date_Birth_Unknown')"
+actions:
+  - "isRelevant = true"
+
+---
+name: step1_caregiver_sex
+description: show if consented
+priority: 1
+condition: "step1_consent == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_tel_number1
+description: show if consented
+priority: 1
+condition: "step1_consent == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_tel_owner1
+description: show if consented
+priority: 1
+condition: "step1_consent == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_tel_number2
+description: show if consented
+priority: 1
+condition: "step1_consent == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_tel_owner2
+description: show if consented
+priority: 1
+condition: "step1_consent == 'yes' && step1_tel_number2 != empty"
+actions:
+  - "isRelevant = true"
+---
+name: step1_address
+description: show if consented
+priority: 1
+condition: "step1_consent == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_lives
+description: show if consented
+priority: 1
+condition: "step1_consent == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_highest_education
+description: show if consented
+priority: 1
+condition: "step1_consent == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_religion
+description: show if consented
+priority: 1
+condition: "step1_consent == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_marital_status
+description: show if consented
+priority: 1
+condition: "step1_consent == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_employment
+description: show if consented
+priority: 1
+condition: "step1_consent == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_no_children
+description: show if consented
+priority: 1
+condition: "step1_consent == 'yes'"
+actions:
+  - "isRelevant = true"

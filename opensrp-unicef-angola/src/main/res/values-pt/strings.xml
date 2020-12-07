@@ -1,0 +1,101 @@
+<resources>
+    <string name="app_name">Unicef Angola</string>
+    <string name="action_log_out">Sair</string>
+    <string name="username">Nome do usuário</string>
+    <string name="password">Senha</string>
+    <string name="done">Feito</string>
+
+    <!-- Navigation Strings -->
+    <string name="navigation_drawer_close">Fechado</string>
+    <string name="side_nav_add">Adicionar nova criança</string>
+    <string name="scan_card">Scanner de cartão</string>
+    <string name="side_nav_out_of_catchment">Registro de vacinações fora de captação</string>
+    <string name="nav_register">Registro</string>
+    <string name="show_password_text">Mostrar a senha</string>
+    <string name="app_version">Versão do aplicativo: %1$s(integrado%2$s)</string>
+    <string name="login_text">Entrar</string>
+    <string name="log_out_text">Sair </string>
+
+<string name="authentication_failed">Falha na autenticação</string>
+    <string name="reset_card">Reiniciar cartão</string>
+    <string name="logo_string">Logotipo </string>
+
+    <string name="all_registers">Todos os registros</string>
+
+    <!-- Override BCG 2 dialog text to read BCG Repeated Dose -->
+    <string name="create_reminder_label">Criar lembrete de dose repetida de BCG?</string>
+    <string name="bcg_scar_not_present_label">A criança não tem cicatriz de BCG, portanto, a dosagem repetida de BCG é necessária.</string>
+    <string name="bcg_scar_present_label">A cicatriz de BCG está presente, portanto, nenhuma dose repetida de BCG é necessária.</string>
+
+    <string name="due_only">Vencimento apenas </string>
+
+    <!-- Override labels in profile and immunization section -->
+    <string name="label_zeir">Documento de Identificação</string>
+    <string name="system_id_colon">Documento de Identificação:</string>
+    <string name="settings">Definições</string>
+
+    <string name="loading">A Carregar</string>
+    <string name="please_wait_message">Por favor espere</string>
+
+    <string name="indicator">Indicador</string>
+    <string name="value">Valor</string>
+
+    <string name="str_page_info">Página {0} de {1}</string>
+    <string name="dismiss_lookup">Confirme</string>
+    <string name="fill_form_error_msg">Registre pelo menos um serviço antes de salvar</string>
+    <string name="close">Fechar</string>
+    <string name="tap_to_view">Toque para ver</string>
+    <string name="child_report_grouping_title">Criança</string>
+
+    <!-- Immunization Names-->
+    <string name="bcg">BCG</string>
+    <string name="hepb">HepB</string>
+    <string name="opv_0">OPV 0</string>
+    <string name="opv_1">OPV 1</string>
+    <string name="penta_1">Penta 1</string>
+    <string name="pcv_1">PCV 1</string>
+    <string name="rota_1">Rota 1</string>
+    <string name="opv_2">OPV 2</string>
+    <string name="penta_2">Penta 2</string>
+    <string name="pcv_2">PCV 2</string>
+    <string name="rota_2">Rota 2</string>
+    <string name="opv_3">OPV 3</string>
+    <string name="penta_3">Penta 3</string>
+    <string name="pcv_3">PCV 3</string>
+    <string name="mr_1">MR 1</string>
+    <string name="yellow_fever">Febre amarela</string>
+
+    <string name="search_hint">Registro de busca</string>
+
+    <string name="supported_by">Apoiado por</string>
+
+    <string name="child_birth_registration_number">Número de registro de nascimento da criança</string>
+    <string name="child_unique_id">Identificação única da criança no governo</string>
+    <string name="child_first_name">Primeiro nome da criança</string>
+    <string name="child_last_name">Apelido da criança</string>
+    <string name="dob_range">Data de nascimento da criança (intervalo)</string>
+    <string name="mother_caregiver_first_name">Nome da mãe / cuidador</string>
+    <string name="mother_caregiver_last_name">Apelido da mãe/cuidador</string>
+    <string name="mother_caregiver_phone">Número de telefone da mãe/cuidador</string>
+    <string name="mother_dob">Data de nascimento da mãe</string>
+    <string name="mother_nationality">Nacionalidade da mãe/cuidador</string>
+    <string name="mother_nationality_other">Indique a nacionalidade da mãe/cuidador</string>
+    <string name="mother_caregiver_alt_phone">Outro telefone da mãe/cuidador</string>
+    <string name="child_DOB">Data de nascimento</string>
+    <string name="mother_name">M/CG: %1$s</string>
+    <string name="maximum_extra_vaccines_reached">Você só pode registrar no máximo 10 vacinas</string>
+    <string name="sms_recipient">Lembrete SMS de vacinas para o destinatário</string>
+    <string name="dob">Data de nascimento</string>
+    <string name="primary_number">Número de telefone principal</string>
+    <string name="primary_number_belongs_to">Número de telefone principal pertence a </string>
+    <string name="second_number">Segundo número de telefone</string>
+    <string name="second_number_belongs_to">Segundo número de telefone pertence a</string>
+    <string name="address">Morada</string>
+
+    <string name="birth">Nascimento</string>
+    <string name="_2_months">2 meses</string>
+    <string name="_4_months">4 meses</string>
+    <string name="_6_months">6 meses</string>
+    <string name="_9_months">9 meses</string>
+
+</resources>
