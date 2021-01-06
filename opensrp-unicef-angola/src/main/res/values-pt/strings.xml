@@ -98,4 +98,11 @@
     <string name="_6_months">6 meses</string>
     <string name="_9_months">9 meses</string>
 
+    <string name="confirm_form_close">Confirme o fecho do formulário</string>
+    <string name="confirm_form_close_explanation">Tem certeza que deseja voltar? Todos os dados inseridos neste formulário serão apagados.</string>
+    <string name="save">Guardar</string>
+    <string name="submit">Submeter</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+
 </resources>

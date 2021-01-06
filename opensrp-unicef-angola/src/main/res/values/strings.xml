@@ -107,4 +107,11 @@
     <string name="_6_months">6 Months</string>
     <string name="_9_months">9 Months</string>
 
+    <string name="confirm_form_close">Confirm Form Close</string>
+    <string name="confirm_form_close_explanation">Are you sure you want to go back? All data you have entered in this form will be cleared.</string>
+    <string name="save">Save</string>
+    <string name="submit">Submit</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
 </resources>

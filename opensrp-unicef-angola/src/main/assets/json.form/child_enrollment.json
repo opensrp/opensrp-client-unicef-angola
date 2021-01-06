@@ -244,7 +244,7 @@
         "type": "date_picker",
         "hint": "{{child_enrollment.step1.Date_Birth.hint}}",
         "max_date": "today",
-        "min_date": "today-2m",
+        "min_date": "today-9m",
         "v_required": {
           "value": "true",
           "err": "{{child_enrollment.step1.Date_Birth.v_required.err}}"
