@@ -101,7 +101,7 @@
           "due": [
             {
               "reference": "dob",
-              "offset": "+2m",
+              "offset": "+0d",
               "window": "+0d"
             }
           ]
@@ -125,7 +125,7 @@
           "due": [
             {
               "reference": "dob",
-              "offset": "+2m",
+              "offset": "+0d",
               "window": "+0d"
             }
           ]
@@ -149,7 +149,7 @@
           "due": [
             {
               "reference": "dob",
-              "offset": "+2m",
+              "offset": "+0d",
               "window": "+0d"
             }
           ]
@@ -173,7 +173,7 @@
           "due": [
             {
               "reference": "dob",
-              "offset": "+2m",
+              "offset": "+0d",
               "window": "+0d"
             }
           ]
@@ -205,7 +205,7 @@
             {
               "reference": "prerequisite",
               "prerequisite": "OPV 1",
-              "offset": "+2m",
+              "offset": "+0d",
               "window": "+0d"
             }
           ]
@@ -230,7 +230,7 @@
             {
               "reference": "prerequisite",
               "prerequisite": "PCV 1",
-              "offset": "+2m",
+              "offset": "+0d",
               "window": "+0d"
             }
           ]
@@ -255,7 +255,7 @@
             {
               "reference": "prerequisite",
               "prerequisite": "PENTA 1",
-              "offset": "+2m",
+              "offset": "+0d",
               "window": "+0d"
             }
           ]
@@ -280,7 +280,7 @@
             {
               "reference": "prerequisite",
               "prerequisite": "ROTA 1",
-              "offset": "+2m",
+              "offset": "+0d",
               "window": "+0d"
             }
           ]
@@ -312,7 +312,7 @@
             {
               "reference": "prerequisite",
               "prerequisite": "OPV 2",
-              "offset": "+2m",
+              "offset": "+0d",
               "window": "+0d"
             }
           ]
@@ -337,7 +337,7 @@
             {
               "reference": "prerequisite",
               "prerequisite": "PCV 2",
-              "offset": "+2m",
+              "offset": "+0d",
               "window": "+0d"
             }
           ]
@@ -362,7 +362,7 @@
             {
               "reference": "prerequisite",
               "prerequisite": "PENTA 2",
-              "offset": "+2m",
+              "offset": "+0d",
               "window": "+0d"
             }
           ]
@@ -393,7 +393,7 @@
           "due": [
             {
               "reference": "dob",
-              "offset": "+9m",
+              "offset": "+0d",
               "window": "+0d"
             }
           ]
@@ -417,7 +417,7 @@
           "due": [
             {
               "reference": "dob",
-              "offset": "+9m",
+              "offset": "+0d",
               "window": "+0d"
             }
           ]
