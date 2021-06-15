@@ -6,7 +6,7 @@
     "vaccines": [
       {
         "name": "BCG",
-        "type": "bcg",
+        "type": "BCG",
         "openmrs_date": {
           "parent_entity": "",
           "entity": "concept",
@@ -30,7 +30,7 @@
       },
       {
         "name": "OPV 0",
-        "type": "opv0",
+        "type": "OPV",
         "openmrs_date": {
           "parent_entity": "",
           "entity": "concept",
@@ -85,7 +85,7 @@
     "vaccines": [
       {
         "name": "OPV 1",
-        "type": "opv1",
+        "type": "OPV",
         "openmrs_date": {
           "parent_entity": "",
           "entity": "concept",
@@ -101,7 +101,7 @@
           "due": [
             {
               "reference": "dob",
-              "offset": "+0d",
+              "offset": "+2m",
               "window": "+0d"
             }
           ]
@@ -109,7 +109,7 @@
       },
       {
         "name": "PCV 1",
-        "type": "pcv1",
+        "type": "PCV",
         "openmrs_date": {
           "parent_entity": "",
           "entity": "concept",
@@ -125,7 +125,7 @@
           "due": [
             {
               "reference": "dob",
-              "offset": "+0d",
+              "offset": "+2m",
               "window": "+0d"
             }
           ]
@@ -133,7 +133,7 @@
       },
       {
         "name": "PENTA 1",
-        "type": "penta1",
+        "type": "Penta",
         "openmrs_date": {
           "parent_entity": "",
           "entity": "concept",
@@ -149,7 +149,7 @@
           "due": [
             {
               "reference": "dob",
-              "offset": "+0d",
+              "offset": "+2m",
               "window": "+0d"
             }
           ]
@@ -157,7 +157,7 @@
       },
       {
         "name": "ROTA 1",
-        "type": "rota1",
+        "type": "Rota",
         "openmrs_date": {
           "parent_entity": "",
           "entity": "concept",
@@ -173,7 +173,7 @@
           "due": [
             {
               "reference": "dob",
-              "offset": "+0d",
+              "offset": "+2m",
               "window": "+0d"
             }
           ]
@@ -188,7 +188,7 @@
     "vaccines": [
       {
         "name": "OPV 2",
-        "type": "opv2",
+        "type": "OPV",
         "openmrs_date": {
           "parent_entity": "",
           "entity": "concept",
@@ -205,7 +205,7 @@
             {
               "reference": "prerequisite",
               "prerequisite": "OPV 1",
-              "offset": "+0d",
+              "offset": "+2m",
               "window": "+0d"
             }
           ]
@@ -213,7 +213,7 @@
       },
       {
         "name": "PCV 2",
-        "type": "pcv2",
+        "type": "PCV",
         "openmrs_date": {
           "parent_entity": "",
           "entity": "concept",
@@ -230,7 +230,7 @@
             {
               "reference": "prerequisite",
               "prerequisite": "PCV 1",
-              "offset": "+0d",
+              "offset": "+2m",
               "window": "+0d"
             }
           ]
@@ -238,7 +238,7 @@
       },
       {
         "name": "PENTA 2",
-        "type": "penta2",
+        "type": "Penta",
         "openmrs_date": {
           "parent_entity": "",
           "entity": "concept",
@@ -255,7 +255,7 @@
             {
               "reference": "prerequisite",
               "prerequisite": "PENTA 1",
-              "offset": "+0d",
+              "offset": "+2m",
               "window": "+0d"
             }
           ]
@@ -263,11 +263,11 @@
       },
       {
         "name": "ROTA 2",
-        "type": "rota2",
+        "type": "Rota",
         "openmrs_date": {
           "parent_entity": "",
           "entity": "concept",
-          "entity_id": "rota2"
+          "entity_id": "rota"
         },
         "openmrs_calculate": {
           "parent_entity": "",
@@ -280,7 +280,7 @@
             {
               "reference": "prerequisite",
               "prerequisite": "ROTA 1",
-              "offset": "+0d",
+              "offset": "+2m",
               "window": "+0d"
             }
           ]
@@ -295,7 +295,7 @@
     "vaccines": [
       {
         "name": "OPV 3",
-        "type": "opv3",
+        "type": "OPV",
         "openmrs_date": {
           "parent_entity": "",
           "entity": "concept",
@@ -312,7 +312,7 @@
             {
               "reference": "prerequisite",
               "prerequisite": "OPV 2",
-              "offset": "+0d",
+              "offset": "+2m",
               "window": "+0d"
             }
           ]
@@ -320,7 +320,7 @@
       },
       {
         "name": "PCV 3",
-        "type": "pcv3",
+        "type": "PCV",
         "openmrs_date": {
           "parent_entity": "",
           "entity": "concept",
@@ -337,7 +337,7 @@
             {
               "reference": "prerequisite",
               "prerequisite": "PCV 2",
-              "offset": "+0d",
+              "offset": "+2m",
               "window": "+0d"
             }
           ]
@@ -345,7 +345,7 @@
       },
       {
         "name": "PENTA 3",
-        "type": "penta3",
+        "type": "Penta",
         "openmrs_date": {
           "parent_entity": "",
           "entity": "concept",
@@ -362,7 +362,7 @@
             {
               "reference": "prerequisite",
               "prerequisite": "PENTA 2",
-              "offset": "+0d",
+              "offset": "+2m",
               "window": "+0d"
             }
           ]
@@ -393,7 +393,7 @@
           "due": [
             {
               "reference": "dob",
-              "offset": "+0d",
+              "offset": "+9m",
               "window": "+0d"
             }
           ]
@@ -401,7 +401,7 @@
       },
       {
         "name": "MR 1",
-        "type": "mr1",
+        "type": "MR",
         "openmrs_date": {
           "parent_entity": "",
           "entity": "concept",
@@ -417,7 +417,7 @@
           "due": [
             {
               "reference": "dob",
-              "offset": "+0d",
+              "offset": "+9m",
               "window": "+0d"
             }
           ]
