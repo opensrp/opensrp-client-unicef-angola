@@ -34,12 +34,12 @@
         "openmrs_date": {
           "parent_entity": "",
           "entity": "concept",
-          "entity_id": "opv0"
+          "entity_id": "opv"
         },
         "openmrs_calculate": {
           "parent_entity": "",
           "entity": "concept",
-          "entity_id": "opv0_calculation",
+          "entity_id": "opv_calculation",
           "calculation": 0
         },
         "schedule": {

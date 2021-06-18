@@ -8,8 +8,10 @@ import com.vijay.jsonwizard.constants.JsonFormConstants;
 import com.vijay.jsonwizard.domain.Form;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 import org.json.JSONObject;
 import org.smartregister.child.activity.BaseChildRegisterActivity;
+import org.smartregister.child.event.ClientDirtyFlagEvent;
 import org.smartregister.child.model.BaseChildRegisterModel;
 import org.smartregister.child.util.ChildJsonFormUtils;
 import org.smartregister.child.util.Constants;
@@ -57,7 +59,11 @@ public class ChildRegisterActivity extends BaseChildRegisterActivity implements 
 
     @Override
     public void startNFCCardScanner() {
-        // Todo
+        // TODO
+    }
+    @Subscribe
+    public void processClient(ClientDirtyFlagEvent clientDirtyFlagEvent){
+        // TODO
     }
 
     @Override
@@ -75,6 +81,7 @@ public class ChildRegisterActivity extends BaseChildRegisterActivity implements 
     protected void onResumption() {
         super.onResumption();
         createDrawer();
+        EventBus.getDefault().register(this);
     }
 
     private void createDrawer() {

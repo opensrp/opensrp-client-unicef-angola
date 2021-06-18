@@ -12,6 +12,7 @@ import com.crashlytics.android.Crashlytics;
 import com.crashlytics.android.core.CrashlyticsCore;
 import com.evernote.android.job.JobManager;
 
+import org.greenrobot.eventbus.EventBus;
 import org.jetbrains.annotations.NotNull;
 import org.smartregister.Context;
 import org.smartregister.CoreLibrary;
@@ -251,6 +252,7 @@ public class UnicefAngolaApplication extends DrishtiApplication implements TimeC
         ChildLibrary.getInstance().setApplicationVersionName(BuildConfig.VERSION_NAME);
         ChildLibrary.getInstance().setClientProcessorForJava(getClientProcessor());
         ChildLibrary.getInstance().getProperties().setProperty(ChildAppProperties.KEY.FEATURE_SCAN_QR_ENABLED, "true");
+        ChildLibrary.getInstance().setEventBus(EventBus.getDefault());
 
         ReportingLibrary.init(context, getRepository(), null, BuildConfig.VERSION_CODE, BuildConfig.DATABASE_VERSION);
         ReportingLibrary.getInstance().addMultiResultProcessor(new TripleResultProcessor());
@@ -470,5 +472,6 @@ public class UnicefAngolaApplication extends DrishtiApplication implements TimeC
         }
         return this.childAlertUpdatedRepository;
     }
+
 }
 
