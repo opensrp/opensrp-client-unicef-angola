@@ -27,11 +27,12 @@ import org.smartregister.unicefangola.util.AppHealthUtils;
 import org.smartregister.unicefangola.util.AppUtils;
 import org.smartregister.unicefangola.view.NavDrawerActivity;
 import org.smartregister.unicefangola.view.NavigationMenu;
+import org.smartregister.unicefangola.view.StatsActivity;
 import org.smartregister.view.fragment.BaseRegisterFragment;
 
 import java.lang.ref.WeakReference;
 
-public class ChildRegisterActivity extends BaseChildRegisterActivity implements NavDrawerActivity {
+public class ChildRegisterActivity extends BaseChildRegisterActivity implements NavDrawerActivity, AppHealthUtils.HealthStatsView {
 
     private NavigationMenu navigationMenu;
 
@@ -147,5 +148,11 @@ public class ChildRegisterActivity extends BaseChildRegisterActivity implements 
             clients.setTitle(getString(R.string.header_children));
         }
         bottomNavigationView.getMenu().removeItem(org.smartregister.R.id.action_library);
+    }
+
+    @Override
+    public void showSyncStats() {
+        Intent intent = new Intent(this, StatsActivity.class);
+        this.startActivity(intent);
     }
 }
