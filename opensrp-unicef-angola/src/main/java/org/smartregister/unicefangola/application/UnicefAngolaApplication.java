@@ -3,10 +3,11 @@ package org.smartregister.unicefangola.application;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import androidx.annotation.VisibleForTesting;
-import androidx.appcompat.app.AppCompatDelegate;
 import android.util.DisplayMetrics;
 import android.util.Pair;
+
+import androidx.annotation.VisibleForTesting;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.crashlytics.android.Crashlytics;
 import com.crashlytics.android.core.CrashlyticsCore;
