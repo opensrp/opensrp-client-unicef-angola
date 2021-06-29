@@ -94,7 +94,6 @@ public class AppHealthUtils {
         return new StringBuilder(BuildConfig.APPLICATION_ID).append('_').append(currentTimeStamp).append(".db").toString();
     }
 
-
     /**
      * Once the file is saved trigger a refresh on the file system so that the file is available promptly to the user
      *
