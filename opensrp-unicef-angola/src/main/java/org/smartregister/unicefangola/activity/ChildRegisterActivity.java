@@ -1,8 +1,10 @@
 package org.smartregister.unicefangola.activity;
 
 import android.content.Intent;
-import androidx.fragment.app.Fragment;
+import android.os.Bundle;
 import android.view.MenuItem;
+
+import androidx.fragment.app.Fragment;
 
 import com.vijay.jsonwizard.constants.JsonFormConstants;
 import com.vijay.jsonwizard.domain.Form;
@@ -21,6 +23,7 @@ import org.smartregister.unicefangola.fragment.AdvancedSearchFragment;
 import org.smartregister.unicefangola.fragment.ChildRegisterFragment;
 import org.smartregister.unicefangola.presenter.AppChildRegisterPresenter;
 import org.smartregister.unicefangola.util.AppConstants;
+import org.smartregister.unicefangola.util.AppHealthUtils;
 import org.smartregister.unicefangola.util.AppUtils;
 import org.smartregister.unicefangola.view.NavDrawerActivity;
 import org.smartregister.unicefangola.view.NavigationMenu;
@@ -37,6 +40,11 @@ public class ChildRegisterActivity extends BaseChildRegisterActivity implements 
         // get language from prefs
         String lang = AppUtils.getLanguage(base.getApplicationContext());
         super.attachBaseContext(AppUtils.setAppLocale(base, lang));
+    }
+
+    @Override
+    protected void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
     }
 
     @Override
@@ -61,8 +69,9 @@ public class ChildRegisterActivity extends BaseChildRegisterActivity implements 
     public void startNFCCardScanner() {
         // TODO
     }
+
     @Subscribe
-    public void processClient(ClientDirtyFlagEvent clientDirtyFlagEvent){
+    public void processClient(ClientDirtyFlagEvent clientDirtyFlagEvent) {
         // TODO
     }
 
@@ -87,6 +96,8 @@ public class ChildRegisterActivity extends BaseChildRegisterActivity implements 
     private void createDrawer() {
         WeakReference<ChildRegisterActivity> weakReference = new WeakReference<>(this);
         navigationMenu = NavigationMenu.getInstance(weakReference.get());
+
+        new AppHealthUtils(findViewById(R.id.user_initials_text_view));
     }
 
     @Override
@@ -117,7 +128,7 @@ public class ChildRegisterActivity extends BaseChildRegisterActivity implements 
         Intent intent = new Intent(this, Utils.metadata().childFormActivity);
         intent.putExtra(Constants.INTENT_KEY.JSON, jsonForm.toString());
         intent.putExtra(JsonFormConstants.JSON_FORM_KEY.FORM, form);
-        intent.putExtra(JsonFormConstants.PERFORM_FORM_TRANSLATION,  true);
+        intent.putExtra(JsonFormConstants.PERFORM_FORM_TRANSLATION, true);
         startActivityForResult(intent, ChildJsonFormUtils.REQUEST_CODE_GET_JSON);
     }
 

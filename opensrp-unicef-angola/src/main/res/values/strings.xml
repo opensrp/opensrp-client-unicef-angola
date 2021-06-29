@@ -113,5 +113,8 @@
     <string name="submit">Submit</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="download_database">Download Database</string>
+    <string name="view_sync_stats">Show Sync Stats</string>
+    <string name="export_db_notification">Exporting Database</string>
 
 </resources>

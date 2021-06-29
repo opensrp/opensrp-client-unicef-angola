@@ -14,15 +14,10 @@ import org.smartregister.child.toolbar.LocationSwitcherToolbar;
 import org.smartregister.child.util.Constants;
 import org.smartregister.child.util.Utils;
 import org.smartregister.commonregistry.CommonPersonObjectClient;
-import org.smartregister.immunization.job.VaccineSchedulesUpdateJob;
 import org.smartregister.unicefangola.application.UnicefAngolaApplication;
 import org.smartregister.unicefangola.util.AppUtils;
 
-import java.util.Calendar;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
-
-import timber.log.Timber;
 
 public class ChildImmunizationActivity extends BaseChildImmunizationActivity {
     @Override
@@ -133,19 +128,7 @@ public class ChildImmunizationActivity extends BaseChildImmunizationActivity {
 
     @Override
     public void updateScheduleDate() {
-        try {
-            Calendar calendar = Calendar.getInstance();
-            if (calendar.get(Calendar.HOUR_OF_DAY) != 0 && calendar.get(Calendar.HOUR_OF_DAY) != 1) {
-                calendar.set(Calendar.HOUR_OF_DAY, 1);
-                long hoursSince1AM = (System.currentTimeMillis() - calendar.getTimeInMillis()) / TimeUnit.HOURS.toMillis(1);
-                if (VaccineSchedulesUpdateJob.isLastTimeRunLongerThan(hoursSince1AM) && !UnicefAngolaApplication.getInstance().alertUpdatedRepository().findOne(childDetails.entityId())) {
-                    super.updateScheduleDate();
-                    UnicefAngolaApplication.getInstance().alertUpdatedRepository().saveOrUpdate(childDetails.entityId());
-                }
-            }
-        } catch (Exception e) {
-            Timber.e(e);
-        }
+        super.updateScheduleDate();
     }
 
     @Override

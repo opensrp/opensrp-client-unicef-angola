@@ -23,7 +23,7 @@
             {
               "reference": "dob",
               "offset": "+0d",
-              "window": "+0d"
+              "window": "+100y"
             }
           ]
         }
@@ -47,7 +47,7 @@
             {
               "reference": "dob",
               "offset": "+0d",
-              "window": "+0d"
+              "window": "+100y"
             }
           ]
         }
@@ -71,7 +71,7 @@
             {
               "reference": "dob",
               "offset": "+0d",
-              "window": "+0d"
+              "window": "+100y"
             }
           ]
         }
@@ -101,8 +101,7 @@
           "due": [
             {
               "reference": "dob",
-              "offset": "+2m",
-              "window": "+0d"
+              "offset": "+2m"
             }
           ]
         }
@@ -126,7 +125,7 @@
             {
               "reference": "dob",
               "offset": "+2m",
-              "window": "+0d"
+              "window": "+100w"
             }
           ]
         }
@@ -150,7 +149,7 @@
             {
               "reference": "dob",
               "offset": "+2m",
-              "window": "+0d"
+              "window": "+100w"
             }
           ]
         }
@@ -174,7 +173,7 @@
             {
               "reference": "dob",
               "offset": "+2m",
-              "window": "+0d"
+              "window": "+100y"
             }
           ]
         }
@@ -206,7 +205,7 @@
               "reference": "prerequisite",
               "prerequisite": "OPV 1",
               "offset": "+2m",
-              "window": "+0d"
+              "window": "+100y"
             }
           ]
         }
@@ -231,7 +230,7 @@
               "reference": "prerequisite",
               "prerequisite": "PCV 1",
               "offset": "+2m",
-              "window": "+0d"
+              "window": "+100y"
             }
           ]
         }
@@ -256,7 +255,7 @@
               "reference": "prerequisite",
               "prerequisite": "PENTA 1",
               "offset": "+2m",
-              "window": "+0d"
+              "window": "+100y"
             }
           ]
         }
@@ -281,7 +280,7 @@
               "reference": "prerequisite",
               "prerequisite": "ROTA 1",
               "offset": "+2m",
-              "window": "+0d"
+              "window": "+100y"
             }
           ]
         }
@@ -313,7 +312,7 @@
               "reference": "prerequisite",
               "prerequisite": "OPV 2",
               "offset": "+2m",
-              "window": "+0d"
+              "window": "+100y"
             }
           ]
         }
@@ -338,7 +337,7 @@
               "reference": "prerequisite",
               "prerequisite": "PCV 2",
               "offset": "+2m",
-              "window": "+0d"
+              "window": "+100y"
             }
           ]
         }
@@ -363,7 +362,7 @@
               "reference": "prerequisite",
               "prerequisite": "PENTA 2",
               "offset": "+2m",
-              "window": "+0d"
+              "window": "+100y"
             }
           ]
         }
@@ -394,7 +393,7 @@
             {
               "reference": "dob",
               "offset": "+9m",
-              "window": "+0d"
+              "window": "+100y"
             }
           ]
         }
@@ -418,7 +417,7 @@
             {
               "reference": "dob",
               "offset": "+9m",
-              "window": "+0d"
+              "window": "+100y"
             }
           ]
         }

@@ -2,6 +2,7 @@ package org.smartregister.unicefangola.processor;
 
 import android.content.ContentValues;
 import android.content.Context;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
 
@@ -40,6 +41,7 @@ import org.smartregister.immunization.repository.RecurringServiceTypeRepository;
 import org.smartregister.immunization.repository.VaccineRepository;
 import org.smartregister.immunization.service.intent.RecurringIntentService;
 import org.smartregister.immunization.service.intent.VaccineIntentService;
+import org.smartregister.immunization.util.IMConstants;
 import org.smartregister.repository.EventClientRepository;
 import org.smartregister.sync.ClientProcessorForJava;
 import org.smartregister.sync.MiniClientProcessorForJava;
@@ -184,12 +186,13 @@ public class AppClientProcessorForJava extends ClientProcessorForJava {
             }
         }
     }
+
     private void updateClientAlerts(@NonNull HashMap<String, DateTime> clientsForAlertUpdates) {
         HashMap<String, DateTime> stringDateTimeHashMap = SerializationUtils.clone(clientsForAlertUpdates);
         for (String baseEntityId : stringDateTimeHashMap.keySet()) {
             DateTime birthDateTime = clientsForAlertUpdates.get(baseEntityId);
             if (birthDateTime != null) {
-                VaccineSchedule.updateOfflineAlerts(baseEntityId, birthDateTime, "child");
+                VaccineSchedule.updateOfflineAlertsOnly(baseEntityId, birthDateTime, IMConstants.VACCINE_TYPE.CHILD);
                 ServiceSchedule.updateOfflineAlerts(baseEntityId, birthDateTime);
             }
         }
@@ -446,7 +449,7 @@ public class AppClientProcessorForJava extends ClientProcessorForJava {
                 if (serviceTypeList == null || serviceTypeList.isEmpty() || date == null) {
                     return;
                 }
-                
+
                 recordServiceRecord(service, contentValues, name, date, value, serviceTypeList);
                 Timber.i("Ending processService table: %s", serviceTable.name);
             }
@@ -601,7 +604,7 @@ public class AppClientProcessorForJava extends ClientProcessorForJava {
             if (StringUtils.isNotBlank(dobString)) {
                 DateTime birthDateTime = Utils.dobStringToDateTime(dobString);
                 if (birthDateTime != null) {
-                    VaccineSchedule.updateOfflineAlerts(entityId, birthDateTime, "child");
+                    VaccineSchedule.updateOfflineAlertsOnly(entityId, birthDateTime, IMConstants.VACCINE_TYPE.CHILD);
                     ServiceSchedule.updateOfflineAlerts(entityId, birthDateTime);
                 }
             }
