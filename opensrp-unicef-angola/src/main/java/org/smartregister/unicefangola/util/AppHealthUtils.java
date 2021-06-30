@@ -8,18 +8,17 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
-import androidx.appcompat.view.ContextThemeWrapper;
 import android.view.View;
 import android.widget.ArrayAdapter;
 
 import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.view.ContextThemeWrapper;
 
 import org.smartregister.AllConstants;
 import org.smartregister.child.util.Utils;
 import org.smartregister.unicefangola.BuildConfig;
 import org.smartregister.unicefangola.R;
-import org.smartregister.unicefangola.activity.ChildRegisterActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
