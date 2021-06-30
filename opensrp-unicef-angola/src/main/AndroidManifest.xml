@@ -27,6 +27,7 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:requestLegacyExternalStorage="true"
         tools:replace="android:allowBackup,android:icon,android:label,android:theme">
         <activity
             android:name=".activity.ChildImmunizationActivity"
