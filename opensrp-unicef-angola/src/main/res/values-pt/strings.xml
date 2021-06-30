@@ -107,5 +107,6 @@
     <string name="download_database">Baixar banco de dados</string>
     <string name="view_sync_stats">Mostrar sincronizado</string>
     <string name="export_db_notification">Exportando banco de dados</string>
+    <string name="database_download_success">Exportação de banco de dados bem-sucedida</string>
 
 </resources>
