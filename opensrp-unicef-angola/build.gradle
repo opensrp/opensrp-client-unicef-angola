@@ -202,7 +202,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
 
-    implementation('org.smartregister:opensrp-client-child:0.6.17-SNAPSHOT@aar') {
+    implementation('org.smartregister:opensrp-client-child:0.6.18-SNAPSHOT@aar') {
         transitive = true
         exclude group: 'id.zelory', module: 'compressor'
         exclude group: 'com.android.support', module: 'appcompat-v7'
