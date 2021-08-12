@@ -1,6 +1,7 @@
 package org.smartregister.unicefangola.repository;
 
 import android.content.Context;
+
 import androidx.annotation.NonNull;
 
 import net.sqlcipher.database.SQLiteDatabase;
@@ -44,6 +45,8 @@ public class UnicefAngolaRepository extends Repository {
 
     final private Context context;
 //    private String appVersionCodePref = AppConstants.Pref.APP_VERSION_CODE;
+
+    private final String SET_CLIENT_TABLE_VALIDATION_STATUS_TO_INVALID = "UPDATE client SET validationStatus = '%s'";
 
     public UnicefAngolaRepository(@NonNull Context context, @NonNull org.smartregister.Context openSRPContext) {
         super(context, AllConstants.DATABASE_NAME, BuildConfig.DATABASE_VERSION, openSRPContext.session(),
@@ -110,7 +113,7 @@ public class UnicefAngolaRepository extends Repository {
                     ChildDbMigrations.addShowBcg2ReminderAndBcgScarColumnsToEcChildDetails(db);
                     break;
                 case 12:
-                    upgradeToVersion12setClientValidationStatusUnsynced(db);
+                    upgradeToVersion12SetClientValidationStatusInvalid(db);
                     break;
                 default:
                     break;
@@ -211,7 +214,6 @@ public class UnicefAngolaRepository extends Repository {
 
     /**
      * Version 2 added some columns to the ec_child table
-     *
      */
     private void upgradeToVersion2(@NonNull SQLiteDatabase database) {
         try {
@@ -371,17 +373,15 @@ public class UnicefAngolaRepository extends Repository {
 
     /**
      * reset client validation status to force resync
-     *
      */
 
-    private void upgradeToVersion12setClientValidationStatusUnsynced(@NonNull SQLiteDatabase database) {
+    private void upgradeToVersion12SetClientValidationStatusInvalid(@NonNull SQLiteDatabase database) {
         try {
-            database.execSQL(String.format("UPDATE client SET validationStatus = %s", BaseRepository.TYPE_InValid));
+            database.execSQL(String.format(SET_CLIENT_TABLE_VALIDATION_STATUS_TO_INVALID, BaseRepository.TYPE_InValid));
         } catch (Exception e) {
             Timber.e(e, "upgradeToVersion12setClientValidationStatusUnsynced");
         }
     }
-
 
     /*private boolean checkIfAppUpdated() {
         String savedAppVersion = ReportingLibrary.getInstance().getContext().allSharedPreferences().getPreference(appVersionCodePref);
