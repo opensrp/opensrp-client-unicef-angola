@@ -21,6 +21,7 @@ import org.smartregister.immunization.repository.VaccineRepository;
 import org.smartregister.immunization.util.IMDatabaseUtils;
 import org.smartregister.reporting.repository.IndicatorQueryRepository;
 import org.smartregister.repository.AlertRepository;
+import org.smartregister.repository.BaseRepository;
 import org.smartregister.repository.EventClientRepository;
 import org.smartregister.repository.Hia2ReportRepository;
 import org.smartregister.repository.LocationRepository;
@@ -73,7 +74,7 @@ public class UnicefAngolaRepository extends Repository {
         ChildAlertUpdatedRepository.createTable(database);
 
         runLegacyUpgrades(database);
-        onUpgrade(database, 10, BuildConfig.DATABASE_VERSION);
+        onUpgrade(database, 11, BuildConfig.DATABASE_VERSION);
     }
 
 
@@ -82,6 +83,7 @@ public class UnicefAngolaRepository extends Repository {
         Timber.w("Upgrading database from version %d to %d, which will destroy all old data", oldVersion, newVersion);
 
         int upgradeTo = oldVersion + 1;
+
         while (upgradeTo <= newVersion) {
             switch (upgradeTo) {
                 case 2:
@@ -107,6 +109,9 @@ public class UnicefAngolaRepository extends Repository {
                     break;
                 case 9:
                     ChildDbMigrations.addShowBcg2ReminderAndBcgScarColumnsToEcChildDetails(db);
+                    break;
+                case 12:
+                    upgradeToVersion12setClientValidationStatusUnsynced(db);
                     break;
                 default:
                     break;
@@ -190,6 +195,7 @@ public class UnicefAngolaRepository extends Repository {
         upgradeToVersion7VaccineRecurringServiceRecordChange(database);
         upgradeToVersion7WeightHeightVaccineRecurringServiceChange(database);
         upgradeToVersion7RemoveUnnecessaryTables(database);
+
     }
 
     /**
@@ -205,10 +211,6 @@ public class UnicefAngolaRepository extends Repository {
         }
     }
 
-    /**
-     * Version 2 added some columns to the ec_child table
-     *
-     */
     private void upgradeToVersion2(@NonNull SQLiteDatabase database) {
         try {
             // Run insert query
@@ -364,6 +366,21 @@ public class UnicefAngolaRepository extends Repository {
             Timber.e(e, "upgradeToVersion7RemoveUnnecessaryTables");
         }
     }
+
+    /**
+     * reset client validation status to force resync
+     *
+     */
+
+    private void upgradeToVersion12setClientValidationStatusUnsynced(@NonNull SQLiteDatabase database) {
+        try {
+            database.execSQL(String.format("update client set %s validationStatus", BaseRepository.TYPE_InValid));
+            Timber.e("I was here");
+        } catch (Exception e) {
+            Timber.e(e, "upgradeToVersion12setClientValidationStatusUnsynced");
+        }
+    }
+
 
     /*private boolean checkIfAppUpdated() {
         String savedAppVersion = ReportingLibrary.getInstance().getContext().allSharedPreferences().getPreference(appVersionCodePref);
