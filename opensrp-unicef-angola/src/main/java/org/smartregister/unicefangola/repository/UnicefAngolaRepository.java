@@ -1,6 +1,7 @@
 package org.smartregister.unicefangola.repository;
 
 import android.content.Context;
+
 import androidx.annotation.NonNull;
 
 import net.sqlcipher.database.SQLiteDatabase;
@@ -21,6 +22,7 @@ import org.smartregister.immunization.repository.VaccineRepository;
 import org.smartregister.immunization.util.IMDatabaseUtils;
 import org.smartregister.reporting.repository.IndicatorQueryRepository;
 import org.smartregister.repository.AlertRepository;
+import org.smartregister.repository.BaseRepository;
 import org.smartregister.repository.EventClientRepository;
 import org.smartregister.repository.Hia2ReportRepository;
 import org.smartregister.repository.LocationRepository;
@@ -43,6 +45,8 @@ public class UnicefAngolaRepository extends Repository {
 
     final private Context context;
 //    private String appVersionCodePref = AppConstants.Pref.APP_VERSION_CODE;
+
+    private final String SET_CLIENT_TABLE_VALIDATION_STATUS_TO_INVALID = "UPDATE client SET validationStatus = '%s'";
 
     public UnicefAngolaRepository(@NonNull Context context, @NonNull org.smartregister.Context openSRPContext) {
         super(context, AllConstants.DATABASE_NAME, BuildConfig.DATABASE_VERSION, openSRPContext.session(),
@@ -73,7 +77,7 @@ public class UnicefAngolaRepository extends Repository {
         ChildAlertUpdatedRepository.createTable(database);
 
         runLegacyUpgrades(database);
-        onUpgrade(database, 10, BuildConfig.DATABASE_VERSION);
+        onUpgrade(database, 11, BuildConfig.DATABASE_VERSION);
     }
 
 
@@ -107,6 +111,9 @@ public class UnicefAngolaRepository extends Repository {
                     break;
                 case 9:
                     ChildDbMigrations.addShowBcg2ReminderAndBcgScarColumnsToEcChildDetails(db);
+                    break;
+                case 12:
+                    upgradeToVersion12SetClientValidationStatusInvalid(db);
                     break;
                 default:
                     break;
@@ -207,7 +214,6 @@ public class UnicefAngolaRepository extends Repository {
 
     /**
      * Version 2 added some columns to the ec_child table
-     *
      */
     private void upgradeToVersion2(@NonNull SQLiteDatabase database) {
         try {
@@ -362,6 +368,18 @@ public class UnicefAngolaRepository extends Repository {
 
         } catch (Exception e) {
             Timber.e(e, "upgradeToVersion7RemoveUnnecessaryTables");
+        }
+    }
+
+    /**
+     * reset client validation status to force resync
+     */
+
+    private void upgradeToVersion12SetClientValidationStatusInvalid(@NonNull SQLiteDatabase database) {
+        try {
+            database.execSQL(String.format(SET_CLIENT_TABLE_VALIDATION_STATUS_TO_INVALID, BaseRepository.TYPE_InValid));
+        } catch (Exception e) {
+            Timber.e(e, "upgradeToVersion12setClientValidationStatusUnsynced");
         }
     }
 

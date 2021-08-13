@@ -8,6 +8,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
+import org.mockito.ArgumentMatchers;
 import org.mockito.Captor;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -126,5 +127,15 @@ public class AppUtilsTest {
         ReflectionHelpers.setStaticField(CoreLibrary.class, "instance", null);
         ReflectionHelpers.setStaticField(LocationHelper.class, "instance", null);
         ReflectionHelpers.setStaticField(DrishtiApplication.class, "mInstance", null);
+    }
+
+    @Test
+    public void testGetSyncStatus() {
+        Mockito.when(unicefAngolaApplication.context()).thenReturn(context);
+        Mockito.when(context.allSharedPreferences()).thenReturn(allSharedPreferences);
+        Mockito.when(allSharedPreferences.getPreference(ArgumentMatchers.anyString())).thenReturn("true");
+
+        boolean syncStatus = AppUtils.getSyncStatus();
+        Assert.assertTrue(syncStatus);
     }
 }
