@@ -3,10 +3,6 @@ package org.smartregister.unicefangola.view;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
-import androidx.annotation.NonNull;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +15,11 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.vijay.jsonwizard.constants.JsonFormConstants;
 import com.vijay.jsonwizard.domain.Form;
@@ -100,7 +101,7 @@ public class NavigationMenu implements NavigationContract.View, SyncStatusBroadc
             attachCloseDrawer();
             goToRegister();
             attachLanguageSpinner(activity);
-
+            showSyncStats(activity);
         } catch (Exception e) {
             Timber.e(e.toString());
         }
@@ -214,7 +215,7 @@ public class NavigationMenu implements NavigationContract.View, SyncStatusBroadc
 //                Intent intent = new Intent(activityWeakReference.get(), ChildRegisterActivity.class);
 //                activityWeakReference.get().startActivity(intent);
 //            } else {
-                drawer.closeDrawer(GravityCompat.START);
+        drawer.closeDrawer(GravityCompat.START);
 //            }
 //        });
     }
@@ -365,5 +366,16 @@ public class NavigationMenu implements NavigationContract.View, SyncStatusBroadc
         if (instance != null && instance.getDrawer() != null) {
             instance.getDrawer().closeDrawer(GravityCompat.START);
         }
+    }
+
+    private void showSyncStats(final Activity parentActivity) {
+        syncMenuItem.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Intent intent = new Intent(activityWeakReference.get(), StatsActivity.class);
+                activityWeakReference.get().startActivity(intent);
+                return true;
+            }
+        });
     }
 }

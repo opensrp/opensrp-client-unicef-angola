@@ -3,10 +3,11 @@ package org.smartregister.unicefangola.application;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import androidx.annotation.VisibleForTesting;
-import androidx.appcompat.app.AppCompatDelegate;
 import android.util.DisplayMetrics;
 import android.util.Pair;
+
+import androidx.annotation.VisibleForTesting;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.crashlytics.android.Crashlytics;
 import com.crashlytics.android.core.CrashlyticsCore;
@@ -61,6 +62,7 @@ import org.smartregister.unicefangola.repository.ChildAlertUpdatedRepository;
 import org.smartregister.unicefangola.repository.ClientRegisterTypeRepository;
 import org.smartregister.unicefangola.repository.UnicefAngolaRepository;
 import org.smartregister.unicefangola.util.AppConstants;
+import org.smartregister.unicefangola.util.AppExecutors;
 import org.smartregister.unicefangola.util.AppUtils;
 import org.smartregister.unicefangola.util.VaccineDuplicate;
 import org.smartregister.view.activity.DrishtiApplication;
@@ -91,6 +93,8 @@ public class UnicefAngolaApplication extends DrishtiApplication implements TimeC
     private ClientRegisterTypeRepository registerTypeRepository;
     private ChildAlertUpdatedRepository childAlertUpdatedRepository;
     private static List<VaccineGroup> vaccineGroups;
+
+    private AppExecutors appExecutors;
 
     public static JsonSpecHelper getJsonSpecHelper() {
         return jsonSpecHelper;
@@ -473,5 +477,10 @@ public class UnicefAngolaApplication extends DrishtiApplication implements TimeC
         return this.childAlertUpdatedRepository;
     }
 
+    public AppExecutors getAppExecutors() {
+        if (appExecutors == null) {
+            appExecutors = new AppExecutors();
+        }
+        return appExecutors;
+    }
 }
-
