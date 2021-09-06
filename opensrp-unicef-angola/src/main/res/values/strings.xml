@@ -49,7 +49,7 @@
     <string name="indicator">Indicator</string>
     <string name="value">Value</string>
 
-    <string name="str_page_info">Page {0} of {1}</string>
+    <string name="str_page_info">Page %1$d of %2$d</string>
     <string name="dismiss_lookup">Confirm</string>
     <string name="fill_form_error_msg">Please register at least one service before saving</string>
     <string name="close">Close</string>

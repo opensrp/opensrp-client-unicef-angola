@@ -40,7 +40,7 @@
     <string name="indicator">Indicador</string>
     <string name="value">Valor</string>
 
-    <string name="str_page_info">Página {0} de {1}</string>
+    <string name="str_page_info">Página %1$d de %2$d</string>
     <string name="dismiss_lookup">Confirme</string>
     <string name="fill_form_error_msg">Registre pelo menos um serviço antes de salvar</string>
     <string name="close">Fechar</string>
