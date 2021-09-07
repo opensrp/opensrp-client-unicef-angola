@@ -96,7 +96,6 @@ public class ChildRegisterFragment extends BaseChildRegisterFragment {
         if (globalSearchButton != null && registerClientButton != null && filterSelectionButton != null) {
             globalSearchButton.setVisibility(View.INVISIBLE);
             registerClientButton.setVisibility(View.INVISIBLE);
-            filterSelectionButton.setVisibility(View.INVISIBLE);
         }
     }
 

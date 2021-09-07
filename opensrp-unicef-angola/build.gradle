@@ -16,6 +16,7 @@ apply plugin: 'org.smartregister.gradle.jarjar'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.google.firebase.crashlytics'
+apply plugin: 'com.google.gms.google-services'
 
 jacoco {
     toolVersion = jacocoVersion
@@ -44,8 +45,8 @@ android {
         applicationId "org.smartregister.unicefangola"
         minSdkVersion androidMinSdkVersion
         targetSdkVersion androidTargetSdkVersion
-        versionCode 3
-        versionName "0.0.3"
+        versionCode 4
+        versionName "0.0.4"
         multiDexEnabled true
         buildConfigField "long", "MAX_SERVER_TIME_DIFFERENCE", "1800000l"
         buildConfigField "boolean", "TIME_CHECK", "false"
@@ -201,6 +202,8 @@ dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+
+    implementation 'com.google.firebase:firebase-crashlytics:18.2.1'
 
     implementation('org.smartregister:opensrp-client-child:0.6.19-SNAPSHOT@aar') {
         transitive = true
