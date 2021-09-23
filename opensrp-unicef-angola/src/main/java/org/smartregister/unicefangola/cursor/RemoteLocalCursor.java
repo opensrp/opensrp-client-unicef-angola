@@ -8,6 +8,7 @@ import org.smartregister.child.util.DBConstants;
 import org.smartregister.unicefangola.util.AppConstants;
 
 import timber.log.Timber;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 public class RemoteLocalCursor {
     private String id;
@@ -40,7 +41,7 @@ public class RemoteLocalCursor {
             inactive = cursor.getString(cursor.getColumnIndex(DBConstants.KEY.INACTIVE));
             lostToFollowUp = cursor.getString(cursor.getColumnIndex(DBConstants.KEY.LOST_TO_FOLLOW_UP));
         } catch (InvalidRowColumnException ex) {
-            Timber.e(ex);
+            FirebaseCrashlytics.getInstance().recordException(ex); Timber.e(ex);
         }
 
     }

@@ -21,6 +21,7 @@ import java.lang.ref.WeakReference;
 import java.util.HashMap;
 
 import timber.log.Timber;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 public class NavigationPresenter implements NavigationContract.Presenter {
 
@@ -90,7 +91,7 @@ public class NavigationPresenter implements NavigationContract.Presenter {
             }
 
         } catch (StringIndexOutOfBoundsException  exception) {
-            Timber.e(exception, "Error fetching initials");
+            FirebaseCrashlytics.getInstance().recordException(exception); Timber.e(exception, "Error fetching initials");
         }
 
         return null;

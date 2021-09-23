@@ -19,6 +19,7 @@ import java.lang.ref.WeakReference;
 import java.util.List;
 
 import timber.log.Timber;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 public class AdverseEffectDatePickerFactory extends ChildDatePickerFactory implements AppChildFormFragment.OnReactionVaccineSelected {
 
@@ -49,7 +50,7 @@ public class AdverseEffectDatePickerFactory extends ChildDatePickerFactory imple
             jsonObject.put(JsonFormConstants.MIN_DATE, date);
             attachLayout(JsonFormConstants.STEP1, formFragment.getContext(), formFragment, jsonObject, edtText, txtDuration);
         } catch (JSONException e) {
-            Timber.e(e);
+            FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e);
         }
     }
 }
