@@ -8,6 +8,7 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 import com.android.volley.toolbox.ImageLoader;
 
@@ -85,7 +86,7 @@ public class LoginPresenter extends BaseLoginPresenter implements BaseLoginContr
             }
 
         } catch (Exception e) {
-            Timber.e(e);
+            FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e);
         }
     }
 

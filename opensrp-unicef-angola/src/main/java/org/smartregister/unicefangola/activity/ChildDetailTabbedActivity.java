@@ -5,9 +5,11 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 import com.vijay.jsonwizard.activities.JsonWizardFormActivity;
 import com.vijay.jsonwizard.constants.JsonFormConstants;
@@ -241,7 +243,7 @@ public class ChildDetailTabbedActivity extends BaseChildDetailTabbedActivity {
             intent.putExtra(JsonFormConstants.PERFORM_FORM_TRANSLATION, true);
             startActivityForResult(intent, REQUEST_CODE_GET_JSON);
         } catch (JSONException e) {
-            Timber.e(e);
+            FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e);
         }
     }
 
@@ -286,7 +288,7 @@ public class ChildDetailTabbedActivity extends BaseChildDetailTabbedActivity {
             return form == null ? null : form.toString();
 
         } catch (Exception e) {
-            Timber.e(e);
+            FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e);
         }
         return "";
     }
