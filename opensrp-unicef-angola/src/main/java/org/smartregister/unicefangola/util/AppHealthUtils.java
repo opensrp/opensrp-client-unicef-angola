@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 
 import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.view.ContextThemeWrapper;
 
 import org.smartregister.AllConstants;
 import org.smartregister.child.util.Utils;
@@ -61,7 +62,9 @@ public class AppHealthUtils {
 
                             break;
                         case 1:
-                            Utils.showToast(context, "TO DO implement " + adapter.getItem(which));
+                            if (((ContextThemeWrapper) context).getBaseContext() instanceof AppHealthUtils.HealthStatsView) {
+                                ((AppHealthUtils.HealthStatsView) ((ContextThemeWrapper) context).getBaseContext()).showSyncStats();
+                            }
                             break;
                         default:
                             break;
@@ -110,5 +113,9 @@ public class AppHealthUtils {
                 //Overriden: Do nothing
             });
         }
+    }
+
+    public interface HealthStatsView {
+        void showSyncStats();
     }
 }
