@@ -23,10 +23,11 @@ import org.smartregister.view.fragment.BaseRegisterFragment;
 
 import java.util.Map;
 
-import static org.smartregister.AllConstants.SyncInfo.CACHED_HEIGHTS;
-import static org.smartregister.AllConstants.SyncInfo.CACHED_RECURRING_SERVICE_RECORDS;
-import static org.smartregister.AllConstants.SyncInfo.CACHED_VACCINES;
-import static org.smartregister.AllConstants.SyncInfo.CACHED_WEIGHTS;
+import static org.smartregister.unicefangola.interactor.CachedStatisticsInteractor.CachedStatsInfo.CACHED_HEIGHTS;
+import static org.smartregister.unicefangola.interactor.CachedStatisticsInteractor.CachedStatsInfo.CACHED_RECURRING_SERVICE_RECORDS;
+import static org.smartregister.unicefangola.interactor.CachedStatisticsInteractor.CachedStatsInfo.CACHED_VACCINES;
+import static org.smartregister.unicefangola.interactor.CachedStatisticsInteractor.CachedStatsInfo.CACHED_WEIGHTS;
+
 
 public class CachedStatisticsActivity extends MultiLanguageActivity implements StatsFragmentContract.View {
 
