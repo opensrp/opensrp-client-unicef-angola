@@ -48,6 +48,8 @@ public class CachedStatisticsInteractor implements StatsFragmentContract.Interac
 
         String cachedVaccinesSql = "select count(*)  from vaccines WHERE sync_status != 'Synced'";
         String cachedRecurringServiceRecordsSql = "select count(*) from recurring_service_records WHERE sync_status != 'Synced'";
+        String cachedWeightsSql = "select count(*) from weights WHERE sync_status != 'Synced'";
+        String cachedHeightsSql = "select count(*) from heights WHERE sync_status != 'Synced'";
 
         Cursor cursor = null;
 
@@ -64,6 +66,20 @@ public class CachedStatisticsInteractor implements StatsFragmentContract.Interac
             cursor = database.rawQuery(cachedRecurringServiceRecordsSql, new String[]{});
             while (cursor.moveToNext()) {
                 populateCachedRecurringServiceRecordInfo(cursor);
+            }
+            cursor.close();
+
+
+            cursor = database.rawQuery(cachedHeightsSql, new String[]{});
+            while (cursor.moveToNext()) {
+                populateCachedHeightsRecordInfo(cursor);
+            }
+            cursor.close();
+
+
+            cursor = database.rawQuery(cachedWeightsSql, new String[]{});
+            while (cursor.moveToNext()) {
+                populateCachedWeightsRecordInfo(cursor);
             }
             cursor.close();
 
@@ -89,6 +105,14 @@ public class CachedStatisticsInteractor implements StatsFragmentContract.Interac
 
     private void populateCachedRecurringServiceRecordInfo(Cursor cursor) {
         syncInfoMap.put(CACHED_RECURRING_SERVICE_RECORDS, cursor.getInt(0));
+    }
+
+    private void populateCachedWeightsRecordInfo(Cursor cursor) {
+        syncInfoMap.put(CACHED_WEIGHTS, cursor.getInt(0));
+    }
+
+    private void populateCachedHeightsRecordInfo(Cursor cursor) {
+        syncInfoMap.put(CACHED_HEIGHTS, cursor.getInt(0));
     }
 }
 
