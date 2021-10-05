@@ -105,12 +105,12 @@ public class ChildRegisterActivity extends BaseChildRegisterActivity implements 
         new AppHealthUtils(findViewById(R.id.user_initials_text_view));
 
         llCachedStats = findViewById(R.id.cached_data);
-        Intent i = new Intent(this, CachedStatisticsActivity.class);
+        Intent csaIntent = new Intent(this, CachedStatisticsActivity.class);
         llCachedStats.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                startActivity(i);
+                startActivity(csaIntent);
             }
         });
     }
