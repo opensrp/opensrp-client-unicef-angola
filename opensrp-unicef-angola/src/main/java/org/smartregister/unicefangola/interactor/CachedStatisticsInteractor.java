@@ -13,14 +13,11 @@ import java.util.Map;
 
 import timber.log.Timber;
 
-import static org.smartregister.AllConstants.SyncInfo.CACHED_HEIGHTS;
-import static org.smartregister.AllConstants.SyncInfo.CACHED_RECURRING_SERVICE_RECORDS;
-import static org.smartregister.AllConstants.SyncInfo.CACHED_VACCINES;
-import static org.smartregister.AllConstants.SyncInfo.CACHED_WEIGHTS;
-import static org.smartregister.AllConstants.SyncInfo.UNSYNCED_CLIENTS;
-import static org.smartregister.AllConstants.SyncInfo.UNSYNCED_EVENTS;
-import static org.smartregister.AllConstants.SyncInfo.VALID_CLIENTS;
-import static org.smartregister.AllConstants.SyncInfo.VALID_EVENTS;
+import static org.smartregister.unicefangola.interactor.CachedStatisticsInteractor.CachedStatsInfo.CACHED_HEIGHTS;
+import static org.smartregister.unicefangola.interactor.CachedStatisticsInteractor.CachedStatsInfo.CACHED_RECURRING_SERVICE_RECORDS;
+import static org.smartregister.unicefangola.interactor.CachedStatisticsInteractor.CachedStatsInfo.CACHED_VACCINES;
+import static org.smartregister.unicefangola.interactor.CachedStatisticsInteractor.CachedStatsInfo.CACHED_WEIGHTS;
+
 
 public class CachedStatisticsInteractor implements StatsFragmentContract.Interactor {
 
@@ -113,6 +110,13 @@ public class CachedStatisticsInteractor implements StatsFragmentContract.Interac
 
     private void populateCachedHeightsRecordInfo(Cursor cursor) {
         syncInfoMap.put(CACHED_HEIGHTS, cursor.getInt(0));
+    }
+
+    public interface CachedStatsInfo{
+        String CACHED_VACCINES = "cachedVaccines";
+        String CACHED_RECURRING_SERVICE_RECORDS = "cachedRecurringServiceRecords";
+        String CACHED_HEIGHTS = "cachedHeights";
+        String CACHED_WEIGHTS = "cachedWeights";
     }
 }
 
