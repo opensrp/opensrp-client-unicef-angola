@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -67,4 +68,8 @@ public class CachedStatisticsActivity extends MultiLanguageActivity implements S
       tvCachedRecurrentServiceRecords.setText(syncInfoMap.get(CACHED_RECURRING_SERVICE_RECORDS)+"");
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 }
