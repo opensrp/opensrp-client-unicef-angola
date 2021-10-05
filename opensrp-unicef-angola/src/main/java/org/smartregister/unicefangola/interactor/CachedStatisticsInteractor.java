@@ -46,8 +46,8 @@ public class CachedStatisticsInteractor implements StatsFragmentContract.Interac
         syncInfoMap.put(CACHED_HEIGHTS, 0);
         syncInfoMap.put(CACHED_WEIGHTS, 0);
 
-        String cachedVaccinesSql = "select count(*) vaccines WHERE sync_status != 'Synced'";
-        String cachedRecurringServiceRecordsSql = "select count(*) from recurring_service_records where WHERE sync_status != 'Synced'";
+        String cachedVaccinesSql = "select count(*)  from vaccines WHERE sync_status != 'Synced'";
+        String cachedRecurringServiceRecordsSql = "select count(*) from recurring_service_records WHERE sync_status != 'Synced'";
 
         Cursor cursor = null;
 
