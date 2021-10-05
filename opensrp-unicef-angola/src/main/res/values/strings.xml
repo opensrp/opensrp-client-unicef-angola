@@ -119,5 +119,8 @@
     <string name="database_download_success">Database download successful</string>
     <string name="view_cached_statistics">view cached statistics</string>
     <string name="recurring_service_records">recurring service records</string>
+    <string name="cached_heights">cached heights</string>
+    <string name="cached_weights">cached weights</string>
+    <string name="cached_vaccines">Cached Vaccines</string>
 
 </resources>

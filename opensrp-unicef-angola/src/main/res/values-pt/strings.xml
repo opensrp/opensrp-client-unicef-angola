@@ -110,5 +110,6 @@
     <string name="database_download_success">Exportação de banco de dados bem-sucedida</string>
     <string name="view_cached_statistics">view cached statistics</string>
     <string name="recurring_service_records">recurring service records</string>
+    <string name="cached_vaccines">Cached Vaccines</string>
 
 </resources>
