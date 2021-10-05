@@ -23,14 +23,18 @@ import org.smartregister.view.fragment.BaseRegisterFragment;
 
 import java.util.Map;
 
+import static org.smartregister.AllConstants.SyncInfo.CACHED_HEIGHTS;
 import static org.smartregister.AllConstants.SyncInfo.CACHED_RECURRING_SERVICE_RECORDS;
 import static org.smartregister.AllConstants.SyncInfo.CACHED_VACCINES;
+import static org.smartregister.AllConstants.SyncInfo.CACHED_WEIGHTS;
 
 public class CachedStatisticsActivity extends MultiLanguageActivity implements StatsFragmentContract.View {
 
     private CachedStatisticPresenter presenter;
     private TextView tvCachedVaccines;
     private TextView tvCachedRecurrentServiceRecords;
+    private TextView tvCachedWeights;
+    private TextView tvCachedheights;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,6 +49,8 @@ public class CachedStatisticsActivity extends MultiLanguageActivity implements S
     private void initializeViews() {
         tvCachedVaccines = findViewById(R.id.cached_vaccines);
         tvCachedRecurrentServiceRecords = findViewById(R.id.cached_recurring_service_records);
+        tvCachedheights = findViewById(R.id.cached_weights);
+        tvCachedWeights = findViewById(R.id.cached_heights);
 
 
         Button btnRefreshStats = findViewById(R.id.refresh_button);
@@ -66,6 +72,8 @@ public class CachedStatisticsActivity extends MultiLanguageActivity implements S
     public void refreshECSyncInfo(Map<String, Integer> syncInfoMap) {
       tvCachedVaccines.setText(syncInfoMap.get(CACHED_VACCINES)+"");
       tvCachedRecurrentServiceRecords.setText(syncInfoMap.get(CACHED_RECURRING_SERVICE_RECORDS)+"");
+      tvCachedWeights.setText(syncInfoMap.get(CACHED_WEIGHTS)+"");
+      tvCachedheights.setText(syncInfoMap.get(CACHED_HEIGHTS)+"");
     }
 
     @Override
