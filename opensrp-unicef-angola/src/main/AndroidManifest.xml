@@ -78,6 +78,10 @@
             android:screenOrientation="portrait"
             android:theme="@style/ChildTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity android:name=".activity.CachedStatisticsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ChildTheme.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"
