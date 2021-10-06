@@ -23,10 +23,10 @@ import org.smartregister.unicefangola.fragment.AdvancedSearchFragment;
 import org.smartregister.unicefangola.fragment.ChildRegisterFragment;
 import org.smartregister.unicefangola.presenter.AppChildRegisterPresenter;
 import org.smartregister.unicefangola.util.AppConstants;
-import org.smartregister.unicefangola.util.AppHealthUtils;
 import org.smartregister.unicefangola.util.AppUtils;
 import org.smartregister.unicefangola.view.NavDrawerActivity;
 import org.smartregister.unicefangola.view.NavigationMenu;
+import org.smartregister.util.AppHealthUtils;
 import org.smartregister.view.fragment.BaseRegisterFragment;
 
 import java.lang.ref.WeakReference;
