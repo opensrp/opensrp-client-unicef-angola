@@ -1,9 +1,8 @@
- package org.smartregister.unicefangola.activity;
+package org.smartregister.unicefangola.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.LinearLayout;
 
 import androidx.fragment.app.Fragment;
@@ -106,13 +105,7 @@ public class ChildRegisterActivity extends BaseChildRegisterActivity implements 
 
         llCachedStats = findViewById(R.id.cached_data);
         Intent csaIntent = new Intent(this, CachedStatisticsActivity.class);
-        llCachedStats.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                startActivity(csaIntent);
-            }
-        });
+        llCachedStats.setOnClickListener(v -> startActivity(csaIntent));
     }
 
     @Override
