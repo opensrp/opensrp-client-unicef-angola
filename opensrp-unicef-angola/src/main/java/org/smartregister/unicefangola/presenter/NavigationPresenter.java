@@ -1,9 +1,14 @@
 package org.smartregister.unicefangola.presenter;
 
 import android.app.Activity;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
+
 import org.smartregister.Context;
+import org.smartregister.child.activity.BaseChildRegisterActivity;
 import org.smartregister.growthmonitoring.job.HeightIntentServiceJob;
 import org.smartregister.growthmonitoring.job.WeightIntentServiceJob;
 import org.smartregister.growthmonitoring.job.ZScoreRefreshIntentServiceJob;
@@ -12,16 +17,19 @@ import org.smartregister.job.ImageUploadServiceJob;
 import org.smartregister.job.SyncServiceJob;
 import org.smartregister.job.SyncSettingsServiceJob;
 import org.smartregister.repository.AllSharedPreferences;
+import org.smartregister.unicefangola.R;
 import org.smartregister.unicefangola.contract.NavigationContract;
 import org.smartregister.unicefangola.interactor.NavigationInteractor;
 import org.smartregister.unicefangola.model.NavigationModel;
 import org.smartregister.unicefangola.util.AppConstants;
+import org.smartregister.unicefangola.util.DataCleanUpUtils;
 
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import timber.log.Timber;
-import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 public class NavigationPresenter implements NavigationContract.Presenter {
 
@@ -63,6 +71,35 @@ public class NavigationPresenter implements NavigationContract.Presenter {
 
     @Override
     public void sync(Activity activity) {
+
+
+        if (activity instanceof BaseChildRegisterActivity) {
+            ((BaseChildRegisterActivity) activity).showProgressDialog(R.string.syncing);
+        }
+
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        Handler handler = new Handler(Looper.getMainLooper());
+
+        executor.execute(() -> {
+            try {
+
+                DataCleanUpUtils.cleanUpDuplicateMotherIds();
+
+            } catch (Exception e) {
+                FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e);
+            }
+
+            handler.post(() -> {
+
+                SyncServiceJob.scheduleJobImmediately(SyncServiceJob.TAG);
+
+                if (activity instanceof BaseChildRegisterActivity) {
+                    ((BaseChildRegisterActivity) activity).hideProgressDialog();
+                }
+            });
+        });
+
+
         ImageUploadServiceJob.scheduleJobImmediately(ImageUploadServiceJob.TAG);
         SyncServiceJob.scheduleJobImmediately(SyncServiceJob.TAG);
         SyncSettingsServiceJob.scheduleJobImmediately(SyncSettingsServiceJob.TAG);
@@ -90,7 +127,7 @@ public class NavigationPresenter implements NavigationContract.Presenter {
                 return initials.toUpperCase();
             }
 
-        } catch (StringIndexOutOfBoundsException  exception) {
+        } catch (StringIndexOutOfBoundsException exception) {
             FirebaseCrashlytics.getInstance().recordException(exception); Timber.e(exception, "Error fetching initials");
         }
 
