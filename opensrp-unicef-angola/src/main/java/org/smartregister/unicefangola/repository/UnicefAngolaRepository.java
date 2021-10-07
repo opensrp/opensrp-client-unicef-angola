@@ -2,6 +2,7 @@ package org.smartregister.unicefangola.repository;
 
 import android.content.Context;
 
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 import androidx.annotation.NonNull;
 
 import net.sqlcipher.database.SQLiteDatabase;
@@ -168,7 +169,7 @@ public class UnicefAngolaRepository extends Repository {
             }
             return readableDatabase;
         } catch (Exception e) {
-            Timber.e(e);
+            FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e);
             return null;
         }
 
@@ -208,7 +209,7 @@ public class UnicefAngolaRepository extends Repository {
         try {
             database.execSQL(RecurringServiceTypeRepository.ADD_SERVICE_GROUP_COLUMN);
         } catch (Exception e) {
-            Timber.e(e, "upgradeToVersion8AddServiceGroupColumn");
+            FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e, "upgradeToVersion8AddServiceGroupColumn");
         }
     }
 
@@ -226,7 +227,7 @@ public class UnicefAngolaRepository extends Repository {
             DatabaseMigrationUtils.addFieldsToFTSTable(database, commonFtsObject, Utils.metadata().childRegister.tableName,
                     newlyAddedFields);
         } catch (Exception e) {
-            Timber.e(e, "upgradeToVersion2");
+            FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e, "upgradeToVersion2");
         }
     }
 
@@ -247,7 +248,7 @@ public class UnicefAngolaRepository extends Repository {
             db.execSQL(VaccineRepository.UPDATE_TABLE_ADD_IS_VOIDED_COL);
             db.execSQL(VaccineRepository.UPDATE_TABLE_ADD_IS_VOIDED_COL_INDEX);
         } catch (Exception e) {
-            Timber.e(e, "upgradeToVersion3");
+            FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e, "upgradeToVersion3");
         }
     }
 
@@ -256,7 +257,7 @@ public class UnicefAngolaRepository extends Repository {
             db.execSQL(AlertRepository.ALTER_ADD_OFFLINE_COLUMN);
             db.execSQL(AlertRepository.OFFLINE_INDEX);
         } catch (Exception e) {
-            Timber.e(e, "upgradeToVersion4");
+            FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e, "upgradeToVersion4");
         }
     }
 
@@ -269,7 +270,7 @@ public class UnicefAngolaRepository extends Repository {
                     .recurringServiceTypeRepository();
             IMDatabaseUtils.populateRecurringServices(context, db, recurringServiceTypeRepository);
         } catch (Exception e) {
-            Timber.e(e, "upgradeToVersion5");
+            FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e, "upgradeToVersion5");
         }
     }
 
@@ -281,7 +282,7 @@ public class UnicefAngolaRepository extends Repository {
             HeightZScoreRepository.createTable(db);
             db.execSQL(HeightRepository.ALTER_ADD_Z_SCORE_COLUMN);
         } catch (Exception e) {
-            Timber.e(e, "upgradeToVersion6");
+            FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e, "upgradeToVersion6");
         }
     }
 
@@ -296,7 +297,7 @@ public class UnicefAngolaRepository extends Repository {
             db.execSQL(VaccineRepository.UPDATE_TABLE_ADD_HIA2_STATUS_COL);
 
         } catch (Exception e) {
-            Timber.e(e, "upgradeToVersion7");
+            FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e, "upgradeToVersion7");
         }
     }
 
@@ -318,7 +319,7 @@ public class UnicefAngolaRepository extends Repository {
             RecurringServiceRecordRepository.migrateCreatedAt(db);
 
         } catch (Exception e) {
-            Timber.e(e, "upgradeToVersion7EventWeightHeightVaccineRecurringChange");
+            FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e, "upgradeToVersion7EventWeightHeightVaccineRecurringChange");
         }
     }
 
@@ -330,7 +331,7 @@ public class UnicefAngolaRepository extends Repository {
             db.execSQL(RecurringServiceRecordRepository.UPDATE_TABLE_ADD_TEAM_ID_COL);
             db.execSQL(RecurringServiceRecordRepository.UPDATE_TABLE_ADD_TEAM_COL);
         } catch (Exception e) {
-            Timber.e(e, "upgradeToVersion7VaccineRecurringServiceRecordChange");
+            FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e, "upgradeToVersion7VaccineRecurringServiceRecordChange");
         }
     }
 
@@ -350,7 +351,7 @@ public class UnicefAngolaRepository extends Repository {
 
             db.execSQL(RecurringServiceRecordRepository.UPDATE_TABLE_ADD_CHILD_LOCATION_ID_COL);
         } catch (Exception e) {
-            Timber.e(e, "upgradeToVersion7WeightHeightVaccineRecurringServiceChange");
+            FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e, "upgradeToVersion7WeightHeightVaccineRecurringServiceChange");
         }
     }
 
@@ -367,7 +368,7 @@ public class UnicefAngolaRepository extends Repository {
 
 
         } catch (Exception e) {
-            Timber.e(e, "upgradeToVersion7RemoveUnnecessaryTables");
+            FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e, "upgradeToVersion7RemoveUnnecessaryTables");
         }
     }
 
@@ -379,7 +380,7 @@ public class UnicefAngolaRepository extends Repository {
         try {
             database.execSQL(String.format(SET_CLIENT_TABLE_VALIDATION_STATUS_TO_INVALID, BaseRepository.TYPE_InValid));
         } catch (Exception e) {
-            Timber.e(e, "upgradeToVersion12setClientValidationStatusUnsynced");
+            FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e, "upgradeToVersion12setClientValidationStatusUnsynced");
         }
     }
 

@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 import android.util.DisplayMetrics;
 import android.util.Pair;
 
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 import com.crashlytics.android.Crashlytics;
 import com.crashlytics.android.core.CrashlyticsCore;
 import com.evernote.android.job.JobManager;
@@ -300,7 +301,7 @@ public class UnicefAngolaApplication extends DrishtiApplication implements TimeC
             List<Vaccine> specialVaccines = VaccinatorUtils.getSpecialVaccines(this);
             VaccineSchedule.init(childVaccines, specialVaccines, AppConstants.KeyConstants.CHILD);
         } catch (Exception e) {
-            Timber.e(e, "UnicefAngolaApplication --> initOfflineSchedules");
+            FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e, "UnicefAngolaApplication --> initOfflineSchedules");
         }
     }
 
@@ -342,7 +343,7 @@ public class UnicefAngolaApplication extends DrishtiApplication implements TimeC
                 repository = new UnicefAngolaRepository(getInstance().getApplicationContext(), context);
             }
         } catch (UnsatisfiedLinkError e) {
-            Timber.e(e, "UnicefTunisiaApplication --> getRepository");
+            FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e, "UnicefTunisiaApplication --> getRepository");
         }
         return repository;
     }
@@ -374,7 +375,7 @@ public class UnicefAngolaApplication extends DrishtiApplication implements TimeC
             DrishtiSyncScheduler.stop(getApplicationContext());
             context.allSharedPreferences().saveIsSyncInProgress(false);
         } catch (Exception e) {
-            Timber.e(e, "UnicefTunisiaApplication --> cleanUpSyncState");
+            FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e, "UnicefTunisiaApplication --> cleanUpSyncState");
         }
     }
 

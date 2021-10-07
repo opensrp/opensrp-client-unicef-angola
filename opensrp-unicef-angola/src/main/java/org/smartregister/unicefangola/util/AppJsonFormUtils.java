@@ -5,6 +5,7 @@ import android.text.TextUtils;
 
 import com.google.common.reflect.TypeToken;
 import com.vijay.jsonwizard.constants.JsonFormConstants;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
@@ -55,7 +56,7 @@ public class AppJsonFormUtils extends ChildJsonFormUtils {
             updateFormDetailsForEdit(childDetails, jsonArray, nonEditableFields);
             return birthRegistrationForm.toString();
         } catch (Exception e) {
-            Timber.e(e, "AppChildJsonFormUtils --> getMetadataForEditForm");
+            FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e, "AppChildJsonFormUtils --> getMetadataForEditForm");
         }
 
         return "";

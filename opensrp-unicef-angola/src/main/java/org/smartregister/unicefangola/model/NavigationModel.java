@@ -1,5 +1,7 @@
 package org.smartregister.unicefangola.model;
 
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
+
 import org.smartregister.unicefangola.contract.NavigationContract;
 import org.smartregister.util.Utils;
 
@@ -22,7 +24,7 @@ public class NavigationModel implements NavigationContract.Model {
         try {
             currentUser = Utils.getPrefferedName();
         } catch (Exception e) {
-            Timber.e(e);
+            FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e);
         }
 
         return currentUser;

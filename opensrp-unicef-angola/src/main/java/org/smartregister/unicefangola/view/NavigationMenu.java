@@ -2,6 +2,7 @@ package org.smartregister.unicefangola.view;
 
 import android.app.Activity;
 import android.content.Intent;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 import android.content.res.Configuration;
 import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
@@ -102,7 +103,7 @@ public class NavigationMenu implements NavigationContract.View, SyncStatusBroadc
             attachLanguageSpinner(activity);
 
         } catch (Exception e) {
-            Timber.e(e.toString());
+            FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e.toString());
         }
     }
 
@@ -252,7 +253,7 @@ public class NavigationMenu implements NavigationContract.View, SyncStatusBroadc
             intent.putExtra(JsonFormConstants.PERFORM_FORM_TRANSLATION, true);
             activity.startActivityForResult(intent, ChildJsonFormUtils.REQUEST_CODE_GET_JSON);
         } catch (Exception e) {
-            Timber.e(e);
+            FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e);
         }
     }
 
