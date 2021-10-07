@@ -224,8 +224,7 @@ public class AppClientProcessorForJava extends ClientProcessorForJava {
         if (client != null) {
             try {
                 processEvent(event, client, clientClassification);
-                if(Constants.ENTITY.CHILD.equals(client.getClientType())) //Only generate vaccine alerts if Child Records
-                    scheduleUpdatingClientAlerts(client.getBaseEntityId(), client.getBirthdate());
+
             } catch (Exception e) {
                 FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e);
             }
