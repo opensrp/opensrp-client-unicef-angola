@@ -156,6 +156,7 @@ public class AppClientProcessorForJava extends ClientProcessorForJava {
                         if (clientClassification == null) {
                             continue;
                         }
+                        cleanClientDocument(eventClient);
                         processChildRegistrationAndRelatedEvents(clientClassification, eventClient, event);
                         break;
                     default:
@@ -173,6 +174,14 @@ public class AppClientProcessorForJava extends ClientProcessorForJava {
             Runnable runnable = () -> updateClientAlerts(clientsForAlertUpdates);
 
             appExecutors.diskIO().execute(runnable);
+        }
+    }
+
+    private void cleanClientDocument(EventClient eventClient){
+        Client client = eventClient.getClient();
+        if(client.getClientType() == null && client.getClientType() == null && eventClient.getEvent().getEntityType() != null){
+            client.setClientType(eventClient.getEvent().getEntityType());
+
         }
     }
 
@@ -212,7 +221,7 @@ public class AppClientProcessorForJava extends ClientProcessorForJava {
         if (client != null) {
             try {
                 processEvent(event, client, clientClassification);
-                scheduleUpdatingClientAlerts(client.getBaseEntityId(), client.getBirthdate());
+
             } catch (Exception e) {
                 Timber.e(e);
             }
@@ -586,7 +595,10 @@ public class AppClientProcessorForJava extends ClientProcessorForJava {
     }
 
     @Override
-    public void updateFTSsearch(String tableName, String entityId, ContentValues contentValues) {
+    public void updateFTSsearch(String tableName, String entityType, String entityId, ContentValues contentValues) {
+        if (!(Utils.metadata().getRegisterQueryProvider().getDemographicTable().equals(tableName) && Constants.ENTITY.CHILD.equals(entityType))) {
+            return;
+        }
 
         Timber.i("Starting updateFTSsearch table: %s", tableName);
 
