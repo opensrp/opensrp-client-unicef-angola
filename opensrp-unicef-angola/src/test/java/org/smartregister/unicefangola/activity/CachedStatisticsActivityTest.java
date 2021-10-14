@@ -2,8 +2,10 @@ package org.smartregister.unicefangola.activity;
 
 import android.app.Activity;
 import android.os.Looper;
+import android.widget.Button;
 
 import org.junit.Before;
+import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 import org.robolectric.Robolectric;
 import org.robolectric.android.controller.ActivityController;
@@ -29,11 +31,16 @@ public class CachedStatisticsActivityTest  extends BaseActivityUnitTest {
 
     @Override
     protected Activity getActivity() {
-        return null;
+        return cachedStatisticsActivity;
     }
 
     @Override
-    protected ActivityController<CachedStatisticsActivity> getActivityController() {
-        return cachedStatisticsActivity;
+    protected ActivityController getActivityController() {
+        return controller;
+    }
+
+    @Test
+    public void testRefreshButtonWorks(){
+        controller.
     }
 }
