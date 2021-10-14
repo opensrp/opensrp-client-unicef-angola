@@ -3,7 +3,6 @@
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.LinearLayout;
 
 import androidx.fragment.app.Fragment;
@@ -25,10 +24,10 @@ import org.smartregister.unicefangola.fragment.AdvancedSearchFragment;
 import org.smartregister.unicefangola.fragment.ChildRegisterFragment;
 import org.smartregister.unicefangola.presenter.AppChildRegisterPresenter;
 import org.smartregister.unicefangola.util.AppConstants;
-import org.smartregister.unicefangola.util.AppHealthUtils;
 import org.smartregister.unicefangola.util.AppUtils;
 import org.smartregister.unicefangola.view.NavDrawerActivity;
 import org.smartregister.unicefangola.view.NavigationMenu;
+import org.smartregister.util.AppHealthUtils;
 import org.smartregister.view.fragment.BaseRegisterFragment;
 
 import java.lang.ref.WeakReference;
@@ -106,6 +105,7 @@ public class ChildRegisterActivity extends BaseChildRegisterActivity implements 
 
         llCachedStats = findViewById(R.id.cached_data);
         Intent csaIntent = new Intent(this, CachedStatisticsActivity.class);
+<<<<<<< HEAD
         llCachedStats.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,6 +113,9 @@ public class ChildRegisterActivity extends BaseChildRegisterActivity implements 
                 startActivity(csaIntent);
             }
         });
+=======
+        llCachedStats.setOnClickListener(v -> startActivity(csaIntent));
+>>>>>>> 08fdcea6d5ba5373e6d73cfed497121576cbd396
     }
 
     @Override
