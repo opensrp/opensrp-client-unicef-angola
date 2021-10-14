@@ -40,7 +40,7 @@ public class CachedStatisticsActivityTest  extends BaseActivityUnitTest {
     }
 
     @Test
-    public void testRefreshButtonWorks(){
-        controller.
+    public void testRefreshButton(){
+
     }
 }
