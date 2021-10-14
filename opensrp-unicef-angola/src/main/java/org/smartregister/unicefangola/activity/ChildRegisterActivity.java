@@ -105,17 +105,7 @@ public class ChildRegisterActivity extends BaseChildRegisterActivity implements 
 
         llCachedStats = findViewById(R.id.cached_data);
         Intent csaIntent = new Intent(this, CachedStatisticsActivity.class);
-<<<<<<< HEAD
-        llCachedStats.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                startActivity(csaIntent);
-            }
-        });
-=======
         llCachedStats.setOnClickListener(v -> startActivity(csaIntent));
->>>>>>> 08fdcea6d5ba5373e6d73cfed497121576cbd396
     }
 
     @Override
