@@ -30,6 +30,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import timber.log.Timber;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 public class NavigationPresenter implements NavigationContract.Presenter {
 
@@ -126,6 +127,7 @@ public class NavigationPresenter implements NavigationContract.Presenter {
                 }
                 return initials.toUpperCase();
             }
+
 
         } catch (StringIndexOutOfBoundsException exception) {
             FirebaseCrashlytics.getInstance().recordException(exception); Timber.e(exception, "Error fetching initials");

@@ -1,4 +1,4 @@
-package org.smartregister.unicefangola.activity;
+ package org.smartregister.unicefangola.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
