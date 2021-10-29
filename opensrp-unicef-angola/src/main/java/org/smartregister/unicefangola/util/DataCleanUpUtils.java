@@ -9,6 +9,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
 import org.smartregister.child.ChildLibrary;
 import org.smartregister.child.util.ChildJsonFormUtils;
+import org.smartregister.child.util.Utils;
 import org.smartregister.domain.UniqueId;
 import org.smartregister.repository.UniqueIdRepository;
 import org.smartregister.unicefangola.application.UnicefAngolaApplication;
@@ -23,9 +24,10 @@ import timber.log.Timber;
  * Created by ndegwamartin on 07/10/2021.
  */
 public class DataCleanUpUtils {
-    private static final String fetchDuplicatesSQL = "WITH allCaregivers AS ( select baseEntityId, json_extract(json, '$.identifiers.M_ZEIR_ID')  m_zeir_id, syncStatus from client  )\n" +
-            "select b.* from (select baseEntityId, m_zeir_id from (allCaregivers) group by m_zeir_id having count(m_zeir_id) > 1) a \n" +
-            "INNER JOIN (allCaregivers) b on b.m_zeir_id = a.m_zeir_id where syncStatus= 'Unsynced' ORDER by m_zeir_id;";
+    private static final String fetchDuplicatesSQL = "WITH duplicateCaregivers AS (WITH allCaregivers AS ( select baseEntityId, json_extract(json, '$.identifiers.M_ZEIR_ID')  m_zeir_id, syncStatus from client  ) " +
+            "select b.* from (select baseEntityId, m_zeir_id from (allCaregivers) group by m_zeir_id having count(m_zeir_id) > 1) a " +
+            "INNER JOIN (allCaregivers) b on b.m_zeir_id = a.m_zeir_id  ORDER by m_zeir_id) " +
+            "SELECT baseEntityId, m_zeir_id, lag(m_zeir_id) over(order by m_zeir_id) as prev_m_zeir_id from duplicateCaregivers;";
 
     public static void cleanUpDuplicateMotherIds() throws Exception {
 
@@ -47,6 +49,16 @@ public class DataCleanUpUtils {
             while (cursor.moveToNext()) {
 
                 motherBaseEntityIdsWithDuplicates.add(cursor.getString(cursor.getColumnIndex("baseEntityId")));
+                String mZeirId = cursor.getString(cursor.getColumnIndex("m_zeir_id"));
+                String prevZeirId = null;
+                try {
+                    prevZeirId = cursor.getString(cursor.getColumnIndex("prev_m_zeir_id"));
+                } catch (NullPointerException e){
+                    Timber.i("null prev_m_zeir_id %s",e.getMessage());
+                }
+                if(!StringUtils.isBlank(prevZeirId) & (prevZeirId.equals(mZeirId))){
+                    motherBaseEntityIdsWithDuplicates.add(cursor.getString(cursor.getColumnIndex("baseEntityId")));
+                }
 
             }
 
