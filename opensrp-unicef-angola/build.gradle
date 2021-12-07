@@ -87,8 +87,8 @@ android {
 
             resValue "string", 'opensrp_url', '"https://unicef-ao.smartregister.org/opensrp/"'
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rule.pro'
-            buildConfigField "int", "OPENMRS_UNIQUE_ID_INITIAL_BATCH_SIZE", '50'
-            buildConfigField "int", "OPENMRS_UNIQUE_ID_BATCH_SIZE", '10'
+            buildConfigField "int", "OPENMRS_UNIQUE_ID_INITIAL_BATCH_SIZE", '1'
+            buildConfigField "int", "OPENMRS_UNIQUE_ID_BATCH_SIZE", '1'
             buildConfigField "int", "OPENMRS_UNIQUE_ID_SOURCE", '11'
             buildConfigField "int", "VACCINE_SYNC_TIME", '0'
             buildConfigField "int", "DATABASE_VERSION", '12'
@@ -206,13 +206,15 @@ dependencies {
     implementation 'com.google.firebase:firebase-crashlytics:18.2.1'
 
     implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
-    implementation('org.smartregister:opensrp-client-child:0.7.4-SNAPSHOT') {
+    implementation('org.smartregister:opensrp-client-child:0.7.4-alpha.6-SNAPSHOT') {
         transitive = true
         exclude group: 'id.zelory', module: 'compressor'
         exclude group: 'com.android.support', module: 'appcompat-v7'
         exclude group: 'com.google.guava', module: 'guava'
         exclude group: 'com.ibm.fhir', module: 'fhir-model'
+        exclude group: 'org.smartregister', module: 'opensrp-client-core'
     }
+    implementation('org.smartregister:opensrp-client-core:4.3.24-alpha6-SNAPSHOT')
 
     implementation('org.smartregister:opensrp-client-reporting:0.0.21-SNAPSHOT@aar') {
         transitive = true
