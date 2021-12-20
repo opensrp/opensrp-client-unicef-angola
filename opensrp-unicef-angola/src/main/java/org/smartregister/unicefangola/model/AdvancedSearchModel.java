@@ -14,6 +14,7 @@ import org.smartregister.unicefangola.util.AppConstants;
 import java.util.List;
 import java.util.Map;
 
+import static org.smartregister.child.util.Constants.Client.SYSTEM_OF_REGISTRATION;
 import static org.smartregister.child.util.Constants.KEY.FATHER_RELATIONAL_ID;
 import static org.smartregister.child.util.Constants.KEY.RELATIONALID;
 import static org.smartregister.unicefangola.util.AppConstants.KeyConstants.DOB;
@@ -54,7 +55,8 @@ public class AdvancedSearchModel extends BaseChildAdvancedSearchModel {
                 AppConstants.KeyConstants.MOTHER_FIRST_NAME,
                 AppConstants.KeyConstants.MOTHER_LAST_NAME,
                 INACTIVE,
-                LOST_TO_FOLLOW_UP
+                LOST_TO_FOLLOW_UP,
+                SYSTEM_OF_REGISTRATION
         };
 
         AdvancedMatrixCursor matrixCursor = new AdvancedMatrixCursor(columns);
