@@ -45,8 +45,8 @@ android {
         applicationId "org.smartregister.unicefangola"
         minSdkVersion androidMinSdkVersion
         targetSdkVersion androidTargetSdkVersion
-        versionCode 11
-        versionName "0.0.11"
+        versionCode 12
+        versionName "0.0.12"
         multiDexEnabled true
         buildConfigField "long", "MAX_SERVER_TIME_DIFFERENCE", "1800000l"
         buildConfigField "boolean", "TIME_CHECK", "false"
