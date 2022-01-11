@@ -88,5 +88,10 @@ public class AppSyncConfiguration extends SyncConfiguration {
     public boolean validateUserAssignments() {
         return false;
     }
+
+    @Override
+    public boolean fastPatientRegisterSearch() {
+        return false;
+    }
 }
 

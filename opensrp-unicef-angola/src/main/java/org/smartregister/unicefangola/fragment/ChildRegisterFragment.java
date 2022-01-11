@@ -1,6 +1,7 @@
 package org.smartregister.unicefangola.fragment;
 
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 
 import org.smartregister.child.domain.RegisterClickables;
 import org.smartregister.child.fragment.BaseChildRegisterFragment;
@@ -99,6 +100,14 @@ public class ChildRegisterFragment extends BaseChildRegisterFragment {
             globalSearchButton.setVisibility(View.INVISIBLE);
             registerClientButton.setVisibility(View.INVISIBLE);
         }
+        searchDoneView = view.findViewById(R.id.btn_search_done);
+        searchDoneView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String searchTerm = searchView.getText().toString();
+                filter(searchTerm, "", getMainCondition(), false);
+            }
+        });
     }
 
     @Override
