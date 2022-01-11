@@ -206,7 +206,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-crashlytics:18.2.1'
 
     implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
-    implementation('org.smartregister:opensrp-client-core:4.3.24-alpha19-SNAPSHOT')
+    implementation('org.smartregister:opensrp-client-core:4.3.24-alpha20-SNAPSHOT')
     implementation('org.smartregister:opensrp-client-child:0.7.1-VLOGS-SNAPSHOT@aar') {
         transitive = true
         exclude group: 'id.zelory', module: 'compressor'

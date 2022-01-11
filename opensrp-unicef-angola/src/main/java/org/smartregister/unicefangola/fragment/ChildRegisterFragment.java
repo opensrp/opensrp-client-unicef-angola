@@ -18,6 +18,7 @@ import org.smartregister.view.activity.BaseRegisterActivity;
 import timber.log.Timber;
 
 public class ChildRegisterFragment extends BaseChildRegisterFragment {
+    private View searchDoneView;
 
     @Override
     protected void initializePresenter() {
