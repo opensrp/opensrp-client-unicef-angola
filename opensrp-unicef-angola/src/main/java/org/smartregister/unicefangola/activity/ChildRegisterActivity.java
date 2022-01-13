@@ -48,7 +48,6 @@ public class ChildRegisterActivity extends BaseChildRegisterActivity implements 
     @Override
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-
     }
 
     @Override

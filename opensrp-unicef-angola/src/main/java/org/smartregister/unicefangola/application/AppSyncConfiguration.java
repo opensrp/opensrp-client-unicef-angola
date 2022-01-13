@@ -89,9 +89,5 @@ public class AppSyncConfiguration extends SyncConfiguration {
         return false;
     }
 
-    @Override
-    public boolean fastPatientRegisterSearch() {
-        return false;
-    }
 }
 

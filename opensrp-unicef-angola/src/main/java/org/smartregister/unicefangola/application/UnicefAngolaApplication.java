@@ -76,6 +76,8 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import io.fabric.sdk.android.Fabric;
+import io.sentry.android.core.SentryAndroid;
+import io.sentry.android.fragment.FragmentLifecycleIntegration;
 import timber.log.Timber;
 
 public class UnicefAngolaApplication extends DrishtiApplication implements TimeChangedBroadcastReceiver.OnTimeChangedListener {
@@ -270,6 +272,10 @@ public class UnicefAngolaApplication extends DrishtiApplication implements TimeC
         //init Job Manager
         JobManager.create(this).addJobCreator(new AppJobCreator());
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
+        //
+        SentryAndroid.init(this, options -> {
+            options.addIntegration(new FragmentLifecycleIntegration(this, true, true));
+        });
 
     }
 

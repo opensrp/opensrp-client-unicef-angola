@@ -1,7 +1,7 @@
 package org.smartregister.unicefangola.fragment;
 
+import android.os.Bundle;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 
 import org.smartregister.child.domain.RegisterClickables;
 import org.smartregister.child.fragment.BaseChildRegisterFragment;
@@ -15,11 +15,18 @@ import org.smartregister.unicefangola.presenter.ChildRegisterFragmentPresenter;
 import org.smartregister.unicefangola.util.DBQueryHelper;
 import org.smartregister.view.activity.BaseRegisterActivity;
 
+import io.sentry.Sentry;
 import timber.log.Timber;
 
 public class ChildRegisterFragment extends BaseChildRegisterFragment {
     private View searchDoneView;
 
+
+    @Override
+    public void onCreate(Bundle savedInstandeState) {
+        super.onCreate(savedInstandeState);
+        Sentry.captureMessage("Some message from Fragment Lifecycle events in breadcrumbs.");
+    }
     @Override
     protected void initializePresenter() {
         if (getActivity() == null) {
