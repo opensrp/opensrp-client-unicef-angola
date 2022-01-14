@@ -45,8 +45,8 @@ android {
         applicationId "org.smartregister.unicefangola"
         minSdkVersion androidMinSdkVersion
         targetSdkVersion androidTargetSdkVersion
-        versionCode 12
-        versionName "0.0.12"
+        versionCode 13
+        versionName "0.0.13"
         multiDexEnabled true
         buildConfigField "long", "MAX_SERVER_TIME_DIFFERENCE", "1800000l"
         buildConfigField "boolean", "TIME_CHECK", "false"
@@ -206,13 +206,12 @@ dependencies {
     implementation 'com.google.firebase:firebase-crashlytics:18.2.1'
 
     implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
-    implementation('org.smartregister:opensrp-client-child:0.7.1-VLOGS-SNAPSHOT@aar') {
+    implementation('org.smartregister:opensrp-client-child:0.7.3-ALPHA3-SNAPSHOT@aar') {
         transitive = true
         exclude group: 'id.zelory', module: 'compressor'
         exclude group: 'com.android.support', module: 'appcompat-v7'
         exclude group: 'com.google.guava', module: 'guava'
         exclude group: 'com.ibm.fhir', module: 'fhir-model'
-        exclude group: 'org.smartregister', module:'opensrp-client-core'
     }
 
     implementation('org.smartregister:opensrp-client-reporting:0.0.21-SNAPSHOT@aar') {

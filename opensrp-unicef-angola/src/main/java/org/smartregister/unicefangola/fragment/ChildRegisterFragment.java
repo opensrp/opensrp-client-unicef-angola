@@ -15,6 +15,7 @@ import org.smartregister.unicefangola.presenter.ChildRegisterFragmentPresenter;
 import org.smartregister.unicefangola.util.DBQueryHelper;
 import org.smartregister.view.activity.BaseRegisterActivity;
 
+import io.sentry.ITransaction;
 import io.sentry.Sentry;
 import timber.log.Timber;
 
@@ -25,7 +26,6 @@ public class ChildRegisterFragment extends BaseChildRegisterFragment {
     @Override
     public void onCreate(Bundle savedInstandeState) {
         super.onCreate(savedInstandeState);
-        Sentry.captureMessage("Some message from Fragment Lifecycle events in breadcrumbs.");
     }
     @Override
     protected void initializePresenter() {
@@ -100,6 +100,7 @@ public class ChildRegisterFragment extends BaseChildRegisterFragment {
 
     @Override
     public void setupViews(View view) {
+        ITransaction transaction = Sentry.startTransaction("ChildRegisterFragment#setupViews", "initUi");
         super.setupViews(view);
         View globalSearchButton = view.findViewById(org.smartregister.child.R.id.global_search);
         View registerClientButton = view.findViewById(org.smartregister.child.R.id.register_client);
@@ -116,6 +117,13 @@ public class ChildRegisterFragment extends BaseChildRegisterFragment {
                 filter(searchTerm, "", getMainCondition(), false);
             }
         });
+        transaction.finish();
+
+        try{
+            throw new Exception("This is a forced exception");
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
