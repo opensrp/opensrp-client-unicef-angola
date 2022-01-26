@@ -100,7 +100,6 @@ public class ChildRegisterFragment extends BaseChildRegisterFragment {
 
     @Override
     public void setupViews(View view) {
-        ITransaction transaction = Sentry.startTransaction("ChildRegisterFragment#setupViews", "initUi");
         super.setupViews(view);
         View globalSearchButton = view.findViewById(org.smartregister.child.R.id.global_search);
         View registerClientButton = view.findViewById(org.smartregister.child.R.id.register_client);
@@ -117,13 +116,6 @@ public class ChildRegisterFragment extends BaseChildRegisterFragment {
                 filter(searchTerm, "", getMainCondition(), false);
             }
         });
-        transaction.finish();
-
-        try{
-            throw new Exception("This is a forced exception");
-        } catch (Exception e){
-            e.printStackTrace();
-        }
     }
 
     @Override
