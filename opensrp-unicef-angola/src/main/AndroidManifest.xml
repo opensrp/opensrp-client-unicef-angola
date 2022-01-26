@@ -29,6 +29,8 @@
         android:theme="@style/AppTheme"
         android:requestLegacyExternalStorage="true"
         tools:replace="android:allowBackup,android:icon,android:label,android:theme">
+        <meta-data android:name="io.sentry.dsn" android:value="https://cd03338eb92f42daae51fb9b7579765c@sentry.k8s.onalabs.org/53" />
+        <meta-data android:name="io.sentry.traces.sample-rate" android:value="0.3" />
         <activity
             android:name=".activity.ChildImmunizationActivity"
             android:label="@string/title_activity_child_immunization"
@@ -78,6 +80,10 @@
             android:screenOrientation="portrait"
             android:theme="@style/ChildTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity android:name=".activity.CachedStatisticsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ChildTheme.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"

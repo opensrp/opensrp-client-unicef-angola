@@ -2,6 +2,7 @@ package org.smartregister.unicefangola.presenter;
 
 import android.view.View;
 import android.widget.AdapterView;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 import com.vijay.jsonwizard.constants.JsonFormConstants;
 import com.vijay.jsonwizard.customviews.MaterialSpinner;
@@ -50,7 +51,7 @@ public class AppChildFormFragmentPresenter extends ChildFormFragmentPresenter {
                 }
             }
         } catch (Exception e) {
-            Timber.e(e);
+            FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e);
         }
 
     }

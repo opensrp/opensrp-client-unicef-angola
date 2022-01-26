@@ -45,8 +45,8 @@ android {
         applicationId "org.smartregister.unicefangola"
         minSdkVersion androidMinSdkVersion
         targetSdkVersion androidTargetSdkVersion
-        versionCode 4
-        versionName "0.0.4"
+        versionCode 13
+        versionName "0.0.13"
         multiDexEnabled true
         buildConfigField "long", "MAX_SERVER_TIME_DIFFERENCE", "1800000l"
         buildConfigField "boolean", "TIME_CHECK", "false"
@@ -205,7 +205,8 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-crashlytics:18.2.1'
 
-    implementation('org.smartregister:opensrp-client-child:0.6.19-SNAPSHOT@aar') {
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
+    implementation('org.smartregister:opensrp-client-child:0.7.3-ALPHA3-SNAPSHOT@aar') {
         transitive = true
         exclude group: 'id.zelory', module: 'compressor'
         exclude group: 'com.android.support', module: 'appcompat-v7'
@@ -256,7 +257,8 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'org.jeasy:easy-rules-core:3.3.0'
     implementation 'org.jeasy:easy-rules-mvel:3.3.0'
-
+    implementation  'io.sentry:sentry-android:5.5.2'
+    implementation 'io.sentry:sentry-android-fragment:5.5.2'
 //    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.2'
 
     androidTestImplementation "androidx.test.espresso:espresso-core:3.3.0"

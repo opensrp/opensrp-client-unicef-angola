@@ -5,9 +5,11 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import androidx.annotation.NonNull;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 import com.google.gson.Gson;
 
 import org.apache.commons.lang3.StringUtils;
@@ -63,6 +65,7 @@ public class AppUtils extends Utils {
         ContentValues values = new ContentValues();
 
         if (client.getDeathdate() == null) {
+            FirebaseCrashlytics.getInstance().recordException(new Exception("Death event cannot be processed because deathdate is NULL"));
             Timber.e(new Exception(), "Death event for %s cannot be processed because deathdate is NULL : %s"
                     , client.getFirstName() + " " + client.getLastName(), new Gson().toJson(eventClient));
             return false;
@@ -127,6 +130,7 @@ public class AppUtils extends Utils {
             long diffNowExecutionTime = now - executionTime;
             return TimeUnit.MILLISECONDS.toMinutes(diffNowExecutionTime) > i;
         } catch (NumberFormatException e) {
+            FirebaseCrashlytics.getInstance().recordException(e);
             Timber.e(e);
             return false;
         }

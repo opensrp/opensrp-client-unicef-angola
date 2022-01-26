@@ -6,6 +6,8 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
 
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
+
 import org.apache.commons.lang3.SerializationUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
@@ -14,6 +16,7 @@ import org.jetbrains.annotations.Nullable;
 import org.joda.time.DateTime;
 import org.smartregister.child.util.ChildDbUtils;
 import org.smartregister.child.util.ChildJsonFormUtils;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 import org.smartregister.child.util.Constants;
 import org.smartregister.child.util.MoveToMyCatchmentUtils;
 import org.smartregister.child.util.Utils;
@@ -156,6 +159,7 @@ public class AppClientProcessorForJava extends ClientProcessorForJava {
                         if (clientClassification == null) {
                             continue;
                         }
+                        cleanClientDocument(eventClient);
                         processChildRegistrationAndRelatedEvents(clientClassification, eventClient, event);
                         break;
                     default:
@@ -163,7 +167,7 @@ public class AppClientProcessorForJava extends ClientProcessorForJava {
                             try {
                                 processEventUsingMiniprocessor(clientClassification, eventClient, eventType);
                             } catch (Exception ex) {
-                                Timber.e(ex);
+                                FirebaseCrashlytics.getInstance().recordException(ex); Timber.e(ex);
                             }
                         }
                 }
@@ -176,13 +180,21 @@ public class AppClientProcessorForJava extends ClientProcessorForJava {
         }
     }
 
+    private void cleanClientDocument(EventClient eventClient){
+        Client client = eventClient.getClient();
+        if(client.getClientType() == null && client.getClientType() == null && eventClient.getEvent().getEntityType() != null){
+            client.setClientType(eventClient.getEvent().getEntityType());
+
+        }
+    }
+
     private void processEventClient(@NonNull ClientClassification clientClassification, @NonNull EventClient eventClient, @NonNull Event event) {
         Client client = eventClient.getClient();
         if (client != null) {
             try {
                 processEvent(event, client, clientClassification);
             } catch (Exception e) {
-                Timber.e(e);
+                FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e);
             }
         }
     }
@@ -212,9 +224,9 @@ public class AppClientProcessorForJava extends ClientProcessorForJava {
         if (client != null) {
             try {
                 processEvent(event, client, clientClassification);
-                scheduleUpdatingClientAlerts(client.getBaseEntityId(), client.getBirthdate());
+
             } catch (Exception e) {
-                Timber.e(e);
+                FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e);
             }
         }
     }
@@ -303,7 +315,7 @@ public class AppClientProcessorForJava extends ClientProcessorForJava {
             }
 
         } catch (Exception e) {
-            Timber.e(e, "Process Vaccine Error");
+            FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e, "Process Vaccine Error");
         }
     }
 
@@ -355,7 +367,7 @@ public class AppClientProcessorForJava extends ClientProcessorForJava {
             }
 
         } catch (Exception e) {
-            Timber.e(e, "Process Weight Error");
+            FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e, "Process Weight Error");
         }
     }
 
@@ -411,7 +423,7 @@ public class AppClientProcessorForJava extends ClientProcessorForJava {
             }
 
         } catch (Exception e) {
-            Timber.e(e, "Process Height Error");
+            FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e, "Process Height Error");
         }
     }
 
@@ -455,7 +467,7 @@ public class AppClientProcessorForJava extends ClientProcessorForJava {
             }
 
         } catch (Exception e) {
-            Timber.e(e, "Process Service Error");
+            FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e, "Process Service Error");
         }
     }
 
@@ -522,7 +534,7 @@ public class AppClientProcessorForJava extends ClientProcessorForJava {
 
             return contentValues;
         } catch (Exception e) {
-            Timber.e(e);
+            FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e);
         }
         return null;
     }
@@ -531,7 +543,7 @@ public class AppClientProcessorForJava extends ClientProcessorForJava {
         try {
             return Integer.valueOf(string);
         } catch (NumberFormatException e) {
-            Timber.e(e, e.toString());
+            FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e, e.toString());
         }
         return null;
     }
@@ -551,7 +563,7 @@ public class AppClientProcessorForJava extends ClientProcessorForJava {
                     try {
                         date = DateUtil.parseDate(eventDateStr);
                     } catch (ParseException pee) {
-                        Timber.e(e);
+                        FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e);
                     }
                 }
             }
@@ -563,7 +575,7 @@ public class AppClientProcessorForJava extends ClientProcessorForJava {
         try {
             return Float.valueOf(string);
         } catch (NumberFormatException e) {
-            Timber.e(e);
+            FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e);
         }
         return null;
     }
@@ -586,7 +598,10 @@ public class AppClientProcessorForJava extends ClientProcessorForJava {
     }
 
     @Override
-    public void updateFTSsearch(String tableName, String entityId, ContentValues contentValues) {
+    public void updateFTSsearch(String tableName, String entityType, String entityId, ContentValues contentValues) {
+        if (!(Utils.metadata().getRegisterQueryProvider().getDemographicTable().equals(tableName) && Constants.ENTITY.CHILD.equals(entityType))) {
+            return;
+        }
 
         Timber.i("Starting updateFTSsearch table: %s", tableName);
 

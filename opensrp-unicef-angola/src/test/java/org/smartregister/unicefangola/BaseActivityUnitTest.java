@@ -2,6 +2,7 @@ package org.smartregister.unicefangola;
 
 import android.app.Activity;
 import android.content.Intent;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 import org.junit.Assert;
 import org.robolectric.android.controller.ActivityController;
@@ -17,7 +18,7 @@ public abstract class BaseActivityUnitTest extends BaseUnitTest {
             getActivityController().pause().stop().destroy(); //destroy controller if we can
 
         } catch (Exception e) {
-            Timber.e(e);
+            FirebaseCrashlytics.getInstance().recordException(e); Timber.e(e);
         }
         System.gc();
     }

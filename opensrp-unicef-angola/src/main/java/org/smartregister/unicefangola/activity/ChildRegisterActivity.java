@@ -1,8 +1,9 @@
-package org.smartregister.unicefangola.activity;
+ package org.smartregister.unicefangola.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
 
 import androidx.fragment.app.Fragment;
 
@@ -34,12 +35,14 @@ import java.lang.ref.WeakReference;
 public class ChildRegisterActivity extends BaseChildRegisterActivity implements NavDrawerActivity {
 
     private NavigationMenu navigationMenu;
+    private LinearLayout llCachedStats;
 
     @Override
     protected void attachBaseContext(android.content.Context base) {
         // get language from prefs
         String lang = AppUtils.getLanguage(base.getApplicationContext());
         super.attachBaseContext(AppUtils.setAppLocale(base, lang));
+
     }
 
     @Override
@@ -98,6 +101,10 @@ public class ChildRegisterActivity extends BaseChildRegisterActivity implements 
         navigationMenu = NavigationMenu.getInstance(weakReference.get());
 
         new AppHealthUtils(findViewById(R.id.user_initials_text_view));
+
+        llCachedStats = findViewById(R.id.cached_data);
+        Intent csaIntent = new Intent(this, CachedStatisticsActivity.class);
+        llCachedStats.setOnClickListener(v -> startActivity(csaIntent));
     }
 
     @Override

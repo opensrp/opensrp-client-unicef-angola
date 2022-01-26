@@ -88,5 +88,6 @@ public class AppSyncConfiguration extends SyncConfiguration {
     public boolean validateUserAssignments() {
         return false;
     }
+
 }
 

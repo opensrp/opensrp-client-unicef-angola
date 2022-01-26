@@ -1,5 +1,6 @@
 package org.smartregister.unicefangola.fragment;
 
+import android.os.Bundle;
 import android.view.View;
 
 import org.smartregister.child.domain.RegisterClickables;
@@ -14,8 +15,18 @@ import org.smartregister.unicefangola.presenter.ChildRegisterFragmentPresenter;
 import org.smartregister.unicefangola.util.DBQueryHelper;
 import org.smartregister.view.activity.BaseRegisterActivity;
 
-public class ChildRegisterFragment extends BaseChildRegisterFragment {
+import io.sentry.ITransaction;
+import io.sentry.Sentry;
+import timber.log.Timber;
 
+public class ChildRegisterFragment extends BaseChildRegisterFragment {
+    private View searchDoneView;
+
+
+    @Override
+    public void onCreate(Bundle savedInstandeState) {
+        super.onCreate(savedInstandeState);
+    }
     @Override
     protected void initializePresenter() {
         if (getActivity() == null) {
@@ -97,6 +108,14 @@ public class ChildRegisterFragment extends BaseChildRegisterFragment {
             globalSearchButton.setVisibility(View.INVISIBLE);
             registerClientButton.setVisibility(View.INVISIBLE);
         }
+        searchDoneView = view.findViewById(R.id.btn_search_done);
+        searchDoneView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String searchTerm = searchView.getText().toString();
+                filter(searchTerm, "", getMainCondition(), false);
+            }
+        });
     }
 
     @Override
