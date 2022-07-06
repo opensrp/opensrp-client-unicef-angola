@@ -14,6 +14,8 @@ import org.smartregister.unicefangola.presenter.ChildRegisterFragmentPresenter;
 import org.smartregister.unicefangola.util.DBQueryHelper;
 import org.smartregister.view.activity.BaseRegisterActivity;
 
+import timber.log.Timber;
+
 public class ChildRegisterFragment extends BaseChildRegisterFragment {
 
     @Override

@@ -45,8 +45,8 @@ android {
         applicationId "org.smartregister.unicefangola"
         minSdkVersion androidMinSdkVersion
         targetSdkVersion androidTargetSdkVersion
-        versionCode 8
-        versionName "0.0.8"
+        versionCode 11
+        versionName "0.0.11"
         multiDexEnabled true
         buildConfigField "long", "MAX_SERVER_TIME_DIFFERENCE", "1800000l"
         buildConfigField "boolean", "TIME_CHECK", "false"
@@ -87,8 +87,8 @@ android {
 
             resValue "string", 'opensrp_url', '"https://unicef-ao.smartregister.org/opensrp/"'
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rule.pro'
-            buildConfigField "int", "OPENMRS_UNIQUE_ID_INITIAL_BATCH_SIZE", '50'
-            buildConfigField "int", "OPENMRS_UNIQUE_ID_BATCH_SIZE", '10'
+            buildConfigField "int", "OPENMRS_UNIQUE_ID_INITIAL_BATCH_SIZE", '250'
+            buildConfigField "int", "OPENMRS_UNIQUE_ID_BATCH_SIZE", '100'
             buildConfigField "int", "OPENMRS_UNIQUE_ID_SOURCE", '11'
             buildConfigField "int", "VACCINE_SYNC_TIME", '0'
             buildConfigField "int", "DATABASE_VERSION", '12'
@@ -206,7 +206,6 @@ dependencies {
     implementation 'com.google.firebase:firebase-crashlytics:18.2.1'
 
     implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
-
     implementation('org.smartregister:opensrp-client-child:0.7.1-VLOGS-SNAPSHOT@aar') {
         transitive = true
         exclude group: 'id.zelory', module: 'compressor'
