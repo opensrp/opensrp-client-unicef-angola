@@ -42,7 +42,7 @@ public class AppJsonFormUtils extends ChildJsonFormUtils {
             birthRegistrationForm.put(AppConstants.KeyConstants.FATHER_RELATIONAL_ID, childDetails.get(AppConstants.KeyConstants.FATHER_RELATIONAL_ID));
 
             birthRegistrationForm.put(ChildJsonFormUtils.CURRENT_ZEIR_ID,
-                    Utils.getValue(childDetails, AppConstants.KeyConstants.APP_ID, true).replace("-", ""));
+                    Utils.getValue(childDetails, AppConstants.KeyConstants.ZEIR_ID, true).replace("-", ""));
             birthRegistrationForm.put(ChildJsonFormUtils.CURRENT_OPENSRP_ID,
                     Utils.getValue(childDetails, Constants.JSON_FORM_KEY.UNIQUE_ID, false));
 
